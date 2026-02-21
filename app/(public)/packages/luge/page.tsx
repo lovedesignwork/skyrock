@@ -182,7 +182,7 @@ export default function LugePage() {
               THE LUGE EXPERIENCE
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Phuket's most exciting gravity ride
+              Khao Lak's most exciting gravity ride
             </p>
           </div>
 
@@ -291,7 +291,7 @@ export default function LugePage() {
                   LOCATED AT SKY ROCK
                 </h3>
                 <p className="text-white/70 leading-relaxed">
-                  Sky Rock Luge is conveniently located within the SKY ROCK adventure park, just 20 minutes from Phuket Town. 
+                  Sky Rock Luge is conveniently located within the SKY ROCK adventure park in Khao Lak. 
                   Book the luge as a standalone experience or add it to any of our zipline packages for the ultimate adventure day. 
                   Free hotel transfers available when combined with zipline packages.
                 </p>
@@ -302,7 +302,7 @@ export default function LugePage() {
       </Section>
 
       {/* Section 4: SEO Content */}
-      <Section className="relative overflow-hidden" style={{ backgroundColor: '#991B1B' }}>
+      <Section className="relative overflow-hidden" style={{ backgroundColor: '#5b5d28' }}>
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -311,20 +311,20 @@ export default function LugePage() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-heading font-medium text-white mb-6 text-center">
-              PHUKET'S FIRST & ONLY LUGE ADVENTURE
+              KHAO LAK'S EXCITING LUGE ADVENTURE
             </h2>
             <div className="prose prose-lg prose-invert mx-auto text-white/80 space-y-4">
               <p>
-                Experience <strong className="text-green-400">Phuket's first and only luge park</strong> at SKY ROCK, Thailand's premier adventure destination. Sky Rock Luge offers a thrilling <strong className="text-white">gravity-powered downhill ride</strong> through the stunning rainforest, giving you complete control as you navigate over 650 metres of exciting twists, turns, and banked curves.
+                Experience <strong className="text-green-400">Khao Lak's exciting luge park</strong> at SKY ROCK, Thailand's premier adventure destination. Sky Rock Luge offers a thrilling <strong className="text-white">gravity-powered downhill ride</strong> through the stunning rainforest, giving you complete control as you navigate exciting twists, turns, and banked curves.
               </p>
               <p>
-                Unlike anything else in <strong className="text-white">Phuket</strong>, the luge combines the thrill of racing with the beauty of nature. Feel the G-forces as you lean into curves, pick up speed on straightaways, and experience the rush of wind as you descend through the jungle. It's the perfect activity for <strong className="text-white">adventure seekers of all ages</strong> - ride solo or tandem with young children.
+                Unlike anything else in <strong className="text-white">Khao Lak</strong>, the luge combines the thrill of racing with the beauty of nature. Feel the G-forces as you lean into curves, pick up speed on straightaways, and experience the rush of wind as you descend through the jungle. It's the perfect activity for <strong className="text-white">adventure seekers of all ages</strong> - ride solo or tandem with young children.
               </p>
               <p>
-                <strong className="text-green-400">Sky Rock Luge is part of the SKY ROCK adventure park</strong>, home to Thailand's famous zipline courses, roller zipline, skywalk, and slingshot. This means you can combine your luge experience with any of our other attractions for a full day of <strong className="text-white">jungle adventure in Phuket</strong>. Book a combo package and save on the ultimate adventure experience!
+                <strong className="text-green-400">Sky Rock Luge is part of the SKY ROCK adventure park</strong>, home to Thailand's famous zipline courses and roller zipline. This means you can combine your luge experience with any of our other attractions for a full day of <strong className="text-white">jungle adventure in Khao Lak</strong>. Book a combo package and save on the ultimate adventure experience!
               </p>
               <p>
-                Open daily from 9AM to 6PM, Sky Rock Luge is easily accessible from all major tourist areas including Patong, Kata, Karon, and Phuket Town. Whether you're visiting with family, friends, or looking for a unique <strong className="text-white">solo adventure in Thailand</strong>, the luge delivers an unforgettable experience you won't find anywhere else on the island.
+                Open daily from 8:30AM to 5PM, Sky Rock Luge is easily accessible from all major Khao Lak hotels and resorts. Whether you're visiting with family, friends, or looking for a unique <strong className="text-white">solo adventure in Thailand</strong>, the luge delivers an unforgettable experience you won't find anywhere else in the region.
               </p>
             </div>
           </motion.div>
@@ -356,7 +356,7 @@ export default function LugePage() {
               READY TO RACE?
             </h2>
             <p className="text-xl text-white/80 max-w-xl mx-auto mb-8">
-              Experience Phuket's only luge adventure. Book now and feel the rush of gravity racing through the jungle!
+              Experience Khao Lak's exciting luge adventure. Book now and feel the rush of gravity racing through the jungle!
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">

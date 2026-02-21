@@ -83,7 +83,7 @@ export default function TermsPage() {
             <h3>3.4 Changing Play Date/Time</h3>
             <p>
               If you need to change the play date or time on the activity date, an additional 
-              transportation fee may apply depending on the new location within Phuket.
+              transportation fee may apply depending on the new location within Khao Lak.
             </p>
             
             <h3>3.5 Third-Party Purchases</h3>
@@ -103,7 +103,7 @@ export default function TermsPage() {
             <h2>4. Transfer & Transportation</h2>
             <h3>4.1 Free Transfer Zone</h3>
             <p>
-              We offer complimentary shared transfers from selected areas in Phuket. 
+              We offer complimentary shared transfers from selected areas in Khao Lak. 
               Locations <strong>outside our free transfer zone</strong> include:
             </p>
             <ul>
@@ -169,7 +169,7 @@ export default function TermsPage() {
               additional charges will apply.
             </p>
             
-            <h3>4.7 Out of Phuket Area Transfer</h3>
+            <h3>4.7 Out of Khao Lak Area Transfer</h3>
             <p>
               Transfers to and from selected areas in Phang-nga are available with an 
               additional fee based on the zone. Please contact us via WhatsApp at least 
@@ -296,7 +296,7 @@ export default function TermsPage() {
             <p>
               These terms are governed by the laws of the Kingdom of Thailand. Any disputes 
               arising from these terms or your use of our services shall be subject to the 
-              exclusive jurisdiction of the courts of Phuket, Thailand.
+              exclusive jurisdiction of the courts of Phang Nga, Thailand.
             </p>
 
             <h2>14. Severability</h2>
@@ -312,7 +312,7 @@ export default function TermsPage() {
             <ul>
               <li>Email: info@skyrockkhaolak.com</li>
               <li>Phone: +66 62 979 5533</li>
-              <li>Address: 105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130, Thailand</li>
+              <li>Address: Khao Lak, Phang Nga, Thailand</li>
             </ul>
 
             <h3>Chamnanthang Co., Ltd. (ONEBOOKING) - For Payment Inquiries</h3>

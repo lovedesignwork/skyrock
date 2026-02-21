@@ -12,7 +12,7 @@ const highlights = [
   {
     icon: Eye,
     title: 'PANORAMIC VIEWS',
-    description: 'Walk above the treetops and enjoy 360° views of the stunning Phuket rainforest.',
+    description: 'Walk above the treetops and enjoy 360° views of the stunning Khao Lak rainforest.',
   },
   {
     icon: TreePine,
@@ -114,7 +114,7 @@ export default function SkywalkPage() {
               {/* Content */}
               <div className="relative p-8 lg:p-10 flex flex-col justify-center lg:w-[50%] animated-card-bg-turquoise-mint overflow-hidden">
                 <img 
-                  src="/images/circlebg.png" 
+                  src="/images/swirl-bg.svg" 
                   alt="" 
                   className="absolute opacity-10 pointer-events-none animate-circle-orbit-1"
                   style={{ width: '350px', height: '350px', top: '-50px', right: '-50px' }}
@@ -197,7 +197,7 @@ export default function SkywalkPage() {
       </Section>
 
       {/* SEO Content Section */}
-      <Section className="relative overflow-hidden" style={{ backgroundColor: '#991B1B' }}>
+      <Section className="relative overflow-hidden" style={{ backgroundColor: '#5b5d28' }}>
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -206,20 +206,20 @@ export default function SkywalkPage() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-heading font-medium text-white mb-6 text-center">
-              PHUKET'S PREMIER TREETOP WALKWAY EXPERIENCE
+              KHAO LAK'S PREMIER TREETOP WALKWAY EXPERIENCE
             </h2>
             <div className="prose prose-lg prose-invert mx-auto text-white/80 space-y-4">
               <p>
-                Discover the ultimate <strong className="text-white">Skywalk experience in Phuket</strong> at SKY ROCK, Thailand's most spectacular rainforest adventure park. Our elevated walkway system takes you on an unforgettable journey through the ancient jungle canopy, offering breathtaking panoramic views that you won't find anywhere else in Southern Thailand.
+                Discover the ultimate <strong className="text-white">Skywalk experience in Khao Lak</strong> at SKY ROCK, Thailand's most spectacular rainforest adventure park. Our elevated walkway system takes you on an unforgettable journey through the ancient jungle canopy, offering breathtaking panoramic views that you won't find anywhere else in Southern Thailand.
               </p>
               <p>
-                The <strong className="text-white">SKY ROCK Skywalk</strong> features 300 metres of suspended bridges and platforms, reaching heights of up to 40 metres above the forest floor. This <strong className="text-white">eco-friendly attraction in Phuket</strong> is perfect for nature lovers, families, and photographers seeking unique perspectives of the tropical rainforest ecosystem.
+                The <strong className="text-white">SKY ROCK Skywalk</strong> features sky bridges and platforms, reaching heights above the forest floor. This <strong className="text-white">eco-friendly attraction in Khao Lak</strong> is perfect for nature lovers, families, and photographers seeking unique perspectives of the tropical rainforest ecosystem.
               </p>
               <p>
-                Unlike traditional <strong className="text-white">canopy walks in Thailand</strong>, our Skywalk combines world-class safety standards with an immersive nature experience. Whether you're looking for a peaceful escape from the beaches or an exciting family activity, the Skywalk offers a perfect blend of adventure and tranquility in the heart of Phuket's pristine jungle.
+                Unlike traditional <strong className="text-white">canopy walks in Thailand</strong>, our Skywalk combines world-class safety standards with an immersive nature experience. Whether you're looking for a peaceful escape from the beaches or an exciting family activity, the Skywalk offers a perfect blend of adventure and tranquility in the heart of Khao Lak's pristine jungle.
               </p>
               <p>
-                Located just 20 minutes from Phuket Town, SKY ROCK is easily accessible from all major tourist areas including Patong, Kata, and Karon. Our <strong className="text-white">Phuket treetop adventure</strong> includes free hotel transfers, making it the most convenient way to experience the island's natural beauty from above.
+                Located in the beautiful Khao Lak area, SKY ROCK is easily accessible from all major hotels and resorts. Our <strong className="text-white">Khao Lak treetop adventure</strong> includes free hotel transfers, making it the most convenient way to experience the region's natural beauty from above.
               </p>
             </div>
           </motion.div>

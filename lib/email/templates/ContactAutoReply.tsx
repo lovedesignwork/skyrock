@@ -123,7 +123,7 @@ export const ContactAutoReply = ({
               Sky Rock Khao Lak - Thailand's #1 Zipline Adventure
             </Text>
             <Text style={footerAddress}>
-              105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130, Thailand
+              Khao Lak, Phang Nga, Thailand
             </Text>
             <Hr style={footerDivider} />
             <Text style={footerLinks}>

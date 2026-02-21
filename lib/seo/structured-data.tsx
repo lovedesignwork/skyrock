@@ -34,10 +34,10 @@ export function OrganizationSchema() {
     email: siteConfig.contact.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '105 Moo 4, Soi Namtok Kathu',
-      addressLocality: 'Kathu',
-      addressRegion: 'Phuket',
-      postalCode: '83120',
+      streetAddress: 'Khao Lak',
+      addressLocality: 'Khao Lak',
+      addressRegion: 'Phang Nga',
+      postalCode: '82190',
       addressCountry: 'TH',
     },
     geo: {
@@ -227,10 +227,10 @@ export function LocalBusinessSchema() {
     url: siteConfig.url,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '105 Moo 4, Soi Namtok Kathu',
-      addressLocality: 'Kathu',
-      addressRegion: 'Phuket',
-      postalCode: '83120',
+      streetAddress: 'Khao Lak',
+      addressLocality: 'Khao Lak',
+      addressRegion: 'Phang Nga',
+      postalCode: '82190',
       addressCountry: 'TH',
     },
     geo: {
@@ -318,8 +318,8 @@ export function AmusementParkSchema() {
     '@type': 'AmusementPark',
     '@id': `${siteConfig.url}/#amusementpark`,
     name: siteConfig.name,
-    alternateName: ['SKY ROCK', 'SKY ROCK Zipline', 'Phuket Zipline'],
-    description: 'Phuket\'s #1 zipline adventure park featuring 32 platforms through ancient rainforest, roller ziplines, skywalks, slingshots, and eco-friendly experiences.',
+    alternateName: ['SKY ROCK', 'SKY ROCK Zipline', 'Khao Lak Zipline'],
+    description: 'Khao Lak\'s premier zipline adventure park featuring 27 platforms through ancient rainforest, roller ziplines, sky bridges, and eco-friendly experiences.',
     slogan: 'Soar Above the Jungle',
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logo.png`,
@@ -332,10 +332,10 @@ export function AmusementParkSchema() {
     email: siteConfig.contact.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '105 Moo 4, Soi Namtok Kathu',
-      addressLocality: 'Kathu',
-      addressRegion: 'Phuket',
-      postalCode: '83120',
+      streetAddress: 'Khao Lak',
+      addressLocality: 'Khao Lak',
+      addressRegion: 'Phang Nga',
+      postalCode: '82190',
       addressCountry: 'TH',
     },
     geo: {
@@ -346,7 +346,7 @@ export function AmusementParkSchema() {
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '08:00',
+      opens: '08:30',
       closes: '17:00',
     },
     priceRange: '฿฿',
@@ -355,7 +355,7 @@ export function AmusementParkSchema() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      reviewCount: '2500',
+      reviewCount: '500',
       bestRating: '5',
       worstRating: '1',
     },
@@ -368,12 +368,12 @@ export function AmusementParkSchema() {
     ],
     publicAccess: true,
     isAccessibleForFree: false,
-    maximumAttendeeCapacity: 500,
+    maximumAttendeeCapacity: 200,
     knowsAbout: [
       'Zipline adventures',
       'Eco-tourism',
       'Rainforest experiences',
-      'Outdoor activities in Phuket',
+      'Outdoor activities in Khao Lak',
       'Adventure tourism Thailand',
     ],
     sameAs: [
@@ -400,13 +400,13 @@ export function SpeakableSchema() {
       '@type': 'SpeakableSpecification',
       cssSelector: ['article', '.hero-content', '.package-description', '.faq-answer'],
     },
-    name: `${siteConfig.name} - #1 Zipline Adventure in Phuket`,
+    name: `${siteConfig.name} - #1 Zipline Adventure in Khao Lak`,
     description: siteConfig.description,
     url: siteConfig.url,
     mainEntity: {
       '@type': 'TouristAttraction',
       name: siteConfig.name,
-      description: 'Premier zipline adventure park in Phuket Thailand with 32 platforms through ancient rainforest. Features roller ziplines, skywalks, slingshots, and eco-friendly experiences.',
+      description: 'Premier zipline adventure park in Khao Lak Thailand with 27 platforms through ancient rainforest. Features roller ziplines, sky bridges, and eco-friendly experiences.',
     },
   };
 

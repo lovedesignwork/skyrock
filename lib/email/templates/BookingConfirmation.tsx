@@ -306,7 +306,7 @@ export const BookingConfirmationEmail = ({
               </Column>
             </Row>
             <Text style={footerAddress}>
-              105 Moo 4, Soi Namtok Kathu, Wichit, Mueang Phuket, Phuket 83120, Thailand
+              Khao Lak, Phang Nga, Thailand
             </Text>
             <Text style={footerCopyright}>
               © 2026 Sky Rock Khao Lak. All rights reserved.

@@ -237,7 +237,7 @@ export default function PrivacyPage() {
             <ul>
               <li>Email: privacy@skyrockkhaolak.com</li>
               <li>Phone: +66 62 979 5533</li>
-              <li>Address: 105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130, Thailand</li>
+              <li>Address: Khao Lak, Phang Nga, Thailand</li>
             </ul>
 
             <h3>For Payment & Booking Inquiries (Chamnanthang Co., Ltd. / ONEBOOKING)</h3>

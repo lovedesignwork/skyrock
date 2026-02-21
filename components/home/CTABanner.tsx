@@ -2,105 +2,117 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Calendar, Clock, Zap } from 'lucide-react';
-import { Section, Container, Button } from '@/components/ui';
+import { TreePine, ArrowRight, Sparkles } from 'lucide-react';
 
 export function CTABanner() {
   return (
-    <Section className="relative overflow-hidden py-28">
-      {/* Background image */}
+    <section className="relative py-24 overflow-hidden">
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/ctabg.jpeg)' }}
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: 'url(/images/Gallery/SKYROCK108.jpg)' }}
       />
       
-      {/* Dark blue and dark purple diagonal overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, rgba(153, 27, 27, 0.92) 0%, rgba(220, 38, 38, 0.85) 25%, rgba(59, 26, 90, 0.8) 50%, rgba(88, 28, 135, 0.75) 75%, rgba(107, 33, 168, 0.7) 100%)' }}
-      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A1612]/95 via-[#0A1612]/80 to-[#0A1612]/95" />
       
-      {/* Decorative circles */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full translate-x-1/3 translate-y-1/3" />
-      
-      <Container className="relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-light to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left max-w-2xl"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-heading tracking-wide">
-              READY FOR YOUR ADVENTURE?
-            </h2>
-            <p className="text-white/90 text-lg max-w-xl">
-              Book now and secure your spot for an unforgettable jungle experience. 
-              Free hotel pickup included with all packages!
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-medium mb-6"
+            >
+              <Sparkles className="w-4 h-4" />
+              Limited Time Offer
+            </motion.div>
             
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-6">
-              <div className="flex items-center gap-2 text-white/90">
-                <Calendar className="w-5 h-5" />
-                <span>Flexible Dates</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90">
-                <Clock className="w-5 h-5" />
-                <span>4 Time Slots Daily</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90">
-                <Zap className="w-5 h-5" />
-                <span>Instant Confirmation</span>
-              </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-6">
+              READY FOR YOUR <span className="gradient-text">ADVENTURE?</span>
+            </h2>
+            
+            <p className="text-white/70 text-lg mb-8">
+              Book now and experience the thrill of soaring through Khao Lak's 
+              ancient rainforest. Create memories that will last a lifetime.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link href="/booking">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-accent/30 transition-all"
+                >
+                  <TreePine className="w-5 h-5" />
+                  BOOK YOUR ADVENTURE
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
+              <Link href="/contact">
+                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-xl transition-all">
+                  CONTACT US
+                </button>
+              </Link>
             </div>
           </motion.div>
 
+          {/* Price Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex-shrink-0"
           >
-            {/* Card with animated border similar to package cards */}
-            <div className="p-[3px] rounded-2xl animated-silver-border">
-              <div className="relative rounded-2xl overflow-hidden animated-card-bg-deep-blue p-8 min-w-[320px]">
-                {/* Circle decoration */}
-                <img 
-                  src="/images/circlebg.png" 
-                  alt="" 
-                  className="absolute opacity-10 pointer-events-none"
-                  style={{ width: '300px', height: '300px', top: '-50px', right: '-50px' }}
-                />
-                
-                <div className="relative z-10 text-center">
-                  <p className="text-white/70 text-sm uppercase tracking-widest mb-2 font-semibold">
-                    STARTING FROM
-                  </p>
-                  <div className="text-7xl font-bold text-white font-heading mb-1">
-                    ฿350
-                  </div>
-                  <p className="text-white/70 text-lg mb-6">per person</p>
-                  
-                  <Link href="/booking" className="block">
-                    <div className="p-[2px] rounded-xl animated-silver-border-btn transition-all duration-300 hover:scale-105">
-                      <button className="relative z-10 w-full flex items-center justify-center gap-3 py-4 px-8 rounded-xl animated-btn-deep-blue text-white transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-                        <span className="text-xl font-bold font-heading tracking-wider">
-                          BOOK NOW
-                        </span>
-                      </button>
-                    </div>
-                  </Link>
-                  
-                  <p className="text-white/60 text-xs mt-4">
-                    No booking fees • Free cancellation up to 24h
-                  </p>
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-accent/20 rounded-3xl blur-2xl" />
+              
+              <div className="relative bg-gradient-to-br from-primary/40 to-primary/20 backdrop-blur-sm border border-primary/30 rounded-3xl p-8 text-center min-w-[280px]">
+                <div className="text-white/60 text-sm uppercase tracking-wider mb-2">
+                  Starting From
                 </div>
+                <div className="text-5xl md:text-6xl font-bold gradient-text mb-2">
+                  ฿1,000
+                </div>
+                <div className="text-white/50 text-sm mb-6">per person</div>
+                
+                <div className="space-y-2 text-left mb-6">
+                  <div className="flex items-center gap-2 text-white/70 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    Professional guides included
+                  </div>
+                  <div className="flex items-center gap-2 text-white/70 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    Safety equipment provided
+                  </div>
+                  <div className="flex items-center gap-2 text-white/70 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    Insurance included
+                  </div>
+                </div>
+
+                <Link href="/booking" className="block">
+                  <button className="w-full py-3 bg-accent hover:bg-accent-light text-primary-dark font-bold rounded-xl transition-all">
+                    VIEW PACKAGES
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   );
 }

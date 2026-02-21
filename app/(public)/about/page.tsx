@@ -1,152 +1,176 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Section, Container } from '@/components/craft';
-import { 
-  TreePine, 
-  Users, 
-  Award, 
-  Shield, 
-  Heart, 
-  Leaf,
-  MapPin,
-  Clock,
-  Phone,
-  Mail,
-  ChevronRight
-} from 'lucide-react';
+import { TreePine, Users, Award, Shield, Heart, MapPin, Calendar, ChevronRight } from 'lucide-react';
 
 const stats = [
-  { number: '2014', label: 'Established' },
-  { number: '1M+', label: 'Happy Visitors' },
-  { number: '32', label: 'Zipline Platforms' },
-  { number: '3.5km', label: 'Total Zipline Length' },
+  { value: '2020', label: 'Established' },
+  { value: '50K+', label: 'Happy Guests' },
+  { value: '27', label: 'Platforms' },
+  { value: '2km', label: 'Zipline Length' },
 ];
 
 const values = [
   {
     icon: Shield,
     title: 'Safety First',
-    description: 'Our equipment meets international safety standards with daily inspections and professional staff training.',
+    description: 'We use European EN 15567 certified equipment and conduct daily safety inspections.',
   },
   {
-    icon: Leaf,
+    icon: TreePine,
     title: 'Eco-Friendly',
-    description: 'We operate in harmony with nature, preserving the rainforest and supporting local conservation efforts.',
+    description: 'We operate in harmony with nature, preserving the rainforest ecosystem.',
   },
   {
     icon: Heart,
     title: 'Passion',
-    description: 'Our team is passionate about creating unforgettable adventure experiences for every guest.',
+    description: 'Our team is passionate about creating unforgettable adventure experiences.',
   },
   {
-    icon: Award,
-    title: 'Excellence',
-    description: 'Award-winning zipline park recognized for outstanding service and adventure tourism.',
+    icon: Users,
+    title: 'Community',
+    description: 'We support local communities and employ local guides and staff.',
   },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="pt-20">
-      <Section className="relative bg-gradient-to-b from-[#991B1B] to-[#DC2626] overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-        </div>
-        <Container className="relative z-10 py-20">
+    <main className="min-h-screen pt-24 bg-[#0A1612]">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1B4332]/50 to-transparent" />
+        <div className="absolute inset-0 bg-pattern-leaves opacity-20" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl mx-auto text-center"
+            className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About SKY ROCK
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-medium mb-6">
+              <TreePine className="w-4 h-4" />
+              Our Story
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-6">
+              ABOUT <span className="gradient-text">SKY ROCK</span>
             </h1>
-            <p className="text-xl text-white/80 mb-8">
-              Discover the magic of Thailand's premier zipline adventure park, 
-              where thrilling experiences meet the beauty of ancient rainforests.
+            <p className="text-white/60 text-lg">
+              Khao Lak's premier zipline adventure park, where nature meets adventure
             </p>
           </motion.div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
-      <Section className="bg-white py-16">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-4xl md:text-5xl font-bold text-[#DC2626]">{stat.number}</p>
-                <p className="text-slate-500 mt-2">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-slate-50 py-20">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-            >
-              <h2 className="text-3xl font-bold text-slate-800 mb-6">Our Story</h2>
-              <div className="space-y-4 text-slate-600">
-                <p>
-                  SKY ROCK was born from a dream to create an adventure experience 
-                  that connects people with the magnificent rainforests of Phuket. Since 
-                  opening in 2014, we have welcomed over a million visitors from around 
-                  the world.
-                </p>
-                <p>
-                  Our park is named after Sky Rock, the monkey god from Hindu mythology, 
-                  symbolizing strength, courage, and the spirit of adventure. Just like 
-                  Sky Rock, our guests soar through the treetops, experiencing the thrill 
-                  of flight among the ancient trees.
-                </p>
-                <p>
-                  Set in 100 acres of pristine rainforest, our zipline course features 
-                  32 platforms connected by spectacular ziplines, sky bridges, and 
-                  abseil points. Every element is designed to provide maximum excitement 
-                  while ensuring complete safety.
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="relative h-96 rounded-3xl overflow-hidden"
-            >
-              <Image
-                src="/images/zipline-hero.jpg"
-                alt="SKY ROCK Zipline"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-white py-20">
-        <Container>
+      {/* Stats Section */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/30 rounded-3xl p-8 md:p-12"
           >
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Values</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
-              At SKY ROCK, everything we do is guided by our core values
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-white/50 text-sm uppercase tracking-wider">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+                <img
+                  src="/images/Gallery/SKYROCK109.jpg"
+                  alt="Sky Rock Adventure"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating badge */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -bottom-6 -right-6 px-6 py-4 bg-accent rounded-2xl shadow-xl"
+              >
+                <div className="text-primary-dark font-bold text-lg">Since 2020</div>
+                <div className="text-primary-dark/70 text-sm">Khao Lak, Thailand</div>
+              </motion.div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-heading text-white mb-6">
+                OUR <span className="gradient-text">STORY</span>
+              </h2>
+              <div className="space-y-4 text-white/70 leading-relaxed">
+                <p>
+                  Sky Rock was born from a passion for adventure and a deep love for the 
+                  stunning natural beauty of Khao Lak. Established in 2020, we set out to 
+                  create an eco-friendly adventure experience that would allow visitors to 
+                  experience the rainforest from a unique perspective.
+                </p>
+                <p>
+                  Our 27-platform zipline course was carefully designed to minimize 
+                  environmental impact while maximizing the thrill of soaring through the 
+                  ancient trees. Every platform, every zipline, and every sky bridge was 
+                  built with both safety and sustainability in mind.
+                </p>
+                <p>
+                  Today, we're proud to be one of Khao Lak's top-rated attractions, having 
+                  welcomed over 50,000 adventurers from around the world. Our team of 
+                  professional guides ensures that every guest has a safe, memorable, and 
+                  exhilarating experience.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-24 bg-gradient-to-b from-[#0A1612] to-[#0D2818]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-heading text-white mb-4">
+              OUR <span className="gradient-text">VALUES</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              The principles that guide everything we do
             </p>
           </motion.div>
 
@@ -154,79 +178,107 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 bg-slate-50 rounded-2xl"
+                className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all text-center"
               >
-                <div className="w-12 h-12 bg-[#DC2626]/10 rounded-xl flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-[#DC2626]" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-light flex items-center justify-center mx-auto mb-6">
+                  <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-800 mb-2">{value.title}</h3>
-                <p className="text-sm text-slate-500">{value.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                <p className="text-white/60 text-sm">{value.description}</p>
               </motion.div>
             ))}
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
-      <Section className="bg-[#DC2626] py-20">
-        <Container>
+      {/* Location Section */}
+      <section className="py-24 bg-[#0D2818]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-white mb-6">Visit Us</h2>
-              <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl font-heading text-white mb-6">
+                FIND <span className="gradient-text">US</span>
+              </h2>
+              <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-accent" />
+                  </div>
                   <div>
-                    <p className="text-white font-medium">Location</p>
-                    <p className="text-white/70">105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130, Thailand</p>
+                    <h4 className="text-white font-semibold mb-1">Address</h4>
+                    <p className="text-white/60">Khao Lak, Phang Nga, Thailand</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white font-medium">Opening Hours</p>
-                    <p className="text-white/70">Daily: 8:00 AM - 5:00 PM</p>
+                  <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center flex-shrink-0">
+                    <Calendar className="w-6 h-6 text-accent" />
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-white font-medium">Phone</p>
-                    <p className="text-white/70">+66 76 391 222</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Mail className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white font-medium">Email</p>
-                    <p className="text-white/70">info@skyrockkhaolak.com</p>
+                    <h4 className="text-white font-semibold mb-1">Opening Hours</h4>
+                    <p className="text-white/60">Daily: 8:30 AM - 5:00 PM</p>
                   </div>
                 </div>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="text-center lg:text-left"
-            >
-              <p className="text-white/80 text-lg mb-6">
-                Ready to embark on your adventure? Book your experience today!
-              </p>
-              <Link href="/booking">
-                <button className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors">
-                  Book Now
+              <Link href="/contact">
+                <button className="px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center gap-2 hover:shadow-xl hover:shadow-accent/20 transition-all">
+                  CONTACT US
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </Link>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="aspect-video rounded-2xl overflow-hidden border border-primary/30"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63168.5!2d98.2!3d8.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKhao+Lak!5e0!3m2!1sen!2sth!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                className="grayscale contrast-125"
+              />
+            </motion.div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-[#0A1612]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-heading text-white mb-6">
+              READY FOR YOUR <span className="gradient-text">ADVENTURE?</span>
+            </h2>
+            <p className="text-white/60 text-lg mb-8">
+              Join thousands of adventurers who have experienced the thrill of Sky Rock
+            </p>
+            <Link href="/booking">
+              <button className="px-10 py-5 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold text-lg rounded-xl flex items-center gap-3 mx-auto hover:shadow-2xl hover:shadow-accent/30 transition-all hover:-translate-y-1">
+                <TreePine className="w-6 h-6" />
+                BOOK YOUR ADVENTURE
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 }

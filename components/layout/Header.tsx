@@ -1,146 +1,156 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, TreePine } from 'lucide-react';
 
 const navigation = [
-  { name: 'COMBINED ZIPLINE', href: '/packages/combined' },
-  { name: 'ZIPLINE', href: '/packages/zipline' },
+  { name: 'HOME', href: '/' },
+  { name: 'PACKAGES', href: '/packages/combined' },
   { name: 'ROLLER', href: '/packages/roller' },
-  { name: 'SKYWALK', href: '/packages/skywalk' },
-  { name: 'SLINGSHOT', href: '/packages/slingshot' },
+  { name: 'ABOUT', href: '/about' },
   { name: 'BLOG', href: '/blog' },
-  { name: 'FAQ', href: '/faq' },
   { name: 'CONTACT', href: '/contact' },
 ];
 
-const NON_STICKY_ROUTES = ['/booking', '/checkout'];
-
 export function Header() {
-  const pathname = usePathname();
-  const isNonStickyRoute = NON_STICKY_ROUTES.some(route => pathname?.startsWith(route));
-  const sticky = !isNonStickyRoute;
-  
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!sticky) return;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sticky]);
+  }, []);
 
   return (
     <header
-      className={`${sticky ? 'fixed' : 'relative'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled && sticky ? 'backdrop-blur-md shadow-lg' : 'backdrop-blur-md'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-[#0A1612]/95 backdrop-blur-xl shadow-2xl shadow-black/20'
+          : 'bg-transparent'
       }`}
-      style={{ backgroundColor: 'rgba(220, 38, 38, 0.95)' }}
     >
-      {/* Gradient overlay for menu visibility on hero */}
-      {!isScrolled && (
-        <div 
-          className="absolute left-0 right-0 top-0 h-48 pointer-events-none z-0"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(153, 27, 27, 0.95) 0%, rgba(153, 27, 27, 0.8) 30%, rgba(153, 27, 27, 0.5) 60%, rgba(153, 27, 27, 0.2) 80%, transparent 100%)'
-          }}
-        />
-      )}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/logo.png"
-              alt="Sky Rock"
-              width={150}
-              height={50}
-              className="h-12 w-auto"
-            />
+      {/* Top accent line */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              <Image
+                src="/images/skyrocklogo.png"
+                alt="Sky Rock"
+                width={160}
+                height={60}
+                className="h-14 lg:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
+            </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="font-heading font-normal tracking-wide text-[22px] text-white/90 hover:text-white transition-colors uppercase"
+                className="relative px-5 py-2 text-white/80 hover:text-white transition-colors group"
+                style={{ fontFamily: 'var(--font-heading)', fontSize: '22px' }}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent group-hover:w-3/4 transition-all duration-300" />
               </Link>
             ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
             <Link href="/booking">
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative px-6 py-2.5 rounded-lg font-heading font-normal tracking-wide text-[20px] text-white uppercase overflow-hidden group"
-                style={{
-                  background: 'linear-gradient(135deg, #5b5d28, #454720, #5b5d28)',
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient-shift 3s ease infinite',
-                  boxShadow: '0 0 20px rgba(91, 93, 40, 0.5), 0 0 40px rgba(91, 93, 40, 0.3)',
-                }}
+                whileTap={{ scale: 0.98 }}
+                className="relative p-[3px] rounded-xl overflow-hidden group"
               >
-                <span className="relative z-10">BOOK NOW</span>
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                {/* Animated Rainbow Border */}
+                <span 
+                  className="absolute inset-0 rounded-xl"
                   style={{
-                    background: 'linear-gradient(135deg, #7a7d3a, #5b5d28, #454720)',
-                    boxShadow: '0 0 30px rgba(91, 93, 40, 0.7), 0 0 60px rgba(91, 93, 40, 0.5)',
+                    background: 'linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #8000ff, #ff0080, #ff0000)',
+                    backgroundSize: '400% 100%',
+                    animation: 'rainbow-flow 13s linear infinite',
                   }}
                 />
+                {/* Button Content */}
+                <span className="relative flex items-center gap-2 px-8 py-3 bg-[#0A1612] rounded-[10px] text-white group-hover:bg-transparent transition-all duration-300" style={{ fontFamily: 'var(--font-heading)', fontSize: '22px' }}>
+                  <TreePine className="w-5 h-5" />
+                  BOOK NOW
+                </span>
               </motion.button>
             </Link>
-          </nav>
+          </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white p-2"
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden backdrop-blur-md"
-            style={{ backgroundColor: 'rgba(220, 38, 38, 0.98)' }}
+            className="lg:hidden bg-[#0A1612]/98 backdrop-blur-xl border-t border-primary/20"
           >
-            <nav className="px-4 py-3 space-y-1">
-              {navigation.map((item) => (
-                <Link
+            <div className="max-w-7xl mx-auto px-4 py-6 space-y-2">
+              {navigation.map((item, index) => (
+                <motion.div
                   key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block font-heading font-normal tracking-wide text-[26px] text-white/90 hover:text-white py-[5px] uppercase"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-3 text-white/80 hover:text-white hover:bg-primary/20 rounded-xl transition-all"
+                    style={{ fontFamily: 'var(--font-heading)', fontSize: '22px' }}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                href="/booking"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block mt-3 px-6 py-2.5 rounded-lg font-heading font-normal tracking-wide text-[26px] text-white text-center uppercase"
-                style={{
-                  background: 'linear-gradient(135deg, #5b5d28, #454720)',
-                  boxShadow: '0 0 20px rgba(91, 93, 40, 0.5)',
-                }}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navigation.length * 0.1 }}
+                className="pt-4"
               >
-                BOOK NOW
-              </Link>
-            </nav>
+                <Link href="/booking" onClick={() => setIsMobileMenuOpen(false)}>
+                  <button className="w-full px-6 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center justify-center gap-2">
+                    <TreePine className="w-5 h-5" />
+                    BOOK YOUR ADVENTURE
+                  </button>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

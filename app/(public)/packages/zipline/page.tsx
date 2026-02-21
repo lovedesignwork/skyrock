@@ -35,7 +35,7 @@ export default function ZiplinePackagesPage() {
 
   return (
     <main className="min-h-screen pt-20">
-      <Section className="relative overflow-hidden" style={{ backgroundColor: '#991B1B' }}>
+      <Section className="relative overflow-hidden" style={{ backgroundColor: '#5b5d28' }}>
         {/* Big Circle Background Decorations */}
         <img 
           src="/images/swirl-bg.svg"
@@ -89,7 +89,7 @@ export default function ZiplinePackagesPage() {
                     <div className={`relative p-8 lg:p-10 flex flex-col justify-center lg:w-[60%] min-h-[400px] ${getContentGradient(pkg.id)} overflow-hidden`}>
                       {/* Circle decoration */}
                       <img 
-                        src="/images/circlebg.png" 
+                        src="/images/swirl-bg.svg" 
                         alt="" 
                         className="absolute opacity-10 pointer-events-none animate-circle-orbit-1"
                         style={{ width: '400px', height: '400px', top: '-50px', right: '-50px' }}

@@ -25,7 +25,7 @@ const faqCategories = [
       },
       {
         question: 'Is hotel pickup included?',
-        answer: 'Yes! Most packages include complimentary hotel pickup and drop-off within the main Phuket tourist areas (Patong, Kata, Karon, Phuket Town). Private transfer options are also available for other locations.',
+        answer: 'Yes! Most packages include complimentary hotel pickup and drop-off within the main Khao Lak tourist areas. Private transfer options are also available for other locations.',
       },
     ],
   },

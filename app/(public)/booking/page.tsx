@@ -237,21 +237,17 @@ function BookingContent() {
   };
 
   return (
-    <main className="min-h-screen bg-[#991B1B]">
+    <main className="min-h-screen bg-[#0A1612]">
       <Section 
         className="relative overflow-hidden min-h-[calc(100vh-80px)]"
-        style={{ background: 'linear-gradient(135deg, #991B1B 0%, #DC2626 30%, #2a1a5c 60%, #991B1B 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0D2818 100%)' }}
       >
         <Container className="relative z-10">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-10">
-            <Badge variant="accent" className="mb-3 sm:mb-4">BOOK YOUR ADVENTURE</Badge>
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-heading font-medium text-white mb-2 sm:mb-4">
-              SELECT YOUR PACKAGE
+              BOOK YOUR ADVENTURE
             </h1>
-            <p className="text-sm sm:text-lg text-white/70 max-w-2xl mx-auto px-2">
-              Choose your adventure package and complete your booking
-            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -322,7 +318,7 @@ function BookingContent() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute z-50 w-full mt-2 rounded-xl border-2 border-white/20 bg-[#DC2626] shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto"
+                        className="absolute z-50 w-full mt-2 rounded-xl border-2 border-white/20 bg-[#0D2818] shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto"
                       >
                         {allBookablePackages.map((pkg) => (
                           <div
@@ -432,11 +428,11 @@ function BookingContent() {
                               <div
                                 key={promo.id}
                                 className="p-3 sm:p-4 rounded-xl border-2 border-white/20 relative overflow-hidden"
-                                style={{ background: 'linear-gradient(135deg, #991B1B 0%, #0d4a4a 50%, #2a1a5c 100%)' }}
+                                style={{ background: 'linear-gradient(135deg, #0D2818 0%, #1B4332 50%, #0D2818 100%)' }}
                               >
-                                {/* Rotating circle decoration */}
+                                {/* Rotating swirl decoration */}
                                 <img 
-                                  src="/images/circlebg.png" 
+                                  src="/images/swirl-bg.svg" 
                                   alt=""
                                   className="absolute -right-10 -bottom-10 w-[120px] sm:w-[160px] h-[120px] sm:h-[160px] opacity-20 animate-spin-slow"
                                 />
@@ -529,13 +525,13 @@ function BookingContent() {
                     <div 
                       className="px-4 sm:px-6 py-4 sm:py-5 relative overflow-hidden"
                       style={{ 
-                        background: 'linear-gradient(135deg, #0d4a4a 0%, #991B1B 35%, #2a1a5c 70%, #DC2626 100%)',
+                        background: 'linear-gradient(135deg, #0D2818 0%, #1B4332 35%, #2D6A4F 70%, #1B4332 100%)',
                         borderBottom: '3px solid #02134f' 
                       }}
                     >
-                      {/* Decorative circle */}
+                      {/* Decorative swirl */}
                       <img 
-                        src="/images/circlebg.png" 
+                        src="/images/swirl-bg.svg" 
                         alt=""
                         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-28 sm:w-40 h-28 sm:h-40 opacity-30 animate-spin-slow"
                       />
@@ -551,8 +547,8 @@ function BookingContent() {
                       {/* Section 1: Date & Time */}
                       <div>
                         <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#DC2626] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">1</span>
-                          <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DC2626]" />
+                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">1</span>
+                          <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
                           <span className="font-bold text-slate-800 text-xs sm:text-sm">Select Date & Time</span>
                         </div>
                         
@@ -591,7 +587,7 @@ function BookingContent() {
                                     disabled={!slot.available}
                                     className={`h-10 sm:h-11 px-2 sm:px-4 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all ${
                                       selectedTime === slot.time
-                                        ? 'border-[#DC2626] bg-[#DC2626] text-white'
+                                        ? 'border-[#2D6A4F] bg-[#2D6A4F] text-white'
                                         : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
                                     } ${!slot.available && 'opacity-40 cursor-not-allowed'}`}
                                   >
@@ -609,8 +605,8 @@ function BookingContent() {
                       {/* Section 2: Number of Guests */}
                       <div>
                         <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#DC2626] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">2</span>
-                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DC2626]" />
+                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">2</span>
+                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
                           <span className="font-bold text-slate-800 text-xs sm:text-sm">Number of Players</span>
                         </div>
                         
@@ -623,18 +619,18 @@ function BookingContent() {
                             <button
                               onClick={() => handleGuestCountChange(-1)}
                               disabled={guestCount <= 1}
-                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10 disabled:opacity-30 disabled:cursor-not-allowed"
+                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30 disabled:cursor-not-allowed"
                             >
-                              <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DC2626]" strokeWidth={2.5} />
+                              <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" strokeWidth={2.5} />
                             </button>
                             <span className="w-8 sm:w-10 text-center text-xl sm:text-2xl font-bold text-slate-800 tabular-nums">
                               {guestCount}
                             </span>
                             <button
                               onClick={() => handleGuestCountChange(1)}
-                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10"
+                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10"
                             >
-                              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DC2626]" strokeWidth={2.5} />
+                              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" strokeWidth={2.5} />
                             </button>
                           </div>
                         </div>
@@ -645,8 +641,8 @@ function BookingContent() {
                       {/* Section 3: Transport */}
                       <div>
                         <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#DC2626] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">3</span>
-                          <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#DC2626]" />
+                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">3</span>
+                          <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
                           <span className="font-bold text-slate-800 text-xs sm:text-sm">Transport Options</span>
                         </div>
 
@@ -659,7 +655,7 @@ function BookingContent() {
                                 onClick={() => setNeedPickup(true)}
                                 className={`p-2.5 sm:p-4 rounded-xl border-2 text-left transition-all ${
                                   needPickup 
-                                    ? 'border-[#DC2626] bg-[#DC2626]' 
+                                    ? 'border-[#2D6A4F] bg-[#2D6A4F]' 
                                     : 'border-slate-200 bg-slate-50'
                                 }`}
                               >
@@ -676,7 +672,7 @@ function BookingContent() {
                                 onClick={() => setNeedPickup(false)}
                                 className={`p-2.5 sm:p-4 rounded-xl border-2 text-left transition-all ${
                                   !needPickup 
-                                    ? 'border-[#DC2626] bg-[#DC2626]' 
+                                    ? 'border-[#2D6A4F] bg-[#2D6A4F]' 
                                     : 'border-slate-200 bg-slate-50'
                                 }`}
                               >
@@ -703,13 +699,13 @@ function BookingContent() {
                                 <div className="col-span-2">
                                   <label className="block text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">Hotel Name *</label>
                                   <div className="relative">
-                                    <Hotel className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#DC2626]" />
+                                    <Hotel className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#2D6A4F]" />
                                     <input
                                       type="text"
                                       value={hotelName}
                                       onChange={(e) => setHotelName(e.target.value)}
                                       placeholder="Your hotel name"
-                                      className="w-full h-10 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                                      className="w-full h-10 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                                     />
                                   </div>
                                 </div>
@@ -720,7 +716,7 @@ function BookingContent() {
                                     value={roomNumber}
                                     onChange={(e) => setRoomNumber(e.target.value)}
                                     placeholder="101"
-                                    className="w-full h-10 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                                    className="w-full h-10 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                                   />
                                 </div>
                               </div>
@@ -746,7 +742,7 @@ function BookingContent() {
                                       <p className="text-xs text-slate-500">Max {MAX_PRIVATE_PASSENGERS} passengers · +{formatPrice(PRIVATE_TRANSFER_PRICE)}</p>
                                     </div>
                                   </div>
-                                  <div className={`w-11 h-6 rounded-full transition-colors ${privateTransfer ? 'bg-[#DC2626]' : 'bg-slate-300'}`}>
+                                  <div className={`w-11 h-6 rounded-full transition-colors ${privateTransfer ? 'bg-[#2D6A4F]' : 'bg-slate-300'}`}>
                                     <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform mt-0.5 ${privateTransfer ? 'translate-x-5 ml-0.5' : 'translate-x-0.5'}`} />
                                   </div>
                                 </div>
@@ -763,8 +759,8 @@ function BookingContent() {
                                     >
                                       <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
-                                          <div className="w-8 h-8 rounded-lg bg-[#DC2626]/10 flex items-center justify-center">
-                                            <Users className="w-4 h-4 text-[#DC2626]" />
+                                          <div className="w-8 h-8 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center">
+                                            <Users className="w-4 h-4 text-[#2D6A4F]" />
                                           </div>
                                           <div>
                                             <p className="text-sm font-medium text-slate-700">Total Passengers</p>
@@ -777,17 +773,17 @@ function BookingContent() {
                                           <button
                                             onClick={() => setPrivateTransferPassengers(Math.max(guestCount, privateTransferPassengers - 1))}
                                             disabled={privateTransferPassengers <= guestCount}
-                                            className="h-8 w-8 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10 disabled:opacity-30"
+                                            className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
                                           >
-                                            <Minus className="w-3 h-3 text-[#DC2626]" />
+                                            <Minus className="w-3 h-3 text-[#2D6A4F]" />
                                           </button>
                                           <span className="w-8 text-center font-bold text-slate-800">{privateTransferPassengers}</span>
                                           <button
                                             onClick={() => setPrivateTransferPassengers(Math.min(MAX_PRIVATE_PASSENGERS, privateTransferPassengers + 1))}
                                             disabled={privateTransferPassengers >= MAX_PRIVATE_PASSENGERS}
-                                            className="h-8 w-8 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10 disabled:opacity-30"
+                                            className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
                                           >
-                                            <Plus className="w-3 h-3 text-[#DC2626]" />
+                                            <Plus className="w-3 h-3 text-[#2D6A4F]" />
                                           </button>
                                         </div>
                                       </div>
@@ -813,16 +809,16 @@ function BookingContent() {
                                       <button
                                         onClick={() => setNonPlayerCount(Math.max(0, nonPlayerCount - 1))}
                                         disabled={nonPlayerCount <= 0}
-                                        className="h-8 w-8 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10 disabled:opacity-30"
+                                        className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
                                       >
-                                        <Minus className="w-3 h-3 text-[#DC2626]" />
+                                        <Minus className="w-3 h-3 text-[#2D6A4F]" />
                                       </button>
                                       <span className="w-8 text-center font-bold text-slate-800">{nonPlayerCount}</span>
                                       <button
                                         onClick={() => setNonPlayerCount(nonPlayerCount + 1)}
-                                        className="h-8 w-8 rounded-full border-2 border-[#DC2626] flex items-center justify-center hover:bg-[#DC2626]/10"
+                                        className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10"
                                       >
-                                        <Plus className="w-3 h-3 text-[#DC2626]" />
+                                        <Plus className="w-3 h-3 text-[#2D6A4F]" />
                                       </button>
                                     </div>
                                   </div>
@@ -839,15 +835,15 @@ function BookingContent() {
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
                                   exit={{ opacity: 0, height: 0 }}
-                                  className="p-4 rounded-xl border-2 border-[#DC2626]/30 bg-[#DC2626]/5"
+                                  className="p-4 rounded-xl border-2 border-[#2D6A4F]/30 bg-[#2D6A4F]/5"
                                 >
                                   <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-lg bg-[#DC2626]/10 flex items-center justify-center flex-shrink-0">
-                                      <MapPin className="w-5 h-5 text-[#DC2626]" />
+                                    <div className="w-10 h-10 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center flex-shrink-0">
+                                      <MapPin className="w-5 h-5 text-[#2D6A4F]" />
                                     </div>
                                     <div>
                                       <p className="font-medium text-slate-800">SKY ROCK</p>
-                                      <p className="text-xs text-slate-500 mt-1">105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130</p>
+                                      <p className="text-xs text-slate-500 mt-1">Khao Lak, Phang Nga, Thailand</p>
                                       <a 
                                         href="https://maps.app.goo.gl/hkNWgQQi1ksvYY37A" 
                                         target="_blank"
@@ -872,14 +868,14 @@ function BookingContent() {
                               <p className="text-[10px] sm:text-xs text-slate-500">This package does not include transfer. Please arrange your own transportation to SKY ROCK.</p>
                             </div>
                             
-                            <div className="p-3 sm:p-4 rounded-xl border-2 border-[#DC2626]/30 bg-[#DC2626]/5">
+                            <div className="p-3 sm:p-4 rounded-xl border-2 border-[#2D6A4F]/30 bg-[#2D6A4F]/5">
                               <div className="flex items-start gap-2 sm:gap-3">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#DC2626]/10 flex items-center justify-center flex-shrink-0">
-                                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#DC2626]" />
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center flex-shrink-0">
+                                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#2D6A4F]" />
                                 </div>
                                 <div className="min-w-0">
                                   <p className="font-medium text-slate-800 text-sm sm:text-base">SKY ROCK</p>
-                                  <p className="text-[10px] sm:text-xs text-slate-500 mt-1">105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130</p>
+                                  <p className="text-[10px] sm:text-xs text-slate-500 mt-1">Khao Lak, Phang Nga, Thailand</p>
                                   <a 
                                     href="https://maps.app.goo.gl/hkNWgQQi1ksvYY37A" 
                                     target="_blank"
@@ -957,7 +953,7 @@ function BookingContent() {
                         disabled={!isFormValid}
                         className="w-full h-11 sm:h-13 rounded-xl font-bold text-white flex items-center justify-center gap-2 transition-all hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed group text-sm sm:text-base"
                         style={{
-                          backgroundColor: '#DC2626',
+                          backgroundColor: '#1B4332',
                           boxShadow: isFormValid ? '0 10px 40px rgba(220, 38, 38, 0.3)' : 'none'
                         }}
                       >
@@ -1007,7 +1003,7 @@ function BookingContent() {
 export default function BookingPage() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-[#991B1B]">
+      <main className="min-h-screen bg-[#0A1612]">
         <Section className="relative overflow-hidden">
           <Container className="relative z-10">
             <div className="flex items-center justify-center py-20">

@@ -298,7 +298,7 @@ function SuccessContent() {
                 <MapPin className="w-4 h-4 text-[#DC2626] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-slate-800">Sky Rock Khao Lak</p>
-                  <p className="text-[10px] text-slate-600">105 Moo 4, Chaofa Road, Wichit, Muang, Phuket 83130</p>
+                  <p className="text-[10px] text-slate-600">Khao Lak, Phang Nga, Thailand</p>
                 </div>
               </div>
             </div>

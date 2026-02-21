@@ -276,12 +276,12 @@ export default function SlingshotPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-heading font-medium text-white mb-8 text-center">
-                PHUKET'S MOST EXTREME ADVENTURE ATTRACTION
+                KHAO LAK'S MOST EXTREME ADVENTURE ATTRACTION
               </h2>
               
               <div className="space-y-6 text-white/80 text-lg leading-relaxed">
                 <p>
-                  Experience the <strong className="text-orange-400">ultimate human slingshot in Phuket</strong> at SKY ROCK, Thailand's premier adventure park. Our state-of-the-art slingshot attraction launches thrill-seekers high into the sky, delivering an adrenaline rush unlike any other <strong className="text-white">extreme activity in Thailand</strong>.
+                  Experience the <strong className="text-orange-400">ultimate human slingshot in Khao Lak</strong> at SKY ROCK, Thailand's premier adventure park. Our state-of-the-art slingshot attraction launches thrill-seekers high into the sky, delivering an adrenaline rush unlike any other <strong className="text-white">extreme activity in Thailand</strong>.
                 </p>
                 
                 <p>
@@ -289,11 +289,11 @@ export default function SlingshotPage() {
                 </p>
                 
                 <p>
-                  Whether you're an <strong className="text-white">adrenaline junkie visiting Phuket</strong> or looking for the most thrilling experience during your Thailand vacation, our slingshot delivers pure, unfiltered excitement. This <strong className="text-orange-400">extreme launch experience</strong> is perfect for those seeking something beyond traditional ziplines and adventure activities.
+                  Whether you're an <strong className="text-white">adrenaline junkie visiting Khao Lak</strong> or looking for the most thrilling experience during your Thailand vacation, our slingshot delivers pure, unfiltered excitement. This <strong className="text-orange-400">extreme launch experience</strong> is perfect for those seeking something beyond traditional ziplines and adventure activities.
                 </p>
                 
                 <p>
-                  Located within the stunning SKY ROCK adventure park, the slingshot can be enjoyed as a standalone experience or combined with our world-famous zipline courses, roller zipline, and skywalk for the ultimate <strong className="text-white">Phuket adventure day</strong>. Free hotel transfers available from all major tourist areas including Patong, Kata, Karon, and Phuket Town.
+                  Located within the stunning SKY ROCK adventure park, the slingshot can be enjoyed as a standalone experience or combined with our world-famous zipline courses, roller zipline, and skywalk for the ultimate <strong className="text-white">Khao Lak adventure day</strong>. Free hotel transfers available from all major Khao Lak hotels and resorts.
                 </p>
               </div>
             </motion.div>
@@ -350,7 +350,7 @@ export default function SlingshotPage() {
                 READY TO <span className="text-orange-400">FLY?</span>
               </h2>
               <p className="text-xl text-white/70 mb-8 max-w-md">
-                Don't just visit Phuket - launch yourself into an unforgettable adventure!
+                Don't just visit Khao Lak - launch yourself into an unforgettable adventure!
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

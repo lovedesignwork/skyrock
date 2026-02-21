@@ -2,271 +2,160 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Zap, Clock, Shield, Star } from 'lucide-react';
-import { Container, Section, SectionHeader, Badge } from '@/components/ui';
-import { getPackageById } from '@/lib/data/packages';
+import { Clock, Users, Zap, ChevronRight, Star, Play } from 'lucide-react';
+import { packages } from '@/lib/data/packages';
 import { formatPrice } from '@/lib/utils';
-import { staggerContainer, staggerItem } from '@/lib/animations';
 
-const highlights = [
-  {
-    icon: Zap,
-    title: 'FIRST IN THAILAND',
-    description: 'Experience the only roller zipline in Thailand - a unique combination of roller coaster and zipline.',
-  },
-  {
-    icon: Clock,
-    title: '800 METRES',
-    description: 'Glide through 800 metres of thrilling track weaving through the ancient rainforest canopy.',
-  },
-  {
-    icon: Shield,
-    title: '100% SAFE',
-    description: 'World-class Petzl equipment and trained guides ensure your safety throughout the ride.',
-  },
-  {
-    icon: Star,
-    title: 'UNIQUE EXPERIENCE',
-    description: 'Feel the rush of speed as you twist and turn through the jungle like never before.',
-  },
-];
+export default function RollerPage() {
+  const rollerPackage = packages.find(pkg => pkg.id === 'roller');
 
-export default function RollerZiplinePage() {
-  const pkg = getPackageById('roller-zipline');
-
-  if (!pkg) return null;
+  if (!rollerPackage) {
+    return (
+      <main className="min-h-screen pt-24 bg-[#0A1612] flex items-center justify-center">
+        <p className="text-white">Package not found</p>
+      </main>
+    );
+  }
 
   return (
-    <main className="min-h-screen pt-20">
-      {/* Section 1: Hero with Video Background */}
-      <section className="relative overflow-hidden" style={{ height: '85vh', minHeight: '600px' }}>
-        {/* YouTube Video Background - Full Screen */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <iframe
-            src="https://www.youtube.com/embed/zNNzS0o-9Gw?autoplay=1&mute=1&loop=1&playlist=zNNzS0o-9Gw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ 
-              border: 0,
-              width: '177.78vh',
-              height: '100vh',
-              minWidth: '100%',
-              minHeight: '56.25vw',
-            }}
-          />
-          
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-[#991B1B]/50" />
-          
-          {/* Bottom gradient for blending */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#991B1B]/70 via-transparent to-[#991B1B]" />
-        </div>
-        
-        {/* Big Circle Background */}
-        <img 
-          src="/images/swirl-bg.svg"
-          alt=""
-          className="absolute w-[800px] h-[800px] opacity-15 pointer-events-none object-contain top-[-10%] right-[-15%] animate-spin-slow z-10"
+    <main className="min-h-screen pt-24 bg-[#0A1612]">
+      {/* Hero Section */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${rollerPackage.image})` }}
         />
-        <img 
-          src="/images/swirl-bg.svg"
-          alt=""
-          className="absolute w-[600px] h-[600px] opacity-10 pointer-events-none object-contain bottom-[-20%] left-[-10%] animate-spin-slow-reverse z-10"
-        />
-        
-        <Container className="relative z-20 py-16 h-full flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-            style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}
-          >
-            <Badge variant="accent" className="mb-4">UNIQUE IN THAILAND</Badge>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-medium text-white mb-4 tracking-wide">
-              ROLLER ZIPLINE
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-              The ultimate jungle thrill - combine the excitement of a roller coaster with the freedom of ziplining through Thailand&apos;s ancient rainforest.
-            </p>
-          </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1612]/95 via-[#0A1612]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1612] via-transparent to-[#0A1612]/30" />
 
-          {/* Featured Card */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-[3px] rounded-2xl animated-silver-border max-w-5xl mx-auto"
+            className="max-w-2xl"
           >
-            <div className="relative flex flex-col lg:flex-row rounded-2xl overflow-hidden bg-gradient-to-b lg:bg-gradient-to-r from-primary/90 to-primary-dark">
-              {/* Image */}
-              <div className="relative h-80 lg:h-auto lg:w-[50%] overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${pkg.image})`, backgroundColor: '#DC2626' }}
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge>{pkg.duration}</Badge>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-medium mb-6">
+              <Zap className="w-4 h-4" />
+              Unique Experience
+            </span>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading text-white mb-6">
+              THE <span className="gradient-text">ROLLER</span>
+            </h1>
+            
+            <p className="text-xl text-white/70 mb-8">
+              {rollerPackage.description}
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-8">
+              <span className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full">
+                <Clock className="w-4 h-4 text-accent" />
+                {rollerPackage.duration}
+              </span>
+              <span className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full">
+                <Users className="w-4 h-4 text-accent" />
+                All Ages Welcome
+              </span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div>
+                <div className="text-5xl font-bold gradient-text">
+                  {formatPrice(rollerPackage.price)}
                 </div>
+                <div className="text-white/50">per person</div>
               </div>
-              
-              {/* Content */}
-              <div className="relative p-8 lg:p-10 flex flex-col justify-center lg:w-[50%] animated-card-bg-turquoise-mint overflow-hidden">
-                <img 
-                  src="/images/circlebg.png" 
-                  alt="" 
-                  className="absolute opacity-10 pointer-events-none animate-circle-orbit-1"
-                  style={{ width: '350px', height: '350px', top: '-50px', right: '-50px' }}
-                />
-                
-                <div className="relative z-10">
-                  <div className="flex justify-center gap-8 mb-6">
-                    <div className="text-center">
-                      <div className="text-4xl font-bold text-white font-heading">800</div>
-                      <div className="text-[11px] text-white/80 uppercase font-semibold tracking-wider">METRES</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl font-bold text-white font-heading">1</div>
-                      <div className="text-[11px] text-white/80 uppercase font-semibold tracking-wider">UNIQUE TRACK</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl font-bold text-white font-heading">∞</div>
-                      <div className="text-[11px] text-white/80 uppercase font-semibold tracking-wider">THRILLS</div>
-                    </div>
-                  </div>
-                  
-                  <p className="text-white/80 text-center mb-6">
-                    Soar through the treetops on a specially designed track that twists, turns, and dips like a roller coaster - all while suspended above the jungle floor.
-                  </p>
-                  
-                  <Link href={`/booking?package=${pkg.id}`} className="block">
-                    <div className="p-[2px] rounded-xl transition-all duration-300 hover:scale-105 animated-silver-border-btn">
-                      <button className="relative z-10 w-full flex items-center justify-center gap-3 py-4 sm:py-3.5 rounded-xl animated-btn-turquoise-mint text-white transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-                        <span className="font-heading font-normal text-lg sm:text-[23px]">
-                          BOOK NOW: {formatPrice(pkg.price)} / PERSON
-                        </span>
-                      </button>
-                    </div>
-                  </Link>
-                </div>
-              </div>
+              <Link href={`/booking?package=${rollerPackage.id}`}>
+                <button className="px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center gap-3 hover:shadow-2xl hover:shadow-accent/30 transition-all hover:-translate-y-1">
+                  <Zap className="w-5 h-5" />
+                  BOOK THE ROLLER
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-        </Container>
+        </div>
       </section>
 
-      {/* Section 2: Highlights */}
-      <Section className="relative overflow-hidden" style={{ backgroundColor: '#0a0f3d' }}>
-        <img 
-          src="/images/swirl-bg.svg"
-          alt=""
-          className="absolute w-[700px] h-[700px] opacity-10 pointer-events-none object-contain top-[10%] left-[-15%] animate-spin-slow"
-        />
-        
-        <Container className="relative z-10">
-          <SectionHeader
-            title="Why Roller Zipline?"
-            subtitle="An experience you won't find anywhere else in Thailand"
-          />
-
+      {/* Features Section */}
+      <section className="py-24 bg-gradient-to-b from-[#0A1612] to-[#0D2818]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            {highlights.map((item, index) => (
+            <h2 className="text-4xl md:text-5xl font-heading text-white mb-4">
+              WHAT MAKES IT <span className="gradient-text">SPECIAL</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              A unique zipline experience unlike any other
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Zap,
+                title: 'Unique Design',
+                description: 'A special roller mechanism that lets you glide smoothly through the jungle canopy.',
+              },
+              {
+                icon: Star,
+                title: 'Thrilling Speed',
+                description: 'Experience the rush of speed as you roll through the treetops.',
+              },
+              {
+                icon: Users,
+                title: 'Family Friendly',
+                description: 'Safe and exciting for adventurers of all ages and experience levels.',
+              },
+            ].map((feature, index) => (
               <motion.div
-                key={index}
-                variants={staggerItem}
-                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-accent/30 transition-all duration-300 text-center group"
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <item.icon className="w-8 h-8 text-accent" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-primary-dark" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2 font-heading">
-                  {item.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <p className="text-white/60">{feature.description}</p>
               </motion.div>
             ))}
-          </motion.div>
-        </Container>
-      </Section>
+          </div>
+        </div>
+      </section>
 
-      {/* Section 3: SEO Content */}
-      <Section className="relative overflow-hidden" style={{ backgroundColor: '#991B1B' }}>
-        <Container>
+      {/* CTA Section */}
+      <section className="py-24 bg-[#0D2818]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-medium text-white mb-6 text-center">
-              THAILAND'S FIRST & ONLY ROLLER ZIPLINE
+            <h2 className="text-4xl md:text-5xl font-heading text-white mb-6">
+              READY TO <span className="gradient-text">ROLL?</span>
             </h2>
-            <div className="prose prose-lg prose-invert mx-auto text-white/80 space-y-4">
-              <p>
-                Experience the <strong className="text-white">first roller zipline in Thailand</strong> exclusively at Sky Rock Khao Lak. This revolutionary attraction combines the adrenaline rush of a roller coaster with the exhilaration of ziplining through an ancient rainforest, creating an <strong className="text-white">adventure experience unlike any other in Southeast Asia</strong>.
-              </p>
-              <p>
-                Our <strong className="text-white">800-metre roller zipline track</strong> weaves through the pristine jungle canopy, featuring thrilling dips, curves, and turns that will have your heart racing. Unlike traditional ziplines where you simply glide, the roller zipline allows you to experience controlled speed variations and dynamic movements - it's the closest thing to flying through the trees!
-              </p>
-              <p>
-                The <strong className="text-white">SKY ROCK Roller Zipline</strong> is engineered with world-class Petzl safety equipment from France, ensuring a completely secure yet thrilling ride. Our professionally trained guides accompany every adventure, making this <strong className="text-white">Phuket attraction</strong> perfect for both first-timers and experienced thrill-seekers aged 8 to 60.
-              </p>
-              <p>
-                Located in the heart of Phuket's protected rainforest, just 20 minutes from Phuket Town, the roller zipline offers a perfect escape from the beaches for an unforgettable <strong className="text-white">jungle adventure in Thailand</strong>. Combine it with our Skywalk or full zipline courses for the ultimate SKY ROCK experience. Free hotel transfers available from Patong, Kata, Karon, and all major areas.
-              </p>
-            </div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Section 4: CTA */}
-      <Section 
-        className="relative overflow-hidden py-20" 
-        style={{ 
-          backgroundImage: 'url(/images/Hero%20Image/Roller.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#991B1B]/70" />
-        
-        <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-heading font-medium text-white mb-4 tracking-wide">
-              READY TO RIDE?
-            </h2>
-            <p className="text-xl text-white/80 max-w-xl mx-auto mb-8">
-              Don&apos;t miss the chance to experience Thailand&apos;s only roller zipline. Book your adventure today!
+            <p className="text-white/60 text-lg mb-8">
+              Book your roller zipline experience today and feel the thrill!
             </p>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href={`/booking?package=${pkg.id}`}>
-                <button className="px-10 py-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl transition-all duration-300 hover:scale-105 shadow-lg">
-                  BOOK NOW
-                </button>
-              </Link>
-              <Link href="/packages/combined">
-                <button className="px-10 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xl transition-all duration-300 border border-white/20">
-                  VIEW ALL PACKAGES
-                </button>
-              </Link>
-            </div>
+            <Link href={`/booking?package=${rollerPackage.id}`}>
+              <button className="px-10 py-5 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold text-lg rounded-xl flex items-center gap-3 mx-auto hover:shadow-2xl hover:shadow-accent/30 transition-all hover:-translate-y-1">
+                <Zap className="w-6 h-6" />
+                BOOK NOW - {formatPrice(rollerPackage.price)}
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </Link>
           </motion.div>
-        </Container>
-      </Section>
+        </div>
+      </section>
     </main>
   );
 }

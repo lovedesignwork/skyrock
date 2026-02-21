@@ -3,55 +3,40 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { ChevronLeft, ChevronRight, TreePine, Play, Mountain } from 'lucide-react';
 
 const slides = [
   {
     id: 1,
-    // Desktop image and text
-    image: '/images/Hero%20Image/Zipline.jpg',
-    title: "Thailand's Biggest",
-    subtitle: 'ZIPLINE ADVENTURE',
-    description: 'Experience the ultimate jungle adventure with over 30 platforms and 16 ziplines through the ancient rainforest.',
-    // Mobile image and text (can be different)
-    mobileImage: '/images/Hero%20Image/Zipline.jpg',
-    mobileTitle: "Thailand's Biggest",
-    mobileSubtitle: 'ZIPLINE ADVENTURE',
-    mobileDescription: '30+ platforms & 16 ziplines through ancient rainforest',
+    image: '/images/Hero%20Image/heroimage1.jpg',
+    title: 'SOAR THROUGH',
+    subtitle: 'THE JUNGLE',
+    description: 'Experience 27 platforms of pure adrenaline through Khao Lak\'s ancient rainforest canopy.',
+    accent: 'Khao Lak\'s Premier Adventure',
   },
   {
     id: 2,
-    image: '/images/Hero%20Image/Roller.jpg',
-    title: 'First in Thailand',
-    subtitle: 'UNIQUE ROLLER ZIPLINE',
-    description: 'Experience the thrilling roller coaster zipline - a unique combination of speed and excitement through the treetops.',
-    mobileImage: '/images/Hero%20Image/Roller.jpg',
-    mobileTitle: 'First in Thailand',
-    mobileSubtitle: 'ROLLER ZIPLINE',
-    mobileDescription: 'Thrilling roller coaster zipline through the treetops',
+    image: '/images/Hero%20Image/heroimage2.jpg',
+    title: 'RIDE THE',
+    subtitle: 'ROLLER',
+    description: 'Feel the rush of our unique roller zipline - a thrilling combination of speed and nature.',
+    accent: 'First of Its Kind',
   },
   {
     id: 3,
-    image: '/images/Hero%20Image/Skywalk.jpg',
-    title: 'Walk Among the Clouds',
-    subtitle: 'BREATHTAKING SKYWALK',
-    description: 'Elevated walkways offer stunning panoramic views of the Phuket jungle. Perfect for nature lovers and photographers.',
-    mobileImage: '/images/Hero%20Image/Skywalk.jpg',
-    mobileTitle: 'Walk Among Clouds',
-    mobileSubtitle: 'SKYWALK',
-    mobileDescription: 'Stunning panoramic views of the Phuket jungle',
+    image: '/images/Hero%20Image/heroimage3.jpg',
+    title: 'CONQUER',
+    subtitle: 'NEW HEIGHTS',
+    description: 'Cross sky bridges and abseil through the treetops for an unforgettable experience.',
+    accent: 'Sky Bridges & Abseil',
   },
   {
     id: 4,
-    image: '/images/Hero%20Image/Slingshot2.jpg',
-    title: 'Maximum Adrenaline',
-    subtitle: 'EXTREME SLINGSHOT',
-    description: 'Feel the ultimate rush as you are launched into the jungle canopy. For true thrill-seekers only!',
-    mobileImage: '/images/Hero%20Image/Slingshot2.jpg',
-    mobileTitle: 'Maximum Adrenaline',
-    mobileSubtitle: 'SLINGSHOT',
-    mobileDescription: 'Get launched into the jungle canopy!',
+    image: '/images/Hero%20Image/heroimage4.jpg',
+    title: 'ADVENTURE',
+    subtitle: 'FOR ALL',
+    description: 'Safe, exciting adventures for the whole family with professional guides every step.',
+    accent: 'Family Friendly',
   },
 ];
 
@@ -74,188 +59,192 @@ export function HeroSlideshow() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative h-screen min-h-[600px] md:min-h-[700px] overflow-hidden">
-      {/* Desktop Background Image */}
+    <section className="relative h-screen min-h-[700px] overflow-hidden bg-[#0A1612]">
+      {/* Background Image with Ken Burns Effect */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={`desktop-${currentSlide}`}
+          key={currentSlide}
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.7 }}
-          className="absolute inset-0 hidden md:block"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2 }}
+          className="absolute inset-0"
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-          />
-          <div className="absolute inset-0 hero-overlay" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Mobile Background Image - positioned to show top of image */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`mobile-${currentSlide}`}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.7 }}
-          className="absolute inset-0 md:hidden"
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-top"
-            style={{ backgroundImage: `url(${slides[currentSlide].mobileImage})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/60 to-transparent" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Desktop gradients */}
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-primary-dark via-primary-dark/60 to-transparent z-10 pointer-events-none hidden md:block" />
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-56 z-10 pointer-events-none hidden md:block"
-        style={{
-          background: 'linear-gradient(to top, #991B1B 0%, #991B1B 10%, rgba(153, 27, 27, 0.9) 30%, rgba(153, 27, 27, 0.5) 60%, rgba(153, 27, 27, 0.2) 85%, transparent 100%)'
-        }}
-      />
-
-      {/* Mobile gradient - stronger at bottom for text readability */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-[70%] z-10 pointer-events-none md:hidden"
-        style={{
-          background: 'linear-gradient(to top, #991B1B 0%, #991B1B 15%, rgba(153, 27, 27, 0.95) 35%, rgba(153, 27, 27, 0.7) 55%, rgba(153, 27, 27, 0.3) 75%, transparent 100%)'
-        }}
-      />
-
-      {/* Desktop Content - centered vertically */}
-      <div className="relative z-10 h-full hidden md:flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <motion.div
-            key={`desktop-content-${currentSlide}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl"
-            style={{
-              textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6), 0 0 40px rgba(0,0,0,0.4)',
+            style={{ 
+              backgroundImage: `url(${slides[currentSlide].image})`,
+              animation: 'kenburns 20s ease-out infinite alternate'
             }}
-          >
-            <p 
-              className="text-accent font-semibold text-lg mb-2"
-              style={{ textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 4px 30px rgba(0,0,0,0.9), 0 8px 40px rgba(0,0,0,0.8)' }}
+          />
+          {/* Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1612]/90 via-[#0A1612]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1612] via-transparent to-[#0A1612]/30" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-1/4 right-10 opacity-10 hidden lg:block">
+        <TreePine className="w-32 h-32 text-primary-light animate-float" />
+      </div>
+      <div className="absolute bottom-1/4 left-10 opacity-10 hidden lg:block">
+        <Mountain className="w-40 h-40 text-accent" style={{ animationDelay: '2s' }} />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            {/* Accent Badge */}
+            <motion.div
+              key={`badge-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-6"
             >
-              {slides[currentSlide].title}
-            </p>
-            <h1 
-              className="text-5xl md:text-7xl font-bold text-white mb-6 font-heading tracking-wide"
-              style={{ textShadow: '0 0 15px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1), 0 6px 40px rgba(0,0,0,0.95), 0 12px 60px rgba(0,0,0,0.9), 0 0 100px rgba(0,0,0,0.7)' }}
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-medium">
+                <TreePine className="w-4 h-4" />
+                {slides[currentSlide].accent}
+              </span>
+            </motion.div>
+
+            {/* Title */}
+            <motion.div
+              key={`title-${currentSlide}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
-              {slides[currentSlide].subtitle}
-            </h1>
-            <p 
-              className="text-xl text-white/90 mb-8 leading-relaxed"
-              style={{ textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 4px 30px rgba(0,0,0,0.9), 0 8px 40px rgba(0,0,0,0.8)' }}
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-heading text-white leading-none mb-2">
+                {slides[currentSlide].title}
+              </h1>
+              <h2 className="text-5xl sm:text-6xl lg:text-8xl font-heading leading-none mb-6">
+                <span className="gradient-text">{slides[currentSlide].subtitle}</span>
+              </h2>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              key={`desc-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg sm:text-xl text-white/70 mb-10 max-w-xl"
             >
               {slides[currentSlide].description}
-            </p>
-            <div className="flex gap-4" style={{ filter: 'drop-shadow(0 0 15px rgba(0,0,0,0.9)) drop-shadow(0 8px 20px rgba(0,0,0,0.8))' }}>
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Link href="/booking">
-                <Button size="lg">Book Your Adventure</Button>
+                <button className="group px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-accent/30 transition-all hover:-translate-y-1">
+                  <TreePine className="w-5 h-5" />
+                  BOOK YOUR ADVENTURE
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </button>
               </Link>
               <Link href="/packages/combined">
-                <Button variant="secondary" size="lg">Explore Packages</Button>
+                <button className="relative p-[2px] rounded-xl overflow-hidden group/btn">
+                  {/* Rainbow Border */}
+                  <span 
+                    className="absolute inset-0 rounded-xl"
+                    style={{
+                      background: 'linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0080ff, #8000ff, #ff0080, #ff0000)',
+                      backgroundSize: '400% 100%',
+                      animation: 'rainbow-slow 15s linear infinite',
+                    }}
+                  />
+                  {/* Button Content */}
+                  <span 
+                    className="relative flex items-center justify-center gap-3 px-8 py-4 bg-[#0A1612] rounded-[10px] text-white group-hover/btn:bg-transparent transition-all duration-300"
+                    style={{ fontFamily: 'var(--font-heading)', fontSize: '18px' }}
+                  >
+                    <Play className="w-5 h-5" />
+                    EXPLORE PACKAGES
+                  </span>
+                </button>
               </Link>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Content - aligned to bottom with padding */}
-      <div className="relative z-10 h-full flex md:hidden items-end pb-[100px]">
-        <div className="w-full px-4">
-          <motion.div
-            key={`mobile-content-${currentSlide}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-            style={{
-              textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.6)',
-            }}
-          >
-            <p 
-              className="text-accent font-semibold text-sm mb-1"
-              style={{ textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1)' }}
-            >
-              {slides[currentSlide].mobileTitle}
-            </p>
-            <h1 
-              className="text-4xl font-bold text-white mb-3 font-heading tracking-wide"
-              style={{ textShadow: '0 0 15px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1), 0 6px 40px rgba(0,0,0,0.95)' }}
-            >
-              {slides[currentSlide].mobileSubtitle}
-            </h1>
-            <p 
-              className="text-base text-white/90 mb-5 leading-relaxed px-4"
-              style={{ textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1)' }}
-            >
-              {slides[currentSlide].mobileDescription}
-            </p>
-            <div className="flex flex-col gap-3 px-4" style={{ filter: 'drop-shadow(0 0 15px rgba(0,0,0,0.9))' }}>
-              <Link href="/booking" className="w-full">
-                <Button size="lg" className="w-full">Book Your Adventure</Button>
-              </Link>
-              <Link href="/packages/combined" className="w-full">
-                <Button variant="secondary" size="lg" className="w-full">Explore Packages</Button>
-              </Link>
-            </div>
-          </motion.div>
+      {/* Slide Navigation */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-6">
+        {/* Prev Button */}
+        <button
+          onClick={() => { prevSlide(); setIsAutoPlaying(false); }}
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5 text-white" />
+        </button>
+
+        {/* Dots */}
+        <div className="flex gap-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => { setCurrentSlide(index); setIsAutoPlaying(false); }}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'w-8 bg-accent' 
+                  : 'w-2 bg-white/30 hover:bg-white/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={() => { nextSlide(); setIsAutoPlaying(false); }}
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5 text-white" />
+        </button>
+      </div>
+
+      {/* Slide Counter */}
+      <div className="absolute bottom-8 right-8 z-20 hidden lg:block">
+        <div className="text-white/40 text-sm font-mono">
+          <span className="text-accent font-bold text-lg">{String(currentSlide + 1).padStart(2, '0')}</span>
+          <span className="mx-2">/</span>
+          <span>{String(slides.length).padStart(2, '0')}</span>
         </div>
       </div>
 
-      {/* Navigation arrows - hidden on mobile, shown on desktop */}
-      <button
-        onClick={() => { prevSlide(); setIsAutoPlaying(false); }}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all hidden md:block"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={() => { nextSlide(); setIsAutoPlaying(false); }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all hidden md:block"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
-
-      {/* Slide dots - positioned higher on mobile to avoid overlap with buttons */}
-      <div className="absolute bottom-[220px] md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => { setCurrentSlide(index); setIsAutoPlaying(false); }}
-            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${
-              index === currentSlide ? 'bg-accent w-6 md:w-8' : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="absolute bottom-8 right-8 z-20 hidden lg:block"
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-8 z-20 hidden lg:flex flex-col items-center gap-2"
       >
-        <div className="text-white/60 text-sm">
-          {String(currentSlide + 1).padStart(2, '0')}/{String(slides.length).padStart(2, '0')}
-        </div>
+        <span className="text-white/40 text-xs uppercase tracking-widest rotate-90 origin-center translate-y-8">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-px h-16 bg-gradient-to-b from-accent to-transparent"
+        />
       </motion.div>
+
+      {/* Ken Burns Animation */}
+      <style jsx>{`
+        @keyframes kenburns {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.1); }
+        }
+      `}</style>
     </section>
   );
 }
