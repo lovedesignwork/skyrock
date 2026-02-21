@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="swirlGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC2626;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#991B1B;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#5b5d28;stop-opacity:0.3"/>
+    </linearGradient>
+    <linearGradient id="swirlGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5b5d28;stop-opacity:0.2"/>
+      <stop offset="50%" style="stop-color:#DC2626;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#991B1B;stop-opacity:0.25"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Swirl pattern 1 -->
+  <path d="M400,0 Q600,200 400,400 Q200,600 400,800" fill="none" stroke="url(#swirlGrad1)" stroke-width="120" opacity="0.4">
+    <animateTransform attributeName="transform" type="rotate" from="0 400 400" to="360 400 400" dur="60s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Swirl pattern 2 -->
+  <path d="M0,400 Q200,200 400,400 Q600,600 800,400" fill="none" stroke="url(#swirlGrad2)" stroke-width="100" opacity="0.3">
+    <animateTransform attributeName="transform" type="rotate" from="360 400 400" to="0 400 400" dur="80s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Wave pattern -->
+  <path d="M0,300 Q200,200 400,300 Q600,400 800,300" fill="none" stroke="url(#swirlGrad1)" stroke-width="80" opacity="0.25">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,100;0,0" dur="20s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Curved accent -->
+  <ellipse cx="400" cy="400" rx="300" ry="200" fill="none" stroke="url(#swirlGrad2)" stroke-width="60" opacity="0.2">
+    <animateTransform attributeName="transform" type="rotate" from="0 400 400" to="-360 400 400" dur="100s" repeatCount="indefinite"/>
+  </ellipse>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Sky Rock Khao Lak",
+  "name_for_model": "sky_rock_khao_lak",
+  "description_for_human": "Book zipline adventures at Sky Rock, Khao Lak's premier eco-adventure park.",
+  "description_for_model": "Sky Rock is the premier zipline adventure park in Khao Lak, Phang Nga, Thailand. It offers zipline courses through lush jungle canopy with multiple platforms, skywalks, slingshots, and roller ziplines. Key offerings include various zipline packages and combined adventure experiences. Open daily. Free hotel transfers available. Suitable for ages 4+ with max weight 120kg.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://skyrockkhaolak.com/api/openapi.json"
+  },
+  "logo_url": "https://skyrockkhaolak.com/images/logo.png",
+  "contact_email": "info@skyrockkhaolak.com",
+  "legal_info_url": "https://skyrockkhaolak.com/terms"
+}
