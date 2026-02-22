@@ -302,62 +302,66 @@ function CheckoutContent() {
   }
 
   return (
-    <main className="bg-[#0A1612]">
-      {/* Hero Header Section */}
-      <section className="relative overflow-hidden pt-32 pb-16">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          {/* Base gradient */}
-          <div 
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
-          />
-          
-          {/* Animated gradient orbs */}
-          <div 
-            className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(255,0,128,0.4) 0%, rgba(128,0,255,0.2) 50%, transparent 70%)',
-              animation: 'pulse 8s ease-in-out infinite',
-            }}
-          />
-          <div 
-            className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
-              animation: 'pulse 10s ease-in-out infinite reverse',
-            }}
-          />
-          
-          {/* Diagonal stripes overlay */}
-          <div 
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
-            }}
-          />
-          
-          {/* Grid pattern */}
-          <div 
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-            }}
-          />
-          
-          {/* Shining gradient sweep */}
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
-              backgroundSize: '200% 100%',
-              animation: 'shine 8s ease-in-out infinite',
-            }}
-          />
-        </div>
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Unified Sporty Background - covers entire page */}
+      <div className="fixed inset-0 z-0">
+        {/* Base gradient */}
+        <div 
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
+        />
         
-        {/* Swirl background */}
+        {/* Animated gradient orbs */}
+        <div 
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,0,128,0.4) 0%, rgba(128,0,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 8s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 10s ease-in-out infinite reverse',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,200,0,0.3) 0%, rgba(255,100,0,0.2) 50%, transparent 70%)',
+            animation: 'pulse 12s ease-in-out infinite',
+          }}
+        />
+        
+        {/* Diagonal stripes overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
+          }}
+        />
+        
+        {/* Grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }}
+        />
+        
+        {/* Shining gradient sweep */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
+            backgroundSize: '200% 100%',
+            animation: 'shine 8s ease-in-out infinite',
+          }}
+        />
+        
+        {/* Swirl backgrounds */}
         <img 
           src="/images/swirl-bg.svg"
           alt=""
@@ -366,58 +370,60 @@ function CheckoutContent() {
         <img 
           src="/images/swirl-bg.svg"
           alt=""
-          className="absolute w-[400px] h-[400px] opacity-5 pointer-events-none object-contain bottom-[-20%] right-[-5%] animate-spin-slow"
+          className="absolute w-[400px] h-[400px] opacity-5 pointer-events-none object-contain bottom-[20%] right-[-5%] animate-spin-slow"
           style={{ animationDirection: 'reverse' }}
         />
-        
-        <Container className="relative z-10">
-          {/* Centered Header */}
-          <div className="text-center mb-8">
-            <Link href="/booking" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Booking
-            </Link>
-            
-            {/* Badge */}
-            <div className="flex justify-center mb-4">
-              <span 
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.3) 100%)',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  backdropFilter: 'blur(10px)',
-                }}
-              >
-                <Lock className="w-4 h-4" />
-                SECURE CHECKOUT
-              </span>
-            </div>
-            
-            {/* Main Title with gradient */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4">
-              <span className="text-white">COMPLETE YOUR </span>
-              <span 
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage: 'linear-gradient(90deg, #ff0080, #ff8c00, #ffff00, #00ff80, #00ffff, #0080ff, #8000ff)',
-                  backgroundSize: '200% auto',
-                  animation: 'rainbow-flow 8s linear infinite',
-                }}
-              >
-                BOOKING
-              </span>
-            </h1>
-            <p className="text-white/70 text-lg">Your adventure awaits - just one step away!</p>
-          </div>
-        </Container>
-      </section>
+      </div>
       
-      {/* Main Content Section */}
-      <Section 
-        className="relative overflow-hidden !pt-0"
-        style={{ background: 'linear-gradient(180deg, #1B4332 0%, #0D2818 20%, #0A1612 100%)', paddingBottom: '250px' }}
-      >
-        <Container className="relative z-10">
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header Section */}
+        <div className="pt-32 pb-12">
+          <Container>
+            {/* Centered Header */}
+            <div className="text-center mb-8">
+              <Link href="/booking" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-6">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Booking
+              </Link>
+              
+              {/* Badge */}
+              <div className="flex justify-center mb-4">
+                <span 
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.3) 100%)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                >
+                  <Lock className="w-4 h-4" />
+                  SECURE CHECKOUT
+                </span>
+              </div>
+              
+              {/* Main Title with gradient - 85% slower animation (8s * 6.67 = ~53s) */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4">
+                <span className="text-white">COMPLETE YOUR </span>
+                <span 
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage: 'linear-gradient(90deg, #ff0080, #ff8c00, #ffff00, #00ff80, #00ffff, #0080ff, #8000ff)',
+                    backgroundSize: '200% auto',
+                    animation: 'rainbow-flow 53s linear infinite',
+                  }}
+                >
+                  BOOKING
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg">Your adventure awaits - just one step away!</p>
+            </div>
+          </Container>
+        </div>
+        
+        {/* Main Content Section */}
+        <div className="pb-32">
+          <Container>
 
           <div className="grid lg:grid-cols-2 gap-8">
               {/* Left Column - Booking & Customer Details */}
@@ -751,8 +757,9 @@ function CheckoutContent() {
                 </motion.div>
               </div>
             </div>
-        </Container>
-      </Section>
+          </Container>
+        </div>
+      </div>
     </main>
   );
 }
@@ -760,14 +767,8 @@ function CheckoutContent() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-[#0A1612]">
-        <Section className="relative overflow-hidden min-h-[calc(100vh-80px)]">
-          <Container className="relative z-10">
-            <div className="flex items-center justify-center py-20">
-              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            </div>
-          </Container>
-        </Section>
+      <main className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}>
+        <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
       </main>
     }>
       <CheckoutContent />
