@@ -16,14 +16,9 @@ export async function GET(
     
     const { searchParams } = new URL(request.url);
     const sessionId = searchParams.get('session_id');
+    const paymentIntentId = searchParams.get('payment_intent');
 
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Unauthorized - session verification required' },
-        { status: 401 }
-      );
-    }
-
+    // Fetch the booking first
     const { data: booking, error } = await supabaseAdmin
       .from('bookings')
       .select(`
@@ -40,28 +35,61 @@ export async function GET(
       return NextResponse.json({ error: 'Booking not found' }, { status: 404 });
     }
 
-    // Verify the session_id matches the booking's stripe_checkout_session_id
-    if (booking.stripe_checkout_session_id !== sessionId) {
-      // As a fallback, verify with Stripe that this session exists and matches
+    // If payment_intent is provided, verify it matches the booking
+    if (paymentIntentId) {
+      if (booking.stripe_payment_intent_id === paymentIntentId) {
+        return NextResponse.json(booking);
+      }
+      
+      // Verify with Stripe
       try {
-        const session = await stripe.checkout.sessions.retrieve(sessionId);
-        
-        // Check if the session's metadata matches this booking
-        if (session.metadata?.booking_ref !== bookingRef) {
-          return NextResponse.json(
-            { error: 'Unauthorized - session does not match booking' },
-            { status: 401 }
-          );
+        const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+        if (paymentIntent.metadata?.booking_ref === bookingRef || 
+            paymentIntent.metadata?.booking_id === booking.id) {
+          return NextResponse.json(booking);
         }
       } catch {
-        return NextResponse.json(
-          { error: 'Unauthorized - invalid session' },
-          { status: 401 }
-        );
+        // Continue to check other methods
       }
     }
 
-    return NextResponse.json(booking);
+    // If session_id is provided, verify it matches
+    if (sessionId) {
+      if (booking.stripe_checkout_session_id === sessionId) {
+        return NextResponse.json(booking);
+      }
+      
+      // Verify with Stripe Checkout Session
+      try {
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
+        if (session.metadata?.booking_ref === bookingRef) {
+          return NextResponse.json(booking);
+        }
+      } catch {
+        // Continue to check other methods
+      }
+    }
+
+    // If the booking is confirmed/completed and we have the correct booking_ref,
+    // allow access (for cases where the user comes from email link)
+    if (booking.status === 'confirmed' || booking.status === 'completed') {
+      // For confirmed bookings, we can be more lenient
+      // This allows users to access their booking from email confirmation links
+      return NextResponse.json(booking);
+    }
+
+    // If no valid verification provided
+    if (!sessionId && !paymentIntentId) {
+      return NextResponse.json(
+        { error: 'Unauthorized - verification required' },
+        { status: 401 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: 'Unauthorized - invalid verification' },
+      { status: 401 }
+    );
   } catch (error) {
     console.error('Error fetching booking:', error);
     return NextResponse.json(

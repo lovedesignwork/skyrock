@@ -46,6 +46,7 @@ interface BookingData {
 function SuccessContent() {
   const searchParams = useSearchParams();
   const bookingRef = searchParams.get('booking_ref');
+  const paymentIntent = searchParams.get('payment_intent');
   const sessionId = searchParams.get('session_id');
   
   const [booking, setBooking] = useState<BookingData | null>(null);
@@ -54,14 +55,19 @@ function SuccessContent() {
 
   useEffect(() => {
     const fetchBookingDetails = async () => {
-      if (!bookingRef || !sessionId) {
+      if (!bookingRef) {
         setError('Invalid booking link');
         setLoading(false);
         return;
       }
       
+      // Build query params based on what's available
+      const params = new URLSearchParams();
+      if (paymentIntent) params.set('payment_intent', paymentIntent);
+      if (sessionId) params.set('session_id', sessionId);
+      
       try {
-        const response = await fetch(`/api/bookings/${bookingRef}?session_id=${sessionId}`);
+        const response = await fetch(`/api/bookings/${bookingRef}?${params.toString()}`);
         if (response.ok) {
           const data = await response.json();
           setBooking(data);
@@ -119,7 +125,7 @@ function SuccessContent() {
           />
         </div>
         
-        <div className="relative z-10 max-w-md mx-auto px-4 py-20">
+        <div className="relative z-10 max-w-md mx-auto px-4" style={{ paddingTop: '250px', paddingBottom: '100px' }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -194,7 +200,7 @@ function SuccessContent() {
         />
       </div>
       
-      <div className="relative z-10 max-w-2xl mx-auto px-4 py-12 md:py-20">
+      <div className="relative z-10 max-w-2xl mx-auto px-4" style={{ paddingTop: '200px', paddingBottom: '100px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
