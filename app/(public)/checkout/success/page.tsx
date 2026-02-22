@@ -4,7 +4,10 @@ import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, Calendar, Clock, Users, MapPin, Mail, Phone, Package, Car, UserMinus, AlertCircle } from 'lucide-react';
+import { 
+  CheckCircle, Calendar, Clock, Users, MapPin, Mail, Phone, 
+  Package, Car, UserMinus, AlertCircle, Info, Shirt, Scale
+} from 'lucide-react';
 
 interface BookingAddon {
   id: string;
@@ -15,6 +18,19 @@ interface BookingAddon {
     id: string;
     name: string;
   };
+}
+
+interface BookingCustomer {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+}
+
+interface BookingTransport {
+  type: string;
+  pickup_location: string;
+  pickup_time?: string;
 }
 
 interface BookingData {
@@ -30,17 +46,9 @@ interface BookingData {
     name: string;
     slug: string;
   };
-  booking_customers: {
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone: string;
-  };
+  booking_customers: BookingCustomer | BookingCustomer[];
   booking_addons: BookingAddon[];
-  booking_transport: {
-    type: string;
-    pickup_location: string;
-  } | null;
+  booking_transport: BookingTransport | BookingTransport[] | null;
 }
 
 function SuccessContent() {
@@ -61,7 +69,6 @@ function SuccessContent() {
         return;
       }
       
-      // Build query params based on what's available
       const params = new URLSearchParams();
       if (paymentIntent) params.set('payment_intent', paymentIntent);
       if (sessionId) params.set('session_id', sessionId);
@@ -84,7 +91,7 @@ function SuccessContent() {
     };
 
     fetchBookingDetails();
-  }, [bookingRef, sessionId]);
+  }, [bookingRef, paymentIntent, sessionId]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('th-TH', {
@@ -94,11 +101,84 @@ function SuccessContent() {
     }).format(amount);
   };
 
+  const getCustomer = (): BookingCustomer | null => {
+    if (!booking?.booking_customers) return null;
+    if (Array.isArray(booking.booking_customers)) {
+      return booking.booking_customers[0] || null;
+    }
+    return booking.booking_customers;
+  };
+
+  const getTransport = (): BookingTransport | null => {
+    if (!booking?.booking_transport) return null;
+    if (Array.isArray(booking.booking_transport)) {
+      return booking.booking_transport[0] || null;
+    }
+    return booking.booking_transport;
+  };
+
+  const hasTransfer = (): boolean => {
+    const transport = getTransport();
+    return transport !== null && transport.type !== 'self' && transport.type !== 'none';
+  };
+
+  const customer = getCustomer();
+  const transport = getTransport();
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const checkmarkVariants = {
+    hidden: { scale: 0 },
+    visible: {
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 200,
+        damping: 15,
+        delay: 0.3,
+      },
+    },
+  };
+
   if (error) {
     return (
       <main className="min-h-screen relative overflow-hidden">
         {/* Sporty Background */}
-        <div className="absolute inset-0">
+        <div className="fixed inset-0 z-0">
           <div 
             className="absolute inset-0"
             style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
@@ -125,14 +205,14 @@ function SuccessContent() {
           />
         </div>
         
-        <div className="relative z-10 max-w-md mx-auto px-4" style={{ paddingTop: '250px', paddingBottom: '100px' }}>
+        <div className="relative z-10 max-w-md mx-auto px-4 pt-40 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="bg-white rounded-2xl shadow-xl p-8 text-center"
           >
-            <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <AlertCircle className="w-7 h-7 text-amber-500" />
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-8 h-8 text-amber-500" />
             </div>
             <h1 className="text-xl font-bold text-slate-800 mb-2">Access Denied</h1>
             <p className="text-sm text-slate-600 mb-6">{error}</p>
@@ -142,7 +222,7 @@ function SuccessContent() {
             </p>
             <Link href="/" className="block">
               <button 
-                className="w-full px-5 py-3 text-white font-semibold rounded-xl transition-all text-sm"
+                className="w-full px-6 py-3 text-white font-semibold rounded-xl transition-all text-sm hover:opacity-90"
                 style={{
                   background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)',
                 }}
@@ -150,9 +230,9 @@ function SuccessContent() {
                 Back to Home
               </button>
             </Link>
-            <div className="mt-4 pt-4 border-t border-slate-100">
-              <p className="text-[10px] text-slate-500 mb-2">Need help?</p>
-              <a href="mailto:support@skyrockkhaolak.com" className="text-xs text-[#2D6A4F] hover:underline">
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <p className="text-xs text-slate-500 mb-2">Need help?</p>
+              <a href="mailto:support@skyrockkhaolak.com" className="text-sm text-[#2D6A4F] hover:underline font-medium">
                 support@skyrockkhaolak.com
               </a>
             </div>
@@ -164,8 +244,8 @@ function SuccessContent() {
 
   return (
     <main className="min-h-screen relative overflow-hidden">
-      {/* Sporty Background */}
-      <div className="absolute inset-0">
+      {/* Sporty Background - Fixed to cover entire page */}
+      <div className="fixed inset-0 z-0">
         <div 
           className="absolute inset-0"
           style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
@@ -178,10 +258,17 @@ function SuccessContent() {
           }}
         />
         <div 
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+          className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
           style={{
             background: 'radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
             animation: 'pulse 10s ease-in-out infinite reverse',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,200,0,0.3) 0%, rgba(255,100,0,0.2) 50%, transparent 70%)',
+            animation: 'pulse 12s ease-in-out infinite',
           }}
         />
         <div 
@@ -200,217 +287,326 @@ function SuccessContent() {
         />
       </div>
       
-      <div className="relative z-10 max-w-2xl mx-auto px-4" style={{ paddingTop: '200px', paddingBottom: '100px' }}>
+      <motion.div 
+        className="relative z-10 max-w-2xl mx-auto px-4 pt-32 pb-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* 1. SUCCESS HEADER CARD */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="bg-white rounded-2xl shadow-xl overflow-hidden"
+          variants={headerVariants}
+          className="rounded-2xl shadow-2xl overflow-hidden mb-6"
+          style={{
+            background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)',
+          }}
         >
-          {/* Header - Sky Rock Green Theme */}
-          <div 
-            className="px-5 py-6 text-center"
-            style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)' }}
-          >
+          <div className="px-6 py-8 text-center">
+            {/* Checkmark with spring animation */}
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-              className="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-3"
+              variants={checkmarkVariants}
+              className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
             >
-              <CheckCircle className="w-8 h-8 text-green-500" />
+              <CheckCircle className="w-12 h-12 text-emerald-500" />
             </motion.div>
-            <h1 className="text-xl md:text-2xl font-bold text-white mb-1 font-heading">
+            
+            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 font-heading tracking-wide">
               BOOKING CONFIRMED!
             </h1>
-            <p className="text-white/80 text-sm">Thank you for booking with SKY ROCK</p>
-          </div>
-
-          <div className="p-5">
-            {/* Booking Reference */}
-            <div className="bg-[#1B4332]/5 border border-[#1B4332]/10 rounded-xl p-4 mb-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-slate-500 uppercase tracking-wide">Booking Reference</span>
-                <span className="text-lg font-bold text-[#1B4332]">{bookingRef || 'Loading...'}</span>
-              </div>
-              {booking?.booking_customers?.email && (
-                <p className="text-xs text-slate-600">
-                  A confirmation email has been sent to <span className="font-semibold text-[#1B4332]">{booking.booking_customers.email}</span> with all the booking details.
-                </p>
-              )}
+            
+            {customer && (
+              <p className="text-white/90 text-lg mb-4">
+                Thank you, {customer.first_name}!
+              </p>
+            )}
+            
+            {/* Booking Reference Box */}
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3 mb-4">
+              <p className="text-white/70 text-xs uppercase tracking-wider mb-1">Booking Reference</p>
+              <p className="text-white text-xl font-bold font-mono tracking-wider">
+                {bookingRef || 'Loading...'}
+              </p>
             </div>
+            
+            {customer?.email && (
+              <p className="text-white/80 text-sm">
+                Confirmation sent to <span className="font-semibold text-white">{customer.email}</span>
+              </p>
+            )}
+          </div>
+        </motion.div>
 
-            {!loading && booking && (
-              <>
-                {/* Booking Details - Compact Grid */}
-                <div className="mb-4">
-                  <h3 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">Booking Details</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {/* Package */}
-                    <div className="col-span-2 flex items-center gap-2 p-3 bg-[#1B4332]/5 rounded-lg">
-                      <Package className="w-4 h-4 text-[#2D6A4F]" />
-                      <div>
-                        <p className="text-[10px] text-slate-500 uppercase">Package</p>
-                        <p className="text-sm font-semibold text-slate-800">{booking.packages?.name || 'N/A'}</p>
-                      </div>
-                    </div>
-
-                    {/* Date */}
-                    <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Calendar className="w-4 h-4 text-[#2D6A4F]" />
-                      <div>
-                        <p className="text-[10px] text-slate-500 uppercase">Date</p>
-                        <p className="text-xs font-medium text-slate-800">
-                          {new Date(booking.activity_date).toLocaleDateString('en-US', {
-                            weekday: 'short',
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* Time */}
-                    <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Clock className="w-4 h-4 text-[#2D6A4F]" />
-                      <div>
-                        <p className="text-[10px] text-slate-500 uppercase">Time</p>
-                        <p className="text-xs font-medium text-slate-800">
-                          {booking.time_slot === 'flexible' ? '8AM - 6PM' : booking.time_slot}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* Players */}
-                    <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Users className="w-4 h-4 text-[#2D6A4F]" />
-                      <div>
-                        <p className="text-[10px] text-slate-500 uppercase">Players</p>
-                        <p className="text-xs font-medium text-slate-800">{booking.guest_count} person(s)</p>
-                      </div>
-                    </div>
-
-                    {/* Non-Playing Guests */}
-                    {booking.non_playing_guests > 0 && (
-                      <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                        <UserMinus className="w-4 h-4 text-[#2D6A4F]" />
-                        <div>
-                          <p className="text-[10px] text-slate-500 uppercase">Non-Players</p>
-                          <p className="text-xs font-medium text-slate-800">{booking.non_playing_guests} person(s)</p>
-                        </div>
-                      </div>
-                    )}
+        {!loading && booking && (
+          <>
+            {/* 2. BOOKING DETAILS CARD */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden mb-6"
+            >
+              {/* Dark Header with Package Name */}
+              <div className="bg-[#0f0f0f] px-6 py-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1B4332] to-[#2D6A4F] flex items-center justify-center">
+                    <Package className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-white/60 text-xs uppercase tracking-wider">Package</p>
+                    <p className="text-white font-bold text-lg">{booking.packages?.name || 'Adventure Package'}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                {/* 3-Column Grid: Date | Time | Players */}
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  <div className="text-center p-4 bg-slate-50 rounded-xl">
+                    <Calendar className="w-6 h-6 text-[#2D6A4F] mx-auto mb-2" />
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Date</p>
+                    <p className="text-sm font-semibold text-slate-800">
+                      {new Date(booking.activity_date).toLocaleDateString('en-US', {
+                        weekday: 'short',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </p>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-slate-50 rounded-xl">
+                    <Clock className="w-6 h-6 text-[#2D6A4F] mx-auto mb-2" />
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Time</p>
+                    <p className="text-sm font-semibold text-slate-800">
+                      {booking.time_slot === 'flexible' ? '8AM - 6PM' : booking.time_slot}
+                    </p>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-slate-50 rounded-xl">
+                    <Users className="w-6 h-6 text-[#2D6A4F] mx-auto mb-2" />
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Players</p>
+                    <p className="text-sm font-semibold text-slate-800">
+                      {booking.guest_count} {booking.guest_count === 1 ? 'Person' : 'People'}
+                    </p>
                   </div>
                 </div>
 
-                {/* Add-ons */}
+                {/* Non-Players (if > 0) */}
+                {booking.non_playing_guests > 0 && (
+                  <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl mb-4">
+                    <UserMinus className="w-5 h-5 text-[#2D6A4F]" />
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase tracking-wider">Non-Playing Guests</p>
+                      <p className="text-sm font-semibold text-slate-800">
+                        {booking.non_playing_guests} {booking.non_playing_guests === 1 ? 'Person' : 'People'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Transport Info (if has transfer) */}
+                {hasTransfer() && transport && (
+                  <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-100 rounded-xl mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center">
+                      <Car className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-blue-600 uppercase tracking-wider">
+                        {transport.type === 'private' ? 'Private Transfer' : 'Shared Transfer'}
+                      </p>
+                      {transport.pickup_location && (
+                        <p className="text-sm font-semibold text-blue-800">{transport.pickup_location}</p>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Add-ons List */}
                 {booking.booking_addons && booking.booking_addons.length > 0 && (
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">Add-ons & Upgrades</h3>
-                    <div className="bg-green-50 border border-green-100 rounded-lg p-3">
-                      <ul className="space-y-1">
-                        {booking.booking_addons.map((addon, index) => (
-                          <li key={index} className="flex items-center justify-between text-xs">
-                            <span className="text-slate-700">
-                              {addon.promo_addons?.name || 'Add-on'} × {addon.quantity}
-                            </span>
-                            <span className="font-medium text-green-700">{formatCurrency(addon.total_price)}</span>
-                          </li>
-                        ))}
+                  <div className="mb-6">
+                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-3">Add-ons & Upgrades</p>
+                    <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
+                      <ul className="space-y-2">
+                        {booking.booking_addons.map((addon, index) => {
+                          const price = (addon.unit_price || 0) * (addon.quantity || 1);
+                          return (
+                            <li key={index} className="flex items-center justify-between">
+                              <span className="text-sm text-slate-700">
+                                {addon.promo_addons?.name || 'Add-on'} 
+                                <span className="text-slate-500 ml-1">× {addon.quantity}</span>
+                              </span>
+                              <span className="text-sm font-semibold text-emerald-700">
+                                {formatCurrency(addon.total_price || price)}
+                              </span>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>
                 )}
 
-                {/* Transport */}
-                {booking.booking_transport && booking.booking_transport.type !== 'self' && (
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">Transport</h3>
-                    <div className="flex items-center gap-2 p-3 bg-blue-50 border border-blue-100 rounded-lg">
-                      <Car className="w-4 h-4 text-blue-600" />
-                      <div>
-                        <p className="text-xs font-medium text-blue-800 capitalize">{booking.booking_transport.type} Transfer</p>
-                        {booking.booking_transport.pickup_location && (
-                          <p className="text-[10px] text-blue-600">{booking.booking_transport.pickup_location}</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Total */}
+                {/* Total Amount - Large & Bold */}
                 <div 
-                  className="flex items-center justify-between p-3 rounded-lg mb-4"
+                  className="flex items-center justify-between p-5 rounded-xl"
                   style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
                 >
-                  <span className="text-sm text-white/80">Total Paid</span>
-                  <span className="text-lg font-bold text-white">{formatCurrency(booking.total_amount)}</span>
+                  <span className="text-white/80 font-medium">Total Paid</span>
+                  <span className="text-2xl font-bold text-white">
+                    {formatCurrency(booking.total_amount)}
+                  </span>
                 </div>
-              </>
-            )}
+              </div>
+            </motion.div>
 
-            {/* Important Information - Compact */}
-            <div className="bg-amber-50 border border-amber-100 rounded-lg p-3 mb-4">
-              <h3 className="text-xs font-semibold text-amber-800 mb-2 uppercase tracking-wide">Important Information</h3>
-              <ul className="space-y-1 text-xs text-amber-700">
-                <li className="flex items-start gap-1.5">
-                  <span className="text-amber-500 mt-0.5">•</span>
-                  Arrive at least 30 minutes before your scheduled time
+            {/* 3. IMPORTANT INFO CARD */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-6 mb-6"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Info className="w-5 h-5 text-amber-600" />
+                <h3 className="text-sm font-bold text-amber-800 uppercase tracking-wider">
+                  Important Information
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {hasTransfer() ? (
+                  <li className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Clock className="w-3.5 h-3.5 text-amber-700" />
+                    </div>
+                    <span className="text-sm text-amber-800">
+                      Be at your hotel lobby <strong>15 minutes before</strong> your scheduled pick-up time
+                    </span>
+                  </li>
+                ) : (
+                  <li className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Clock className="w-3.5 h-3.5 text-amber-700" />
+                    </div>
+                    <span className="text-sm text-amber-800">
+                      Arrive at least <strong>30 minutes before</strong> your scheduled time
+                    </span>
+                  </li>
+                )}
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Mail className="w-3.5 h-3.5 text-amber-700" />
+                  </div>
+                  <span className="text-sm text-amber-800">
+                    Bring your <strong>booking confirmation</strong> (email or screenshot)
+                  </span>
                 </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-amber-500 mt-0.5">•</span>
-                  Bring your booking confirmation
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Shirt className="w-3.5 h-3.5 text-amber-700" />
+                  </div>
+                  <span className="text-sm text-amber-800">
+                    Wear <strong>comfortable clothes</strong> and <strong>closed-toe shoes</strong>
+                  </span>
                 </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-amber-500 mt-0.5">•</span>
-                  Wear comfortable light clothes and closed-toe shoes
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <span className="text-amber-500 mt-0.5">•</span>
-                  Weight limit: 120kg maximum for zipline
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Scale className="w-3.5 h-3.5 text-amber-700" />
+                  </div>
+                  <span className="text-sm text-amber-800">
+                    Weight limit: <strong>120kg maximum</strong> for zipline activities
+                  </span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-            {/* Location - Compact */}
-            <div className="bg-slate-50 rounded-lg p-3 mb-4">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#2D6A4F] mt-0.5 flex-shrink-0" />
+            {/* 4. LOCATION CARD */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-white rounded-2xl shadow-xl p-6 mb-6"
+            >
+              <div className="flex items-start gap-4">
+                <div 
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
+                >
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
                 <div>
-                  <p className="text-xs font-semibold text-slate-800">Sky Rock Khao Lak</p>
-                  <p className="text-[10px] text-slate-600">Khao Lak, Phang Nga, Thailand</p>
+                  <h3 className="text-lg font-bold text-slate-800 mb-1">Sky Rock Khao Lak</h3>
+                  <p className="text-sm text-slate-600">
+                    Khao Lak, Phang Nga Province, Thailand 82190
+                  </p>
+                  <a 
+                    href="https://maps.google.com/?q=Sky+Rock+Khao+Lak" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-[#2D6A4F] hover:underline mt-2 font-medium"
+                  >
+                    View on Google Maps
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Single Button */}
-            <Link href="/" className="block">
-              <button 
-                className="w-full px-5 py-3 text-white font-semibold rounded-xl transition-all text-sm hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
-              >
-                Back to Home
-              </button>
-            </Link>
+            {/* 5. BACK TO HOME BUTTON */}
+            <motion.div variants={cardVariants}>
+              <Link href="/" className="block">
+                <button 
+                  className="w-full px-6 py-4 text-white font-bold rounded-xl transition-all text-base hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)',
+                    boxShadow: '0 4px 20px rgba(27, 67, 50, 0.4)',
+                  }}
+                >
+                  Back to Home
+                </button>
+              </Link>
+            </motion.div>
 
-            {/* Help Section - Compact */}
-            <div className="mt-4 pt-4 border-t border-slate-100">
-              <p className="text-center text-[10px] text-slate-500 mb-2 uppercase tracking-wide">Need help with your booking?</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-2 text-xs">
-                <a href="mailto:support@skyrockkhaolak.com" className="flex items-center justify-center gap-1.5 text-[#2D6A4F] hover:underline">
-                  <Mail className="w-3.5 h-3.5" />
-                  support@skyrockkhaolak.com
+            {/* 6. HELP FOOTER */}
+            <motion.div 
+              variants={cardVariants}
+              className="mt-8 text-center"
+            >
+              <p className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Need help with your booking?
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a 
+                  href="mailto:support@skyrockkhaolak.com" 
+                  className="inline-flex items-center justify-center gap-2 text-white/90 hover:text-white transition-colors"
+                >
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm font-medium">support@skyrockkhaolak.com</span>
                 </a>
-                <a href="tel:+66629795533" className="flex items-center justify-center gap-1.5 text-[#2D6A4F] hover:underline">
-                  <Phone className="w-3.5 h-3.5" />
-                  +66 62 979 5533
+                <a 
+                  href="tel:+66629795533" 
+                  className="inline-flex items-center justify-center gap-2 text-white/90 hover:text-white transition-colors"
+                >
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm font-medium">+66 62 979 5533</span>
                 </a>
               </div>
+            </motion.div>
+          </>
+        )}
+
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-white rounded-2xl shadow-xl p-8"
+          >
+            <div className="flex flex-col items-center justify-center py-8">
+              <div className="w-12 h-12 border-4 border-[#1B4332]/20 border-t-[#1B4332] rounded-full animate-spin mb-4" />
+              <p className="text-slate-600 text-sm">Loading your booking details...</p>
             </div>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        )}
+      </motion.div>
     </main>
   );
 }
@@ -419,7 +615,10 @@ export default function SuccessPage() {
   return (
     <Suspense fallback={
       <main className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0A1612 0%, #1B4332 100%)' }}>
-        <div className="text-white text-lg">Loading...</div>
+        <div className="flex flex-col items-center">
+          <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4" />
+          <p className="text-white/80 text-sm">Loading...</p>
+        </div>
       </main>
     }>
       <SuccessContent />
