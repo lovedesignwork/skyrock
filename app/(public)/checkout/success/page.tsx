@@ -28,9 +28,11 @@ interface BookingCustomer {
 }
 
 interface BookingTransport {
-  type: string;
-  pickup_location: string;
-  pickup_time?: string;
+  transport_type: string;
+  hotel_name: string | null;
+  room_number: string | null;
+  non_players: number;
+  private_passengers: number;
 }
 
 interface BookingData {
@@ -119,7 +121,9 @@ function SuccessContent() {
 
   const hasTransfer = (): boolean => {
     const transport = getTransport();
-    return transport !== null && transport.type !== 'self_arrange' && transport.type !== 'self' && transport.type !== 'none' && transport.type !== '';
+    if (!transport) return false;
+    const type = transport.transport_type;
+    return type === 'hotel_pickup' || type === 'private';
   };
 
   const customer = getCustomer();
@@ -409,10 +413,13 @@ function SuccessContent() {
                     </div>
                     <div>
                       <p className="text-xs text-blue-600 uppercase tracking-wider">
-                        {transport.type === 'private' ? 'Private Transfer' : 'Shared Transfer'}
+                        {transport.transport_type === 'private' ? 'Private Transfer' : 'Hotel Pickup (Shared)'}
                       </p>
-                      {transport.pickup_location && (
-                        <p className="text-sm font-semibold text-blue-800">{transport.pickup_location}</p>
+                      {transport.hotel_name && (
+                        <p className="text-sm font-semibold text-blue-800">
+                          {transport.hotel_name}
+                          {transport.room_number && ` - Room ${transport.room_number}`}
+                        </p>
                       )}
                     </div>
                   </div>
