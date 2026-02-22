@@ -97,7 +97,10 @@ export async function POST(request: NextRequest) {
     let transportCost = 0;
     let transportType: 'hotel_pickup' | 'self_arrange' | 'private' = 'self_arrange';
 
-    if (privateTransfer) {
+    // Only allow hotel_pickup or private transfer if package includes transfer
+    const packageIncludesTransfer = packageData.includes_transfer === true;
+
+    if (privateTransfer && packageIncludesTransfer) {
       transportType = 'private';
       transportCost = PRIVATE_TRANSFER_PRICE;
       totalAmount += PRIVATE_TRANSFER_PRICE;
@@ -112,9 +115,10 @@ export async function POST(request: NextRequest) {
         },
         quantity: 1,
       });
-    } else if (pickup) {
+    } else if (pickup && packageIncludesTransfer) {
       transportType = 'hotel_pickup';
     }
+    // If package doesn't include transfer, transportType stays as 'self_arrange'
 
     if (nonPlayers > 0) {
       const nonPlayerCost = NON_PLAYER_PRICE * nonPlayers;
