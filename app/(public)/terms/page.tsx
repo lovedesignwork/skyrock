@@ -6,7 +6,7 @@ import { Section, Container } from '@/components/craft';
 export default function TermsPage() {
   return (
     <main className="pt-20">
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

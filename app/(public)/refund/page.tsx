@@ -7,7 +7,7 @@ import { AlertCircle, CheckCircle, XCircle, Clock, FileText, Phone } from 'lucid
 export default function RefundPage() {
   return (
     <main className="pt-20">
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -188,7 +188,7 @@ export default function RefundPage() {
               <div className="not-prose grid md:grid-cols-2 gap-4 mt-6">
                 <div className="bg-slate-50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <FileText className="w-5 h-5 text-[#DC2626]" />
+                    <FileText className="w-5 h-5 text-[#2D6A4F]" />
                     <h3 className="font-semibold text-slate-800">For Refund Requests</h3>
                   </div>
                   <p className="text-sm text-slate-600">support@skyrockkhaolak.com</p>
@@ -196,7 +196,7 @@ export default function RefundPage() {
                 </div>
                 <div className="bg-slate-50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <Phone className="w-5 h-5 text-[#DC2626]" />
+                    <Phone className="w-5 h-5 text-[#2D6A4F]" />
                     <h3 className="font-semibold text-slate-800">Urgent Inquiries</h3>
                   </div>
                   <p className="text-sm text-slate-600">+66 62 979 5533</p>

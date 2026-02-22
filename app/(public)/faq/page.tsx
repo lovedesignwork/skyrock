@@ -154,7 +154,7 @@ export default function FAQPage() {
   return (
     <main className="pt-20">
       <FAQSchema faqs={allFAQs} />
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ export default function FAQPage() {
               onClick={() => setActiveCategory('all')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeCategory === 'all'
-                  ? 'bg-[#DC2626] text-white'
+                  ? 'bg-[#1B4332] text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -201,7 +201,7 @@ export default function FAQPage() {
                 onClick={() => setActiveCategory(cat.category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   activeCategory === cat.category
-                    ? 'bg-[#DC2626] text-white'
+                    ? 'bg-[#1B4332] text-white'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
@@ -218,7 +218,7 @@ export default function FAQPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="bg-slate-50 rounded-2xl p-6"
               >
-                <h2 className="text-lg font-semibold text-[#DC2626] mb-4">
+                <h2 className="text-lg font-semibold text-[#1B4332] mb-4">
                   {category.category}
                 </h2>
                 <div>
@@ -249,8 +249,8 @@ export default function FAQPage() {
             whileInView={{ opacity: 1, y: 0 }}
             className="max-w-xl mx-auto text-center"
           >
-            <div className="w-16 h-16 bg-[#DC2626]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <MessageCircle className="w-8 h-8 text-[#DC2626]" />
+            <div className="w-16 h-16 bg-[#1B4332]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <MessageCircle className="w-8 h-8 text-[#1B4332]" />
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-4">
               Still have questions?
@@ -259,7 +259,7 @@ export default function FAQPage() {
               Can't find the answer you're looking for? Our friendly team is here to help.
             </p>
             <Link href="/contact">
-              <button className="px-6 py-3 bg-[#DC2626] hover:bg-[#991B1B] text-white font-semibold rounded-xl transition-colors">
+              <button className="px-6 py-3 bg-[#1B4332] hover:bg-[#0D2818] text-white font-semibold rounded-xl transition-colors">
                 Contact Us
               </button>
             </Link>

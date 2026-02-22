@@ -22,7 +22,7 @@ import {
 export default function SafetyPage() {
   return (
     <main className="pt-20">
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,22 +45,22 @@ export default function SafetyPage() {
           >
             {/* Quick Requirements */}
             <div className="grid md:grid-cols-3 gap-4 mb-10">
-              <div className="bg-[#DC2626]/5 border border-[#DC2626]/20 rounded-xl p-5 text-center">
-                <Scale className="w-10 h-10 text-[#DC2626] mx-auto mb-3" />
+              <div className="bg-[#1B4332]/5 border border-[#1B4332]/20 rounded-xl p-5 text-center">
+                <Scale className="w-10 h-10 text-[#2D6A4F] mx-auto mb-3" />
                 <h3 className="font-bold text-slate-800 mb-1">Weight Limit</h3>
-                <p className="text-2xl font-bold text-[#DC2626]">15 - 120 kg</p>
+                <p className="text-2xl font-bold text-[#1B4332]">15 - 120 kg</p>
                 <p className="text-xs text-slate-500 mt-1">For zipline activities</p>
               </div>
-              <div className="bg-[#DC2626]/5 border border-[#DC2626]/20 rounded-xl p-5 text-center">
-                <Baby className="w-10 h-10 text-[#DC2626] mx-auto mb-3" />
+              <div className="bg-[#1B4332]/5 border border-[#1B4332]/20 rounded-xl p-5 text-center">
+                <Baby className="w-10 h-10 text-[#2D6A4F] mx-auto mb-3" />
                 <h3 className="font-bold text-slate-800 mb-1">Minimum Age</h3>
-                <p className="text-2xl font-bold text-[#DC2626]">4 Years</p>
+                <p className="text-2xl font-bold text-[#1B4332]">4 Years</p>
                 <p className="text-xs text-slate-500 mt-1">With adult supervision</p>
               </div>
-              <div className="bg-[#DC2626]/5 border border-[#DC2626]/20 rounded-xl p-5 text-center">
-                <Clock className="w-10 h-10 text-[#DC2626] mx-auto mb-3" />
+              <div className="bg-[#1B4332]/5 border border-[#1B4332]/20 rounded-xl p-5 text-center">
+                <Clock className="w-10 h-10 text-[#2D6A4F] mx-auto mb-3" />
                 <h3 className="font-bold text-slate-800 mb-1">Arrive Early</h3>
-                <p className="text-2xl font-bold text-[#DC2626]">30 Minutes</p>
+                <p className="text-2xl font-bold text-[#1B4332]">30 Minutes</p>
                 <p className="text-xs text-slate-500 mt-1">Before scheduled time</p>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function SafetyPage() {
               </div>
 
               <h2 className="flex items-center gap-2">
-                <Shirt className="w-6 h-6 text-[#DC2626]" />
+                <Shirt className="w-6 h-6 text-[#2D6A4F]" />
                 What to Wear
               </h2>
               

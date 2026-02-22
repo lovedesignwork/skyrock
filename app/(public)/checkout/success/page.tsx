@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, Calendar, Clock, Users, MapPin, Mail, Phone, Package, Car, UserMinus } from 'lucide-react';
+import { CheckCircle, Calendar, Clock, Users, MapPin, Mail, Phone, Package, Car, UserMinus, AlertCircle } from 'lucide-react';
 
 interface BookingAddon {
   id: string;
@@ -90,15 +90,43 @@ function SuccessContent() {
 
   if (error) {
     return (
-      <main className="min-h-screen bg-[#DC2626]">
-        <div className="max-w-md mx-auto px-4 py-12">
+      <main className="min-h-screen relative overflow-hidden">
+        {/* Sporty Background */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
+          />
+          <div 
+            className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.2) 50%, transparent 70%)',
+              animation: 'pulse 8s ease-in-out infinite',
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
+              animation: 'pulse 10s ease-in-out infinite reverse',
+            }}
+          />
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
+            }}
+          />
+        </div>
+        
+        <div className="relative z-10 max-w-md mx-auto px-4 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="bg-white rounded-2xl shadow-xl p-8 text-center"
           >
-            <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Mail className="w-7 h-7 text-red-500" />
+            <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-7 h-7 text-amber-500" />
             </div>
             <h1 className="text-xl font-bold text-slate-800 mb-2">Access Denied</h1>
             <p className="text-sm text-slate-600 mb-6">{error}</p>
@@ -107,13 +135,18 @@ function SuccessContent() {
               or contact our support team for assistance.
             </p>
             <Link href="/" className="block">
-              <button className="w-full px-5 py-3 bg-[#DC2626] hover:bg-[#991B1B] text-white font-semibold rounded-xl transition-colors text-sm">
+              <button 
+                className="w-full px-5 py-3 text-white font-semibold rounded-xl transition-all text-sm"
+                style={{
+                  background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)',
+                }}
+              >
                 Back to Home
               </button>
             </Link>
             <div className="mt-4 pt-4 border-t border-slate-100">
               <p className="text-[10px] text-slate-500 mb-2">Need help?</p>
-              <a href="mailto:support@skyrockkhaolak.com" className="text-xs text-[#DC2626] hover:underline">
+              <a href="mailto:support@skyrockkhaolak.com" className="text-xs text-[#2D6A4F] hover:underline">
                 support@skyrockkhaolak.com
               </a>
             </div>
@@ -124,16 +157,55 @@ function SuccessContent() {
   }
 
   return (
-    <main className="min-h-screen bg-[#DC2626]">
-      <div className="max-w-2xl mx-auto px-4 py-8 md:py-12">
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Sporty Background */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
+        />
+        <div 
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 8s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 10s ease-in-out infinite reverse',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
+            backgroundSize: '200% 100%',
+            animation: 'shine 8s ease-in-out infinite',
+          }}
+        />
+      </div>
+      
+      <div className="relative z-10 max-w-2xl mx-auto px-4 py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="bg-white rounded-2xl shadow-xl overflow-hidden"
         >
-          {/* Header - Royal Blue Brand */}
-          <div className="bg-gradient-to-r from-[#DC2626] to-[#991B1B] px-5 py-6 text-center">
+          {/* Header - Sky Rock Green Theme */}
+          <div 
+            className="px-5 py-6 text-center"
+            style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)' }}
+          >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -150,14 +222,14 @@ function SuccessContent() {
 
           <div className="p-5">
             {/* Booking Reference */}
-            <div className="bg-[#DC2626]/5 border border-[#DC2626]/10 rounded-xl p-4 mb-4">
+            <div className="bg-[#1B4332]/5 border border-[#1B4332]/10 rounded-xl p-4 mb-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-slate-500 uppercase tracking-wide">Booking Reference</span>
-                <span className="text-lg font-bold text-[#DC2626]">{bookingRef || 'Loading...'}</span>
+                <span className="text-lg font-bold text-[#1B4332]">{bookingRef || 'Loading...'}</span>
               </div>
               {booking?.booking_customers?.email && (
                 <p className="text-xs text-slate-600">
-                  A confirmation email has been sent to <span className="font-semibold text-[#DC2626]">{booking.booking_customers.email}</span> with all the booking details.
+                  A confirmation email has been sent to <span className="font-semibold text-[#1B4332]">{booking.booking_customers.email}</span> with all the booking details.
                 </p>
               )}
             </div>
@@ -169,8 +241,8 @@ function SuccessContent() {
                   <h3 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">Booking Details</h3>
                   <div className="grid grid-cols-2 gap-2">
                     {/* Package */}
-                    <div className="col-span-2 flex items-center gap-2 p-3 bg-[#DC2626]/5 rounded-lg">
-                      <Package className="w-4 h-4 text-[#DC2626]" />
+                    <div className="col-span-2 flex items-center gap-2 p-3 bg-[#1B4332]/5 rounded-lg">
+                      <Package className="w-4 h-4 text-[#2D6A4F]" />
                       <div>
                         <p className="text-[10px] text-slate-500 uppercase">Package</p>
                         <p className="text-sm font-semibold text-slate-800">{booking.packages?.name || 'N/A'}</p>
@@ -179,7 +251,7 @@ function SuccessContent() {
 
                     {/* Date */}
                     <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Calendar className="w-4 h-4 text-[#DC2626]" />
+                      <Calendar className="w-4 h-4 text-[#2D6A4F]" />
                       <div>
                         <p className="text-[10px] text-slate-500 uppercase">Date</p>
                         <p className="text-xs font-medium text-slate-800">
@@ -195,7 +267,7 @@ function SuccessContent() {
                     
                     {/* Time */}
                     <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Clock className="w-4 h-4 text-[#DC2626]" />
+                      <Clock className="w-4 h-4 text-[#2D6A4F]" />
                       <div>
                         <p className="text-[10px] text-slate-500 uppercase">Time</p>
                         <p className="text-xs font-medium text-slate-800">
@@ -206,7 +278,7 @@ function SuccessContent() {
                     
                     {/* Players */}
                     <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                      <Users className="w-4 h-4 text-[#DC2626]" />
+                      <Users className="w-4 h-4 text-[#2D6A4F]" />
                       <div>
                         <p className="text-[10px] text-slate-500 uppercase">Players</p>
                         <p className="text-xs font-medium text-slate-800">{booking.guest_count} person(s)</p>
@@ -216,7 +288,7 @@ function SuccessContent() {
                     {/* Non-Playing Guests */}
                     {booking.non_playing_guests > 0 && (
                       <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg">
-                        <UserMinus className="w-4 h-4 text-[#DC2626]" />
+                        <UserMinus className="w-4 h-4 text-[#2D6A4F]" />
                         <div>
                           <p className="text-[10px] text-slate-500 uppercase">Non-Players</p>
                           <p className="text-xs font-medium text-slate-800">{booking.non_playing_guests} person(s)</p>
@@ -262,7 +334,10 @@ function SuccessContent() {
                 )}
 
                 {/* Total */}
-                <div className="flex items-center justify-between p-3 bg-[#DC2626] rounded-lg mb-4">
+                <div 
+                  className="flex items-center justify-between p-3 rounded-lg mb-4"
+                  style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
+                >
                   <span className="text-sm text-white/80">Total Paid</span>
                   <span className="text-lg font-bold text-white">{formatCurrency(booking.total_amount)}</span>
                 </div>
@@ -295,7 +370,7 @@ function SuccessContent() {
             {/* Location - Compact */}
             <div className="bg-slate-50 rounded-lg p-3 mb-4">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#DC2626] mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#2D6A4F] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-slate-800">Sky Rock Khao Lak</p>
                   <p className="text-[10px] text-slate-600">Khao Lak, Phang Nga, Thailand</p>
@@ -305,7 +380,10 @@ function SuccessContent() {
 
             {/* Single Button */}
             <Link href="/" className="block">
-              <button className="w-full px-5 py-3 bg-[#DC2626] hover:bg-[#991B1B] text-white font-semibold rounded-xl transition-colors text-sm">
+              <button 
+                className="w-full px-5 py-3 text-white font-semibold rounded-xl transition-all text-sm hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
+              >
                 Back to Home
               </button>
             </Link>
@@ -314,11 +392,11 @@ function SuccessContent() {
             <div className="mt-4 pt-4 border-t border-slate-100">
               <p className="text-center text-[10px] text-slate-500 mb-2 uppercase tracking-wide">Need help with your booking?</p>
               <div className="flex flex-col sm:flex-row justify-center gap-2 text-xs">
-                <a href="mailto:support@skyrockkhaolak.com" className="flex items-center justify-center gap-1.5 text-[#DC2626] hover:underline">
+                <a href="mailto:support@skyrockkhaolak.com" className="flex items-center justify-center gap-1.5 text-[#2D6A4F] hover:underline">
                   <Mail className="w-3.5 h-3.5" />
                   support@skyrockkhaolak.com
                 </a>
-                <a href="tel:+66629795533" className="flex items-center justify-center gap-1.5 text-[#DC2626] hover:underline">
+                <a href="tel:+66629795533" className="flex items-center justify-center gap-1.5 text-[#2D6A4F] hover:underline">
                   <Phone className="w-3.5 h-3.5" />
                   +66 62 979 5533
                 </a>
@@ -334,7 +412,7 @@ function SuccessContent() {
 export default function SuccessPage() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-[#DC2626] flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #0A1612 0%, #1B4332 100%)' }}>
         <div className="text-white text-lg">Loading...</div>
       </main>
     }>

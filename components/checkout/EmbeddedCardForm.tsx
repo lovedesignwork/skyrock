@@ -104,7 +104,7 @@ export default function EmbeddedCardForm({
         '::placeholder': {
           color: '#94a3b8',
         },
-        iconColor: '#DC2626',
+        iconColor: '#2D6A4F',
       },
       invalid: {
         color: '#ef4444',
@@ -130,7 +130,7 @@ export default function EmbeddedCardForm({
             />
           </div>
           <span className="text-xs text-slate-600 pt-1">
-            I agree to the <button type="button" onClick={() => setTermsModalOpen(true)} className="text-[#DC2626] underline hover:text-[#DC2626]/80 transition-colors">Terms & Conditions</button> and <button type="button" onClick={() => setPrivacyModalOpen(true)} className="text-[#DC2626] underline hover:text-[#DC2626]/80 transition-colors">Privacy Policy</button>. I understand the cancellation policy and that bookings are non-refundable within 24 hours of the activity. *
+            I agree to the <button type="button" onClick={() => setTermsModalOpen(true)} className="text-[#2D6A4F] underline hover:text-[#2D6A4F]/80 transition-colors">Terms & Conditions</button> and <button type="button" onClick={() => setPrivacyModalOpen(true)} className="text-[#2D6A4F] underline hover:text-[#2D6A4F]/80 transition-colors">Privacy Policy</button>. I understand the cancellation policy and that bookings are non-refundable within 24 hours of the activity. *
           </span>
         </label>
       </div>
@@ -148,7 +148,7 @@ export default function EmbeddedCardForm({
 
       {/* Debit/Credit Card Header */}
       <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200">
-        <CreditCard className="w-5 h-5 text-[#DC2626]" />
+        <CreditCard className="w-5 h-5 text-[#2D6A4F]" />
         <span className="text-sm font-medium text-slate-800">Debit / Credit Card</span>
       </div>
 
@@ -218,8 +218,8 @@ export default function EmbeddedCardForm({
         disabled={!canSubmit}
         className="w-full h-14 rounded-xl font-bold text-white flex items-center justify-center gap-2 transition-all hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
         style={{
-          backgroundColor: '#DC2626',
-          boxShadow: canSubmit ? '0 10px 40px rgba(220, 38, 38, 0.3)' : 'none',
+          background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)',
+          boxShadow: canSubmit ? '0 10px 40px rgba(27, 67, 50, 0.3)' : 'none',
         }}
       >
         {isProcessing || isCreatingBooking ? (

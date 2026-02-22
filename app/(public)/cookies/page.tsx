@@ -7,7 +7,7 @@ import { Cookie, Shield, BarChart3, Target, Settings } from 'lucide-react';
 export default function CookiePolicyPage() {
   return (
     <main className="pt-20">
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,9 +216,9 @@ export default function CookiePolicyPage() {
                 about their cookies:
               </p>
               <ul>
-                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Google Privacy Policy</a></li>
-                <li><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Meta Privacy Policy</a></li>
-                <li><a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Stripe Privacy Policy</a></li>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Google Privacy Policy</a></li>
+                <li><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Meta Privacy Policy</a></li>
+                <li><a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Stripe Privacy Policy</a></li>
               </ul>
 
               <h2>4. Managing Cookies</h2>
@@ -246,10 +246,10 @@ export default function CookiePolicyPage() {
                 Here are links to cookie management instructions for popular browsers:
               </p>
               <ul>
-                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Google Chrome</a></li>
-                <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Mozilla Firefox</a></li>
-                <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Safari</a></li>
-                <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-[#DC2626] hover:underline">Microsoft Edge</a></li>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Safari</a></li>
+                <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-[#2D6A4F] hover:underline">Microsoft Edge</a></li>
               </ul>
 
               <h3>4.3 Impact of Disabling Cookies</h3>
@@ -297,7 +297,7 @@ export default function CookiePolicyPage() {
 
               <p>
                 For more information about how we handle your personal data, please see our{' '}
-                <a href="/privacy" className="text-[#DC2626] hover:underline">Privacy Policy</a>.
+                <a href="/privacy" className="text-[#2D6A4F] hover:underline">Privacy Policy</a>.
               </p>
             </div>
           </motion.div>

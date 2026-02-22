@@ -6,7 +6,7 @@ import { Section, Container } from '@/components/craft';
 export default function PrivacyPage() {
   return (
     <main className="pt-20">
-      <Section className="bg-gradient-to-b from-[#991B1B] to-[#DC2626] py-16">
+      <Section className="bg-gradient-to-b from-[#1B4332] to-[#2D6A4F] py-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ export default function PrivacyPage() {
             <p>
               Our website uses cookies and similar technologies to enhance your experience. 
               For detailed information about the cookies we use and how to manage them, 
-              please see our <a href="/cookies" className="text-[#DC2626] hover:underline">Cookie Policy</a>.
+              please see our <a href="/cookies" className="text-[#2D6A4F] hover:underline">Cookie Policy</a>.
             </p>
             <p>Types of cookies we use:</p>
             <ul>
