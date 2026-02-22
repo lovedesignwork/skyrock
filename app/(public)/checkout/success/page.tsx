@@ -298,15 +298,62 @@ function SuccessContent() {
         initial="hidden"
         animate="visible"
       >
-        {/* 1. SUCCESS HEADER CARD */}
+        {/* 1. SUCCESS HEADER CARD - Black Sporty Background */}
         <motion.div
           variants={headerVariants}
-          className="rounded-2xl shadow-2xl overflow-hidden mb-6"
-          style={{
-            background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)',
-          }}
+          className="rounded-2xl shadow-2xl overflow-hidden mb-6 relative"
         >
-          <div className="px-6 py-8 text-center">
+          {/* Sporty Background */}
+          <div className="absolute inset-0">
+            {/* Base dark gradient */}
+            <div 
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)' }}
+            />
+            
+            {/* Animated gradient orbs */}
+            <div 
+              className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full opacity-40 blur-3xl"
+              style={{
+                background: 'radial-gradient(circle, rgba(255,0,128,0.5) 0%, rgba(128,0,255,0.3) 50%, transparent 70%)',
+                animation: 'pulse 6s ease-in-out infinite',
+              }}
+            />
+            <div 
+              className="absolute bottom-0 right-0 w-[250px] h-[250px] rounded-full opacity-30 blur-3xl"
+              style={{
+                background: 'radial-gradient(circle, rgba(0,255,255,0.5) 0%, rgba(0,128,255,0.3) 50%, transparent 70%)',
+                animation: 'pulse 8s ease-in-out infinite reverse',
+              }}
+            />
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full opacity-25 blur-3xl"
+              style={{
+                background: 'radial-gradient(circle, rgba(255,200,0,0.4) 0%, rgba(255,100,0,0.2) 50%, transparent 70%)',
+                animation: 'pulse 10s ease-in-out infinite',
+              }}
+            />
+            
+            {/* Diagonal stripes overlay */}
+            <div 
+              className="absolute inset-0 opacity-[0.04]"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
+              }}
+            />
+            
+            {/* Shining gradient sweep */}
+            <div 
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
+                backgroundSize: '200% 100%',
+                animation: 'shine 4s ease-in-out infinite',
+              }}
+            />
+          </div>
+          
+          <div className="relative z-10 px-6 py-8 text-center">
             {/* Checkmark with spring animation */}
             <motion.div
               variants={checkmarkVariants}
@@ -315,8 +362,18 @@ function SuccessContent() {
               <CheckCircle className="w-12 h-12 text-emerald-500" />
             </motion.div>
             
-            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 font-heading tracking-wide">
-              BOOKING CONFIRMED!
+            {/* Rainbow gradient title */}
+            <h1 className="text-2xl md:text-3xl font-bold mb-2 font-heading tracking-wide">
+              <span 
+                className="text-transparent bg-clip-text"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #ff0080, #ff8c00, #ffff00, #00ff80, #00ffff, #0080ff, #8000ff)',
+                  backgroundSize: '200% auto',
+                  animation: 'rainbow-flow 53s linear infinite',
+                }}
+              >
+                BOOKING CONFIRMED!
+              </span>
             </h1>
             
             {customer && (
@@ -326,15 +383,22 @@ function SuccessContent() {
             )}
             
             {/* Booking Reference Box */}
-            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3 mb-4">
-              <p className="text-white/70 text-xs uppercase tracking-wider mb-1">Booking Reference</p>
+            <div 
+              className="inline-block rounded-xl px-6 py-3 mb-4"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,0,128,0.2) 0%, rgba(128,0,255,0.2) 100%)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Booking Reference</p>
               <p className="text-white text-xl font-bold font-mono tracking-wider">
                 {bookingRef || 'Loading...'}
               </p>
             </div>
             
             {customer?.email && (
-              <p className="text-white/80 text-sm">
+              <p className="text-white/70 text-sm">
                 Confirmation sent to <span className="font-semibold text-white">{customer.email}</span>
               </p>
             )}
