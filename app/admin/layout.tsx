@@ -147,22 +147,25 @@ function AdminLayoutContent({ children }: AdminLayoutProps) {
           <Link href="/admin" className="flex items-center justify-center w-full">
             {sidebarCollapsed ? (
               <Image
-                src="/images/HW Logo.png"
-                alt="HW"
+                src="/images/skyrocklogo.png"
+                alt="Sky Rock"
                 width={40}
                 height={40}
                 className="h-10 w-10 object-contain"
                 priority
               />
             ) : (
-              <Image
-                src="/images/HW Logo.png"
-                alt="SKY ROCK"
-                width={220}
-                height={60}
-                className="h-14 w-full max-w-[200px] object-contain"
-                priority
-              />
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/skyrocklogo.png"
+                  alt="Sky Rock"
+                  width={50}
+                  height={50}
+                  className="h-12 w-12 object-contain"
+                  priority
+                />
+                <span className="text-white font-heading text-xl tracking-wide">SKY ROCK</span>
+              </div>
             )}
           </Link>
           <button
