@@ -282,15 +282,15 @@ function CheckoutContent() {
   // Redirect if no package selected
   if (!selectedPackage) {
     return (
-      <main className="min-h-screen bg-[#991B1B]">
+      <main className="min-h-screen bg-[#0A1612]">
         <Section className="relative overflow-hidden min-h-[calc(100vh-80px)]">
           <Container className="relative z-10">
             <div className="max-w-lg mx-auto text-center py-20">
-              <AlertCircle className="w-16 h-16 text-orange-400 mx-auto mb-4" />
+              <AlertCircle className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
               <h1 className="text-2xl font-bold text-white mb-4">No Booking Found</h1>
               <p className="text-white/70 mb-8">Please select a package and complete the booking form first.</p>
               <Link href="/booking">
-                <button className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors">
+                <button className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 text-white font-bold rounded-xl transition-colors hover:opacity-90">
                   Go to Booking
                 </button>
               </Link>
@@ -302,10 +302,10 @@ function CheckoutContent() {
   }
 
   return (
-    <main className="bg-[#991B1B]">
+    <main className="bg-[#0A1612]">
       <Section 
         className="relative overflow-hidden !pt-8"
-        style={{ background: 'linear-gradient(135deg, #991B1B 0%, #DC2626 30%, #2a1a5c 60%, #991B1B 100%)', paddingBottom: '250px' }}
+        style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)', paddingBottom: '250px' }}
       >
         {/* Background circles */}
         <img 
@@ -335,9 +335,9 @@ function CheckoutContent() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-xl"
-                  style={{ border: '2px solid #02134f' }}
+                  style={{ border: '2px solid #1B4332' }}
                 >
-                  <div className="px-6 py-4 bg-[#DC2626] flex items-center justify-between">
+                  <div className="px-6 py-4 bg-gradient-to-r from-[#1B4332] to-[#2D6A4F] flex items-center justify-between">
                     <h2 className="text-lg font-bold text-white flex items-center gap-2">
                       <Calendar className="w-5 h-5" />
                       Booking Summary
@@ -363,15 +363,15 @@ function CheckoutContent() {
                         <p className="text-slate-500 text-sm">{selectedPackage.duration}</p>
                         <div className="flex flex-wrap gap-4 mt-3 text-sm">
                           <span className="flex items-center gap-1 text-slate-600">
-                            <Calendar className="w-4 h-4 text-[#DC2626]" />
+                            <Calendar className="w-4 h-4 text-[#2D6A4F]" />
                             {formatDisplayDate(date || '')}
                           </span>
                           <span className="flex items-center gap-1 text-slate-600">
-                            <Clock className="w-4 h-4 text-[#DC2626]" />
+                            <Clock className="w-4 h-4 text-[#2D6A4F]" />
                             {formatTime(time || '')}
                           </span>
                           <span className="flex items-center gap-1 text-slate-600">
-                            <Users className="w-4 h-4 text-[#DC2626]" />
+                            <Users className="w-4 h-4 text-[#2D6A4F]" />
                             {guests} {guests === 1 ? 'Player' : 'Players'}
                           </span>
                         </div>
@@ -382,7 +382,7 @@ function CheckoutContent() {
                     {selectedPackage.includesTransfer && (
                       <div className="mt-4 pt-4 border-t border-slate-100">
                         <div className="flex items-start gap-3">
-                          <Car className="w-5 h-5 text-[#DC2626] mt-0.5" />
+                          <Car className="w-5 h-5 text-[#2D6A4F] mt-0.5" />
                           <div>
                             <p className="font-medium text-slate-800">
                               {privateTransfer ? 'Private Transfer' : pickup ? 'Hotel Pickup' : 'Self Transfer'}
@@ -403,9 +403,9 @@ function CheckoutContent() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-xl"
-                  style={{ border: '2px solid #02134f' }}
+                  style={{ border: '2px solid #1B4332' }}
                 >
-                  <div className="px-6 py-4 bg-[#DC2626]">
+                  <div className="px-6 py-4 bg-gradient-to-r from-[#1B4332] to-[#2D6A4F]">
                     <h2 className="text-lg font-bold text-white flex items-center gap-2">
                       <User className="w-5 h-5" />
                       Customer Details
@@ -420,7 +420,7 @@ function CheckoutContent() {
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
                           placeholder="John"
-                          className="w-full h-11 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                          className="w-full h-11 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                           required
                         />
                       </div>
@@ -431,7 +431,7 @@ function CheckoutContent() {
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
                           placeholder="Doe"
-                          className="w-full h-11 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                          className="w-full h-11 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                           required
                         />
                       </div>
@@ -446,7 +446,7 @@ function CheckoutContent() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="john@example.com"
-                          className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                          className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                           required
                         />
                       </div>
@@ -459,7 +459,7 @@ function CheckoutContent() {
                           <select
                             value={countryCode}
                             onChange={(e) => setCountryCode(e.target.value)}
-                            className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626] appearance-none"
+                            className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F] appearance-none"
                           >
                             <option value="+66">+66</option>
                             <option value="+1">+1</option>
@@ -478,7 +478,7 @@ function CheckoutContent() {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                             placeholder="812345678"
-                            className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                            className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
                             required
                           />
                         </div>
@@ -492,7 +492,7 @@ function CheckoutContent() {
                         onChange={(e) => setSpecialRequests(e.target.value)}
                         placeholder="Any dietary requirements, accessibility needs, or special occasions..."
                         rows={3}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#DC2626] resize-none"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F] resize-none"
                       />
                     </div>
                   </div>
@@ -507,10 +507,10 @@ function CheckoutContent() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-xl sticky top-24"
-                  style={{ border: '2px solid #02134f' }}
+                  style={{ border: '2px solid #1B4332' }}
                 >
                   {/* Order Summary Header */}
-                  <div className="px-6 py-4 bg-[#DC2626]">
+                  <div className="px-6 py-4 bg-gradient-to-r from-[#1B4332] to-[#2D6A4F]">
                     <h2 className="text-lg font-bold text-white">Order Summary</h2>
                   </div>
                   
@@ -575,7 +575,7 @@ function CheckoutContent() {
                                 value={promoCodeInput}
                                 onChange={(e) => setPromoCodeInput(e.target.value.toUpperCase())}
                                 placeholder="Promo code"
-                                className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-800 uppercase placeholder:normal-case placeholder:text-slate-400 focus:outline-none focus:border-[#DC2626]"
+                                className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-800 uppercase placeholder:normal-case placeholder:text-slate-400 focus:outline-none focus:border-[#2D6A4F]"
                                 onKeyDown={(e) => e.key === 'Enter' && validatePromoCode()}
                               />
                               <button
@@ -604,7 +604,7 @@ function CheckoutContent() {
                       <div className="border-t border-slate-200 pt-3 mt-3">
                         <div className="flex justify-between items-center">
                           <span className="text-lg font-bold text-slate-800">Total</span>
-                          <span className="text-2xl font-bold text-[#DC2626] font-heading">
+                          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 font-heading">
                             {formatPrice(prices.total)}
                           </span>
                         </div>
@@ -668,7 +668,7 @@ function CheckoutContent() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-[#991B1B]">
+      <main className="min-h-screen bg-[#0A1612]">
         <Section className="relative overflow-hidden min-h-[calc(100vh-80px)]">
           <Container className="relative z-10">
             <div className="flex items-center justify-center py-20">
