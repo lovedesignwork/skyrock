@@ -52,7 +52,7 @@ async function syncBooking(booking: Record<string, unknown>): Promise<SyncDetail
       discount_amount: Number(booking.discount_amount) || 0,
       currency: 'THB',
       status: booking.status as string,
-      special_requests: (booking.special_requests as string) || null,
+      special_requests: (customer?.special_requests as string) || null,
       stripe_payment_intent_id: booking.stripe_payment_intent_id as string,
       created_at: booking.created_at as string,
       packages: packages ? {
