@@ -338,7 +338,7 @@ export default function UsersPage() {
         </div>
         <button
           onClick={openAddModal}
-          className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] hover:bg-[#DC2626]/90 text-white rounded-xl transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] hover:bg-[#1B4332]/90 text-white rounded-xl transition-colors"
         >
           <Plus className="w-4 h-4" />
           Add User
@@ -362,7 +362,7 @@ export default function UsersPage() {
       <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
           </div>
         ) : users.length === 0 ? (
           <div className="text-center py-12">
@@ -399,7 +399,7 @@ export default function UsersPage() {
                   <tr key={user.id} className="hover:bg-slate-50">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${user.is_active ? 'bg-[#DC2626]' : 'bg-slate-400'}`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${user.is_active ? 'bg-[#1B4332]' : 'bg-slate-400'}`}>
                           <span className="text-white font-bold text-sm">
                             {user.full_name?.[0]?.toUpperCase() || user.email[0].toUpperCase()}
                           </span>
@@ -511,7 +511,7 @@ export default function UsersPage() {
                   value={formFullName}
                   onChange={(e) => setFormFullName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
                   required
                 />
               </div>
@@ -527,7 +527,7 @@ export default function UsersPage() {
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
                     placeholder="user@example.com"
-                    className="w-full pl-10 pr-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                    className="w-full pl-10 pr-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
                     required
                   />
                 </div>
@@ -543,7 +543,7 @@ export default function UsersPage() {
                     value={formPassword}
                     onChange={(e) => setFormPassword(e.target.value)}
                     placeholder="Minimum 8 characters"
-                    className="w-full px-3 py-2 pr-10 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                    className="w-full px-3 py-2 pr-10 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
                     required
                     minLength={8}
                   />
@@ -568,7 +568,7 @@ export default function UsersPage() {
                     onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
                     className={`w-full flex items-center justify-between px-4 py-3 border-2 rounded-xl transition-all duration-200 ${
                       roleDropdownOpen 
-                        ? 'border-[#DC2626] ring-2 ring-[#DC2626]/20' 
+                        ? 'border-[#1B4332] ring-2 ring-[#1B4332]/20' 
                         : 'border-slate-200 hover:border-slate-300'
                     } bg-white`}
                   >
@@ -633,7 +633,7 @@ export default function UsersPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#DC2626] hover:bg-[#DC2626]/90 rounded-xl transition-colors disabled:opacity-50"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#1B4332] hover:bg-[#1B4332]/90 rounded-xl transition-colors disabled:opacity-50"
                 >
                   {saving ? (
                     <>
@@ -682,7 +682,7 @@ export default function UsersPage() {
                   value={formFullName}
                   onChange={(e) => setFormFullName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
                   required
                 />
               </div>
@@ -697,7 +697,7 @@ export default function UsersPage() {
                     value={formPassword}
                     onChange={(e) => setFormPassword(e.target.value)}
                     placeholder="Enter new password"
-                    className="w-full px-3 py-2 pr-10 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                    className="w-full px-3 py-2 pr-10 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
                     minLength={8}
                   />
                   <button
@@ -721,7 +721,7 @@ export default function UsersPage() {
                     onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
                     className={`w-full flex items-center justify-between px-4 py-3 border-2 rounded-xl transition-all duration-200 ${
                       roleDropdownOpen 
-                        ? 'border-[#DC2626] ring-2 ring-[#DC2626]/20' 
+                        ? 'border-[#1B4332] ring-2 ring-[#1B4332]/20' 
                         : 'border-slate-200 hover:border-slate-300'
                     } bg-white`}
                   >
@@ -786,7 +786,7 @@ export default function UsersPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#DC2626] hover:bg-[#DC2626]/90 rounded-xl transition-colors disabled:opacity-50"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#1B4332] hover:bg-[#1B4332]/90 rounded-xl transition-colors disabled:opacity-50"
                 >
                   {saving ? (
                     <>

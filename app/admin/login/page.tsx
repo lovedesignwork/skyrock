@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Lock, Mail, Eye, EyeOff, Loader2, AlertCircle } from 'lucide-react';
 import { signIn } from '@/lib/supabase/auth';
+import Image from 'next/image';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -67,20 +68,65 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#991B1B] via-[#DC2626] to-[#2a1a5c] flex items-center justify-center p-4">
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-4">
+      {/* Sporty Background */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0A1612 100%)' }}
+        />
+        <div 
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 8s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,128,255,0.2) 50%, transparent 70%)',
+            animation: 'pulse 10s ease-in-out infinite reverse',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 12px)',
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
+            backgroundSize: '200% 100%',
+            animation: 'shine 8s ease-in-out infinite',
+          }}
+        />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md"
+        className="relative z-10 w-full max-w-md"
       >
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="bg-[#DC2626] px-8 py-6 text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <span className="text-white font-bold text-2xl">HW</span>
+          <div 
+            className="px-8 py-6 text-center"
+            style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%)' }}
+          >
+            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 p-2">
+              <Image
+                src="/images/skyrocklogo.png"
+                alt="Sky Rock"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
             </div>
-            <h1 className="text-2xl font-bold text-white">Admin Login</h1>
-            <p className="text-white/70 text-sm mt-1">SKY ROCK Management</p>
+            <h1 className="text-2xl font-bold text-white font-heading">ADMIN LOGIN</h1>
+            <p className="text-white/70 text-sm mt-1">Sky Rock Management Portal</p>
           </div>
 
           {/* Form */}
@@ -89,7 +135,7 @@ export default function AdminLoginPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm"
+                className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 text-sm"
               >
                 <AlertCircle className="w-4 h-4 flex-shrink-0" />
                 {error}
@@ -107,7 +153,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@skyrockkhaolak.com"
-                  className="w-full h-12 pl-11 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]"
+                  className="w-full h-12 pl-11 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#2D6A4F] focus:ring-1 focus:ring-[#2D6A4F]"
                   required
                 />
               </div>
@@ -124,7 +170,7 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="w-full h-12 pl-11 pr-12 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]"
+                  className="w-full h-12 pl-11 pr-12 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#2D6A4F] focus:ring-1 focus:ring-[#2D6A4F]"
                   required
                 />
                 <button
@@ -140,7 +186,8 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-12 bg-[#DC2626] hover:bg-[#DC2626]/90 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+              className="w-full h-12 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%)' }}
             >
               {loading ? (
                 <>

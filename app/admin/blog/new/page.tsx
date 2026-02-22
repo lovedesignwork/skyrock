@@ -241,7 +241,7 @@ export default function NewBlogPostPage() {
           <button
             onClick={() => handleSave('published')}
             disabled={saving}
-            className="px-4 py-2 bg-[#DC2626] hover:bg-[#DC2626]/90 text-white rounded-xl transition-colors flex items-center gap-2 disabled:opacity-50"
+            className="px-4 py-2 bg-[#1B4332] hover:bg-[#1B4332]/90 text-white rounded-xl transition-colors flex items-center gap-2 disabled:opacity-50"
           >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
             Publish
@@ -269,7 +269,7 @@ export default function NewBlogPostPage() {
                 value={scheduledAt}
                 onChange={(e) => setScheduledAt(e.target.value)}
                 min={new Date().toISOString().slice(0, 16)}
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#DC2626]"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#1B4332]"
               />
             </div>
             <div className="flex gap-3">
@@ -324,7 +324,7 @@ export default function NewBlogPostPage() {
               onChange={(e) => setExcerpt(e.target.value)}
               placeholder="Write a brief summary of your post..."
               rows={3}
-              className="w-full px-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#DC2626] resize-none"
+              className="w-full px-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#1B4332] resize-none"
             />
           </div>
 
@@ -380,7 +380,7 @@ export default function NewBlogPostPage() {
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
                   placeholder="Add tag..."
-                  className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-slate-800 text-sm focus:outline-none focus:border-[#DC2626]"
+                  className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-slate-800 text-sm focus:outline-none focus:border-[#1B4332]"
                 />
                 <button
                   onClick={addTag}

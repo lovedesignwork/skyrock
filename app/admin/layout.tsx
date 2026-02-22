@@ -119,7 +119,7 @@ function AdminLayoutContent({ children }: AdminLayoutProps) {
   if (!mounted || (loading && !isLoginPage && !adminUser)) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -138,7 +138,7 @@ function AdminLayoutContent({ children }: AdminLayoutProps) {
     <div className="min-h-screen bg-slate-100">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-[#DC2626] transform transition-all duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 z-50 bg-[#1B4332] transform transition-all duration-300 ease-in-out ${
           sidebarCollapsed ? 'w-20' : 'w-64'
         } ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
       >
@@ -254,7 +254,7 @@ function AdminLayoutContent({ children }: AdminLayoutProps) {
                 </p>
                 <p className="text-xs text-slate-500 capitalize">{adminUser?.role || 'Admin'}</p>
               </div>
-              <div className="w-10 h-10 bg-[#DC2626] rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#1B4332] rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">
                   {adminUser?.full_name?.[0]?.toUpperCase() || adminUser?.email?.[0]?.toUpperCase() || 'A'}
                 </span>

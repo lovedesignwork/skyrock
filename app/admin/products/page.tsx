@@ -183,7 +183,7 @@ export default function ProductsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -197,7 +197,7 @@ export default function ProductsPage() {
         </div>
         <button
           onClick={() => setShowAddForm(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors"
         >
           <Plus className="w-4 h-4" />
           Add Package
@@ -214,7 +214,7 @@ export default function ProductsPage() {
                 type="text"
                 value={newPackage.name}
                 onChange={(e) => setNewPackage({ ...newPackage, name: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="WORLD A+"
               />
             </div>
@@ -224,7 +224,7 @@ export default function ProductsPage() {
                 type="number"
                 value={newPackage.price}
                 onChange={(e) => setNewPackage({ ...newPackage, price: parseInt(e.target.value) || 0 })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="3490"
               />
             </div>
@@ -234,7 +234,7 @@ export default function ProductsPage() {
                 type="text"
                 value={newPackage.duration}
                 onChange={(e) => setNewPackage({ ...newPackage, duration: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="Up to 3 hours"
               />
             </div>
@@ -401,8 +401,8 @@ export default function ProductsPage() {
                   <>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#DC2626]/10 rounded-lg flex items-center justify-center">
-                          <Package className="w-5 h-5 text-[#DC2626]" />
+                        <div className="w-10 h-10 bg-[#1B4332]/10 rounded-lg flex items-center justify-center">
+                          <Package className="w-5 h-5 text-[#1B4332]" />
                         </div>
                         <div>
                           <p className="font-medium text-slate-800">{pkg.name}</p>
@@ -457,7 +457,7 @@ export default function ProductsPage() {
                     <td className="px-6 py-4">
                       <button
                         onClick={() => startEdit(pkg)}
-                        className="p-2 text-slate-400 hover:text-[#DC2626] hover:bg-slate-100 rounded-lg transition-colors"
+                        className="p-2 text-slate-400 hover:text-[#1B4332] hover:bg-slate-100 rounded-lg transition-colors"
                       >
                         <Pencil className="w-4 h-4" />
                       </button>

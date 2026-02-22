@@ -120,8 +120,8 @@ export default function BookingsPage() {
       return <ArrowUpDown className="w-3 h-3 text-slate-300" />;
     }
     return sortDirection === 'asc' 
-      ? <ArrowUp className="w-3 h-3 text-[#DC2626]" />
-      : <ArrowDown className="w-3 h-3 text-[#DC2626]" />;
+      ? <ArrowUp className="w-3 h-3 text-[#1B4332]" />
+      : <ArrowDown className="w-3 h-3 text-[#1B4332]" />;
   };
 
   const filteredBookings = bookings.filter((booking) => {
@@ -274,7 +274,7 @@ export default function BookingsPage() {
           <button 
             onClick={handleExport}
             disabled={exporting}
-            className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors disabled:opacity-50"
           >
             {exporting ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -327,7 +327,7 @@ export default function BookingsPage() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search by reference, name, email, or hotel..."
-                  className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-500"
+                  className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-500"
                 />
               </div>
               <CustomSelect
@@ -360,7 +360,7 @@ export default function BookingsPage() {
                   }}
                   className={`px-3 py-1.5 text-sm font-medium transition-colors ${
                     dateFilterType === 'booking'
-                      ? 'bg-[#DC2626] text-white'
+                      ? 'bg-[#1B4332] text-white'
                       : 'bg-white text-slate-600 hover:bg-slate-50'
                   }`}
                 >
@@ -373,7 +373,7 @@ export default function BookingsPage() {
                   }}
                   className={`px-3 py-1.5 text-sm font-medium transition-colors ${
                     dateFilterType === 'play'
-                      ? 'bg-[#DC2626] text-white'
+                      ? 'bg-[#1B4332] text-white'
                       : 'bg-white text-slate-600 hover:bg-slate-50'
                   }`}
                 >
@@ -392,7 +392,7 @@ export default function BookingsPage() {
                       setDateFrom(e.target.value);
                       setPage(1);
                     }}
-                    className="px-3 py-1.5 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 text-sm"
+                    className="px-3 py-1.5 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 text-sm"
                   />
                 </div>
                 <div className="flex items-center gap-2">
@@ -404,7 +404,7 @@ export default function BookingsPage() {
                       setDateTo(e.target.value);
                       setPage(1);
                     }}
-                    className="px-3 py-1.5 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 text-sm"
+                    className="px-3 py-1.5 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 text-sm"
                   />
                 </div>
               </div>
@@ -429,7 +429,7 @@ export default function BookingsPage() {
 
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
           </div>
         ) : filteredBookings.length === 0 ? (
           <div className="p-8 text-center text-slate-500">
@@ -532,7 +532,7 @@ export default function BookingsPage() {
                     return (
                       <tr key={booking.id} className="hover:bg-slate-50">
                         <td className="px-4 py-3 whitespace-nowrap">
-                          <span className="text-sm font-medium text-[#DC2626]">
+                          <span className="text-sm font-medium text-[#1B4332]">
                             {booking.booking_ref}
                           </span>
                         </td>
@@ -679,7 +679,7 @@ export default function BookingsPage() {
                         <td className="px-4 py-3 whitespace-nowrap">
                           <Link
                             href={`/admin/bookings/${booking.id}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 text-sm text-[#DC2626] hover:bg-[#DC2626]/10 rounded-lg transition-colors"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 text-sm text-[#1B4332] hover:bg-[#1B4332]/10 rounded-lg transition-colors"
                           >
                             <Eye className="w-4 h-4" />
                             View

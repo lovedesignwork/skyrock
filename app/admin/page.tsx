@@ -93,7 +93,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -211,7 +211,7 @@ export default function AdminDashboard() {
           <h2 className="text-lg font-semibold text-slate-800">Recent Bookings</h2>
           <Link
             href="/admin/bookings"
-            className="text-sm text-[#DC2626] hover:underline flex items-center gap-1"
+            className="text-sm text-[#1B4332] hover:underline flex items-center gap-1"
           >
             View All
             <ChevronRight className="w-4 h-4" />
@@ -255,7 +255,7 @@ export default function AdminDashboard() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <Link
                           href={`/admin/bookings/${booking.id}`}
-                          className="text-sm font-medium text-[#DC2626] hover:underline"
+                          className="text-sm font-medium text-[#1B4332] hover:underline"
                         >
                           {booking.booking_ref}
                         </Link>

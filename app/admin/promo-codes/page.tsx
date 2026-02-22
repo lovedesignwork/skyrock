@@ -191,7 +191,7 @@ export default function PromoCodesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -208,7 +208,7 @@ export default function PromoCodesPage() {
             resetForm();
             setShowAddForm(true);
           }}
-          className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors"
         >
           <Plus className="w-4 h-4" />
           Add Promo Code
@@ -228,7 +228,7 @@ export default function PromoCodesPage() {
                 value={formData.code}
                 onChange={(e) => setFormData({ ...formData, code: e.target.value.toUpperCase() })}
                 placeholder="SUMMER20"
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 uppercase placeholder:normal-case placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 uppercase placeholder:normal-case placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -252,7 +252,7 @@ export default function PromoCodesPage() {
                   value={formData.discount_value}
                   onChange={(e) => setFormData({ ...formData, discount_value: parseFloat(e.target.value) || 0 })}
                   placeholder={formData.discount_type === 'percentage' ? '20' : '500'}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                   {formData.discount_type === 'percentage' ? '%' : '฿'}
@@ -266,7 +266,7 @@ export default function PromoCodesPage() {
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Summer sale discount"
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -276,7 +276,7 @@ export default function PromoCodesPage() {
                 value={formData.min_order_amount}
                 onChange={(e) => setFormData({ ...formData, min_order_amount: parseFloat(e.target.value) || 0 })}
                 placeholder="0"
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -286,7 +286,7 @@ export default function PromoCodesPage() {
                 value={formData.max_uses}
                 onChange={(e) => setFormData({ ...formData, max_uses: e.target.value })}
                 placeholder="Unlimited"
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -295,7 +295,7 @@ export default function PromoCodesPage() {
                 type="date"
                 value={formData.valid_from}
                 onChange={(e) => setFormData({ ...formData, valid_from: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800"
               />
             </div>
             <div>
@@ -304,7 +304,7 @@ export default function PromoCodesPage() {
                 type="date"
                 value={formData.valid_until}
                 onChange={(e) => setFormData({ ...formData, valid_until: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800"
               />
             </div>
           </div>
@@ -333,7 +333,7 @@ export default function PromoCodesPage() {
           <p className="text-slate-500">No promo codes yet</p>
           <button
             onClick={() => setShowAddForm(true)}
-            className="mt-4 text-[#DC2626] hover:underline"
+            className="mt-4 text-[#1B4332] hover:underline"
           >
             Create your first promo code
           </button>
@@ -357,8 +357,8 @@ export default function PromoCodesPage() {
                   <tr key={promo.id} className={`hover:bg-slate-50 ${!promo.is_active ? 'opacity-50' : ''}`}>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#DC2626]/10 rounded-lg flex items-center justify-center">
-                          <Tag className="w-5 h-5 text-[#DC2626]" />
+                        <div className="w-10 h-10 bg-[#1B4332]/10 rounded-lg flex items-center justify-center">
+                          <Tag className="w-5 h-5 text-[#1B4332]" />
                         </div>
                         <div>
                           <p className="font-mono font-semibold text-slate-800">{promo.code}</p>
@@ -417,7 +417,7 @@ export default function PromoCodesPage() {
                         </button>
                         <button
                           onClick={() => startEdit(promo)}
-                          className="p-2 text-slate-400 hover:text-[#DC2626] hover:bg-slate-100 rounded-lg transition-colors"
+                          className="p-2 text-slate-400 hover:text-[#1B4332] hover:bg-slate-100 rounded-lg transition-colors"
                           title="Edit"
                         >
                           <Pencil className="w-4 h-4" />

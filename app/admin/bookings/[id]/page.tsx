@@ -220,7 +220,7 @@ export default function BookingDetailPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -229,7 +229,7 @@ export default function BookingDetailPage() {
     return (
       <div className="text-center py-12">
         <h2 className="text-xl font-semibold text-slate-800 mb-2">Booking not found</h2>
-        <Link href="/admin/bookings" className="text-[#DC2626] hover:underline">
+        <Link href="/admin/bookings" className="text-[#1B4332] hover:underline">
           Back to bookings
         </Link>
       </div>
@@ -306,12 +306,12 @@ export default function BookingDetailPage() {
 
           <div className="bg-white rounded-2xl shadow-sm p-6">
             <h2 className="text-lg font-semibold text-slate-800 mb-4">Package</h2>
-            <div className="flex items-center justify-between p-4 bg-[#DC2626]/5 rounded-xl">
+            <div className="flex items-center justify-between p-4 bg-[#1B4332]/5 rounded-xl">
               <div>
                 <p className="font-semibold text-slate-800">{booking.packages?.name}</p>
                 <p className="text-sm text-slate-500">{booking.packages?.duration}</p>
               </div>
-              <p className="font-semibold text-[#DC2626]">
+              <p className="font-semibold text-[#1B4332]">
                 {formatCurrency(booking.packages?.price)} x {booking.guest_count}
               </p>
             </div>
@@ -428,13 +428,13 @@ export default function BookingDetailPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-slate-400" />
-                  <a href={`mailto:${customer.email}`} className="text-[#DC2626] hover:underline text-sm">
+                  <a href={`mailto:${customer.email}`} className="text-[#1B4332] hover:underline text-sm">
                     {customer.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-slate-400" />
-                  <a href={`tel:${customer.country_code}${customer.phone}`} className="text-[#DC2626] hover:underline text-sm">
+                  <a href={`tel:${customer.country_code}${customer.phone}`} className="text-[#1B4332] hover:underline text-sm">
                     {customer.country_code} {customer.phone}
                   </a>
                 </div>
@@ -451,7 +451,7 @@ export default function BookingDetailPage() {
               <button
                 onClick={syncToOneBooking}
                 disabled={syncingToOneBooking}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#DC2626] hover:bg-[#991B1B] text-white rounded-xl transition-colors disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#1B4332] hover:bg-[#0D2818] text-white rounded-xl transition-colors disabled:opacity-50"
               >
                 {syncingToOneBooking ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -479,7 +479,7 @@ export default function BookingDetailPage() {
                     href="https://onebooking-dashboard.vercel.app" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-[#DC2626] font-medium hover:underline"
+                    className="text-[#1B4332] font-medium hover:underline"
                   >
                     OneBooking Dashboard
                   </a>
@@ -533,7 +533,7 @@ export default function BookingDetailPage() {
               value={adminNotes}
               onChange={(e) => setAdminNotes(e.target.value)}
               placeholder="Add internal notes, special instructions, or memos here..."
-              className="w-full h-32 px-3 py-2 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] resize-none text-slate-800 placeholder:text-slate-400"
+              className="w-full h-32 px-3 py-2 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] resize-none text-slate-800 placeholder:text-slate-400"
             />
             <button
               onClick={saveAdminNotes}

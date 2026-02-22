@@ -104,7 +104,7 @@ export default function LegalContentPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -129,7 +129,7 @@ export default function LegalContentPage() {
               onClick={() => setActiveTab(item.type)}
               className={`flex items-center gap-2 px-4 py-3 font-medium transition-colors border-b-2 -mb-px ${
                 activeTab === item.type
-                  ? 'text-[#DC2626] border-[#DC2626]'
+                  ? 'text-[#1B4332] border-[#1B4332]'
                   : 'text-slate-500 border-transparent hover:text-slate-700'
               }`}
             >
@@ -174,7 +174,7 @@ export default function LegalContentPage() {
                       ? 'bg-green-500 text-white'
                       : editedContent[activeContent.id] === activeContent.content
                       ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                      : 'bg-[#DC2626] text-white hover:bg-[#DC2626]/90'
+                      : 'bg-[#1B4332] text-white hover:bg-[#1B4332]/90'
                   }`}
                 >
                   {saving === activeContent.id ? (
@@ -199,7 +199,7 @@ export default function LegalContentPage() {
             <textarea
               value={editedContent[activeContent.id] || ''}
               onChange={(e) => setEditedContent({ ...editedContent, [activeContent.id]: e.target.value })}
-              className="w-full h-[500px] px-4 py-3 border border-slate-200 rounded-xl font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[#DC2626]/20 focus:border-[#DC2626] resize-none"
+              className="w-full h-[500px] px-4 py-3 border border-slate-200 rounded-xl font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[#1B4332]/20 focus:border-[#1B4332] resize-none"
               placeholder="Enter content using Markdown formatting..."
             />
           </div>

@@ -138,7 +138,7 @@ export default function BlogListPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 border-2 border-[#DC2626]/30 border-t-[#DC2626] rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#1B4332]/30 border-t-[#1B4332] rounded-full animate-spin" />
       </div>
     );
   }
@@ -153,7 +153,7 @@ export default function BlogListPage() {
         </div>
         <Link
           href="/admin/blog/new"
-          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#DC2626] hover:bg-[#DC2626]/90 text-white rounded-xl transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#1B4332] hover:bg-[#1B4332]/90 text-white rounded-xl transition-colors"
         >
           <Plus className="w-5 h-5" />
           New Post
@@ -191,7 +191,7 @@ export default function BlogListPage() {
                 placeholder="Search posts..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#DC2626]"
+                className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#1B4332]"
               />
             </div>
             <div className="flex gap-3">
@@ -272,7 +272,7 @@ export default function BlogListPage() {
                     <td className="px-6 py-4">
                       {post.author ? (
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-[#DC2626] flex items-center justify-center text-white text-sm font-medium">
+                          <div className="w-8 h-8 rounded-full bg-[#1B4332] flex items-center justify-center text-white text-sm font-medium">
                             {post.author.name?.charAt(0) || 'U'}
                           </div>
                           <span className="text-sm text-slate-600">{post.author.name}</span>

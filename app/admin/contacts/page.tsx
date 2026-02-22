@@ -162,7 +162,7 @@ export default function ContactsPage() {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Search by name, email, or subject..."
-                className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-500"
+                className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-500"
               />
             </div>
             <CustomSelect
@@ -179,7 +179,7 @@ export default function ContactsPage() {
             />
             <button
               onClick={handleSearch}
-              className="px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors"
+              className="px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors"
             >
               Search
             </button>
@@ -188,7 +188,7 @@ export default function ContactsPage() {
 
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
           </div>
         ) : contacts.length === 0 ? (
           <div className="text-center py-12">
@@ -241,7 +241,7 @@ export default function ContactsPage() {
                       <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                         <button
                           onClick={() => openContact(contact)}
-                          className="p-2 text-slate-400 hover:text-[#DC2626] hover:bg-slate-100 rounded-lg transition-colors"
+                          className="p-2 text-slate-400 hover:text-[#1B4332] hover:bg-slate-100 rounded-lg transition-colors"
                           title="View"
                         >
                           <Eye className="w-4 h-4" />
@@ -312,14 +312,14 @@ export default function ContactsPage() {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm">
                   <Mail className="w-4 h-4 text-slate-400" />
-                  <a href={`mailto:${selectedContact.email}`} className="text-[#DC2626] hover:underline">
+                  <a href={`mailto:${selectedContact.email}`} className="text-[#1B4332] hover:underline">
                     {selectedContact.email}
                   </a>
                 </div>
                 {selectedContact.phone && (
                   <div className="flex items-center gap-2 text-sm">
                     <Phone className="w-4 h-4 text-slate-400" />
-                    <a href={`tel:${selectedContact.phone}`} className="text-[#DC2626] hover:underline">
+                    <a href={`tel:${selectedContact.phone}`} className="text-[#1B4332] hover:underline">
                       {selectedContact.phone}
                     </a>
                   </div>
@@ -342,7 +342,7 @@ export default function ContactsPage() {
               <a
                 href={`mailto:${selectedContact.email}?subject=Re: ${selectedContact.subject}`}
                 onClick={() => updateStatus(selectedContact.id, 'replied')}
-                className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors"
               >
                 <Reply className="w-4 h-4" />
                 Reply via Email

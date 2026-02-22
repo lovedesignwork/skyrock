@@ -165,7 +165,7 @@ export default function AddonsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -179,7 +179,7 @@ export default function AddonsPage() {
         </div>
         <button
           onClick={() => setShowAddForm(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-xl hover:bg-[#991B1B] transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#1B4332] text-white rounded-xl hover:bg-[#0D2818] transition-colors"
         >
           <Plus className="w-4 h-4" />
           Add Add-on
@@ -196,7 +196,7 @@ export default function AddonsPage() {
                 type="text"
                 value={newAddon.name}
                 onChange={(e) => setNewAddon({ ...newAddon, name: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="Zipline Photos"
               />
             </div>
@@ -206,7 +206,7 @@ export default function AddonsPage() {
                 type="number"
                 value={newAddon.price}
                 onChange={(e) => setNewAddon({ ...newAddon, price: parseInt(e.target.value) || 0 })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="770"
               />
             </div>
@@ -216,7 +216,7 @@ export default function AddonsPage() {
                 type="number"
                 value={newAddon.original_price}
                 onChange={(e) => setNewAddon({ ...newAddon, original_price: parseInt(e.target.value) || 0 })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="856"
               />
             </div>
@@ -226,7 +226,7 @@ export default function AddonsPage() {
                 type="text"
                 value={newAddon.description || ''}
                 onChange={(e) => setNewAddon({ ...newAddon, description: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
                 placeholder="Professional photography service"
               />
             </div>
@@ -333,7 +333,7 @@ export default function AddonsPage() {
                     </div>
                     <button
                       onClick={() => startEdit(addon)}
-                      className="p-2 text-slate-400 hover:text-[#DC2626] hover:bg-slate-100 rounded-lg transition-colors"
+                      className="p-2 text-slate-400 hover:text-[#1B4332] hover:bg-slate-100 rounded-lg transition-colors"
                     >
                       <Pencil className="w-4 h-4" />
                     </button>

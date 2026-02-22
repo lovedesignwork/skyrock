@@ -124,7 +124,7 @@ export default function SettingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <Loader2 className="w-8 h-8 animate-spin text-[#DC2626]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B4332]" />
       </div>
     );
   }
@@ -155,8 +155,8 @@ export default function SettingsPage() {
       <div className="grid lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-2xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <Globe className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <Globe className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">General Settings</h2>
@@ -171,7 +171,7 @@ export default function SettingsPage() {
                 type="text"
                 value={general.siteName}
                 onChange={(e) => setGeneral({ ...general, siteName: e.target.value })}
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
               />
             </div>
             <div>
@@ -203,8 +203,8 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-2xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <Mail className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <Mail className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">Contact Information</h2>
@@ -219,7 +219,7 @@ export default function SettingsPage() {
                 type="email"
                 value={contact.email}
                 onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
               />
             </div>
             <div>
@@ -228,7 +228,7 @@ export default function SettingsPage() {
                 type="text"
                 value={contact.phone}
                 onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800"
               />
             </div>
           </div>
@@ -236,8 +236,8 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-2xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <Settings className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <Settings className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">Booking Settings</h2>
@@ -255,8 +255,8 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-2xl shadow-sm p-6 lg:col-span-2">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <Bell className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <Bell className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">Email Notifications</h2>
@@ -301,7 +301,7 @@ export default function SettingsPage() {
                 <textarea
                   value={notifications.bookingNotificationEmails}
                   onChange={(e) => setNotifications({ ...notifications, bookingNotificationEmails: e.target.value })}
-                  className="w-full px-4 py-2 border border-blue-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400 bg-white"
+                  className="w-full px-4 py-2 border border-blue-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400 bg-white"
                   placeholder="booking@example.com, manager@example.com"
                   rows={2}
                 />
@@ -318,7 +318,7 @@ export default function SettingsPage() {
                 <textarea
                   value={notifications.contactNotificationEmails}
                   onChange={(e) => setNotifications({ ...notifications, contactNotificationEmails: e.target.value })}
-                  className="w-full px-4 py-2 border border-green-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400 bg-white"
+                  className="w-full px-4 py-2 border border-green-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400 bg-white"
                   placeholder="contact@example.com, support@example.com"
                   rows={2}
                 />
@@ -332,8 +332,8 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-2xl shadow-sm p-6 lg:col-span-2">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <BarChart3 className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <BarChart3 className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">Analytics & Tracking</h2>
@@ -351,7 +351,7 @@ export default function SettingsPage() {
                 value={tracking.gtmId}
                 onChange={(e) => setTracking({ ...tracking, gtmId: e.target.value })}
                 placeholder="GTM-XXXXXXX"
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -363,7 +363,7 @@ export default function SettingsPage() {
                 value={tracking.ga4Id}
                 onChange={(e) => setTracking({ ...tracking, ga4Id: e.target.value })}
                 placeholder="G-XXXXXXXXXX"
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
             <div>
@@ -375,7 +375,7 @@ export default function SettingsPage() {
                 value={tracking.metaPixelId}
                 onChange={(e) => setTracking({ ...tracking, metaPixelId: e.target.value })}
                 placeholder="XXXXXXXXXXXXXXXXX"
-                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400"
+                className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -399,7 +399,7 @@ export default function SettingsPage() {
                   onChange={(e) => setTracking({ ...tracking, headerScripts: e.target.value })}
                   placeholder="<!-- Paste your header scripts here -->"
                   rows={4}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
                 />
               </div>
               <div>
@@ -411,7 +411,7 @@ export default function SettingsPage() {
                   onChange={(e) => setTracking({ ...tracking, bodyScripts: e.target.value })}
                   placeholder="<!-- Paste your body scripts here (e.g., GTM noscript) -->"
                   rows={4}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
                 />
               </div>
               <div>
@@ -423,7 +423,7 @@ export default function SettingsPage() {
                   onChange={(e) => setTracking({ ...tracking, footerScripts: e.target.value })}
                   placeholder="<!-- Paste your footer scripts here -->"
                   rows={4}
-                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#DC2626] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
+                  className="w-full px-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1B4332] text-slate-800 placeholder:text-slate-400 font-mono text-sm"
                 />
               </div>
             </div>
@@ -432,8 +432,8 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-2xl shadow-sm p-6 lg:col-span-2">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#DC2626]/10 rounded-xl flex items-center justify-center">
-              <CreditCard className="w-5 h-5 text-[#DC2626]" />
+            <div className="w-10 h-10 bg-[#1B4332]/10 rounded-xl flex items-center justify-center">
+              <CreditCard className="w-5 h-5 text-[#1B4332]" />
             </div>
             <div>
               <h2 className="font-semibold text-slate-800">Payment Integration</h2>
@@ -454,7 +454,7 @@ export default function SettingsPage() {
                 href="https://dashboard.stripe.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-[#DC2626] hover:underline"
+                className="inline-flex items-center gap-1 text-sm text-[#1B4332] hover:underline"
               >
                 Open Stripe Dashboard
                 <ExternalLink className="w-3 h-3" />
@@ -472,7 +472,7 @@ export default function SettingsPage() {
                 href="https://supabase.com/dashboard"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-[#DC2626] hover:underline"
+                className="inline-flex items-center gap-1 text-sm text-[#1B4332] hover:underline"
               >
                 Open Supabase Dashboard
                 <ExternalLink className="w-3 h-3" />
