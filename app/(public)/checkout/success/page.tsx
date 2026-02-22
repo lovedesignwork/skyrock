@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
   CheckCircle, Calendar, Clock, Users, MapPin, Mail, Phone, 
-  Package, Car, UserMinus, AlertCircle, Info, Shirt, Scale
+  Package, Car, UserMinus, AlertCircle, Info, Shirt, Scale, MessageSquare
 } from 'lucide-react';
 
 interface BookingAddon {
@@ -25,6 +25,7 @@ interface BookingCustomer {
   last_name: string;
   email: string;
   phone: string;
+  special_requests?: string | null;
 }
 
 interface BookingTransport {
@@ -446,6 +447,17 @@ function SuccessContent() {
                           );
                         })}
                       </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* Special Requests / Notes */}
+                {customer?.special_requests && (
+                  <div className="mb-6">
+                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-3">Special Requests</p>
+                    <div className="flex items-start gap-3 p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                      <MessageSquare className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-slate-700">{customer.special_requests}</p>
                     </div>
                   </div>
                 )}
