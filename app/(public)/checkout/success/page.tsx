@@ -135,7 +135,7 @@ function SuccessContent() {
         delayChildren: 0.2,
       },
     },
-  };
+  } as const;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -144,10 +144,10 @@ function SuccessContent() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: 'easeOut',
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
-  };
+  } as const;
 
   const headerVariants = {
     hidden: { opacity: 0, y: -30 },
@@ -156,23 +156,23 @@ function SuccessContent() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
-  };
+  } as const;
 
   const checkmarkVariants = {
     hidden: { scale: 0 },
     visible: {
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 200,
         damping: 15,
         delay: 0.3,
       },
     },
-  };
+  } as const;
 
   if (error) {
     return (
