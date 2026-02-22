@@ -526,7 +526,7 @@ export default function BookingsPage() {
                     const customer = booking.booking_customers?.[0];
                     const transport = booking.booking_transport?.[0];
                     const addons = booking.booking_addons || [];
-                    const transportInfo = transport ? getTransportLabel(transport.transport_type) : null;
+                    const transportInfo = transport && transport.transport_type !== 'self_arrange' ? getTransportLabel(transport.transport_type) : null;
                     const TransportIcon = transportInfo?.icon || MapPin;
 
                     return (

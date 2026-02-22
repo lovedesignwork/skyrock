@@ -119,7 +119,7 @@ function SuccessContent() {
 
   const hasTransfer = (): boolean => {
     const transport = getTransport();
-    return transport !== null && transport.type !== 'self' && transport.type !== 'none';
+    return transport !== null && transport.type !== 'self_arrange' && transport.type !== 'self' && transport.type !== 'none' && transport.type !== '';
   };
 
   const customer = getCustomer();

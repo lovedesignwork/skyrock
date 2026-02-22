@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
                 totalAmount: booking.total_amount,
                 hotelName: transport?.hotel_name,
                 roomNumber: transport?.room_number,
-                hasTransfer: !!transport,
+                hasTransfer: !!transport && transport.transport_type !== 'self_arrange',
                 isPrivateTransfer: transport?.transport_type === 'private',
                 addons,
               });
