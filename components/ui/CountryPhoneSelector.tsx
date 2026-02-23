@@ -134,34 +134,30 @@ export default function CountryPhoneSelector({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (isOpen && buttonRef.current) {
+  const updatePosition = () => {
+    if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       setDropdownPosition({
-        top: rect.bottom + window.scrollY + 4,
-        left: rect.left + window.scrollX,
+        top: rect.bottom + 4,
+        left: rect.left,
       });
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      updatePosition();
     }
   }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
-    
-    const handleScroll = () => {
-      if (buttonRef.current) {
-        const rect = buttonRef.current.getBoundingClientRect();
-        setDropdownPosition({
-          top: rect.bottom + window.scrollY + 4,
-          left: rect.left + window.scrollX,
-        });
-      }
-    };
 
-    window.addEventListener('scroll', handleScroll, true);
-    window.addEventListener('resize', handleScroll);
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
     return () => {
-      window.removeEventListener('scroll', handleScroll, true);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
     };
   }, [isOpen]);
 
