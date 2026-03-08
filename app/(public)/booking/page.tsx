@@ -50,7 +50,7 @@ const promotionalAddons = [
     price: 770,
     originalPrice: 856,
     discount: '10% off',
-    image: '/images/Package%20image/32PF.JPG',
+    image: '/images/Package image/SKYROCK25.jpg',
   },
   {
     id: 'roller-videos',
@@ -59,7 +59,7 @@ const promotionalAddons = [
     price: 428,
     originalPrice: 535,
     discount: '20% off',
-    image: '/images/Package%20image/roller.jpg',
+    image: '/images/Package image/SKYROCK91.jpg',
   },
 ];
 
@@ -518,43 +518,76 @@ function BookingContent() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(15,32,60,0.10)]"
-                    style={{ border: '2px solid #02134f' }}
+                    className="rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)',
+                      border: '2px solid rgba(45, 106, 79, 0.3)'
+                    }}
                   >
+                    {/* Animated background elements */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-full blur-3xl animate-pulse" />
+                      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-cyan-500/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+                      <div 
+                        className="absolute inset-0 opacity-[0.03]"
+                        style={{
+                          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)'
+                        }}
+                      />
+                    </div>
+
                     {/* Form Header */}
                     <div 
-                      className="px-4 sm:px-6 py-4 sm:py-5 relative overflow-hidden"
+                      className="px-4 sm:px-6 py-5 sm:py-6 relative overflow-hidden"
                       style={{ 
-                        background: 'linear-gradient(135deg, #0D2818 0%, #1B4332 35%, #2D6A4F 70%, #1B4332 100%)',
-                        borderBottom: '3px solid #02134f' 
+                        background: 'linear-gradient(135deg, rgba(45, 106, 79, 0.3) 0%, rgba(16, 185, 129, 0.2) 50%, rgba(45, 106, 79, 0.3) 100%)',
+                        borderBottom: '1px solid rgba(45, 106, 79, 0.3)' 
                       }}
                     >
                       {/* Decorative swirl */}
                       <img 
                         src="/images/swirl-bg.svg" 
                         alt=""
-                        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-28 sm:w-40 h-28 sm:h-40 opacity-30 animate-spin-slow"
+                        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-28 sm:w-40 h-28 sm:h-40 opacity-20 animate-spin-slow"
+                      />
+                      {/* Shining sweep effect */}
+                      <div 
+                        className="absolute inset-0 opacity-30"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+                          backgroundSize: '200% 100%',
+                          animation: 'shine 4s ease-in-out infinite'
+                        }}
                       />
                       
-                      <p className="text-white/70 text-[10px] sm:text-xs uppercase tracking-wider mb-1 relative z-10">BOOK YOUR EXPERIENCE</p>
-                      <h2 className="text-white font-heading relative z-10 text-lg sm:text-xl md:text-[25px]" style={{ fontWeight: 400 }}>
+                      <p className="text-emerald-400/80 text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-1 relative z-10 font-medium">BOOK YOUR EXPERIENCE</p>
+                      <h2 
+                        className="font-heading relative z-10 text-lg sm:text-xl md:text-[25px] font-bold"
+                        style={{ 
+                          background: 'linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #34d399, #10b981)',
+                          backgroundSize: '200% auto',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        }}
+                      >
                         {selectedPackage.name}
                       </h2>
                     </div>
 
                     {/* Form Body */}
-                    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+                    <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 relative z-10">
                       {/* Section 1: Date & Time */}
-                      <div>
-                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">1</span>
-                          <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
-                          <span className="font-bold text-slate-800 text-xs sm:text-sm">Select Date & Time</span>
+                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-sm font-bold text-white shadow-lg shadow-emerald-500/30">1</span>
+                          <CalendarDays className="w-5 h-5 text-emerald-400" />
+                          <span className="font-bold text-white text-sm uppercase tracking-wide">Select Date & Time</span>
                         </div>
                         
                         <div className={`grid grid-cols-1 ${!isOpenTimePackage ? 'sm:grid-cols-2' : ''} gap-4`}>
                           <div>
-                            <label className="block text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">Activity Date</label>
+                            <label className="block text-[10px] uppercase tracking-wider text-emerald-400/70 mb-2 font-medium">Activity Date</label>
                             <CalendarPicker
                               value={selectedDate}
                               onChange={setSelectedDate}
@@ -563,32 +596,30 @@ function BookingContent() {
                           </div>
                           
                           {isOpenTimePackage ? (
-                            /* Open Time Message for Roller, Skywalk, Slingshot, World D+ - Only show after date selected */
                             selectedDate && (
-                              <div className="p-4 rounded-xl border-2 border-green-500/30 bg-green-500/10">
+                              <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10">
                                 <div className="flex items-center gap-2 mb-2">
-                                  <Clock className="w-4 h-4 text-green-600" />
-                                  <span className="text-sm font-medium text-slate-800">Flexible Time</span>
+                                  <Clock className="w-4 h-4 text-emerald-400" />
+                                  <span className="text-sm font-medium text-white">Flexible Time</span>
                                 </div>
-                                <p className="text-xs text-slate-600">
-                                  This activity is available <span className="font-semibold text-green-700">anytime between 8:00 AM - 6:00 PM</span> on your selected date. No specific time slot reservation needed.
+                                <p className="text-xs text-white/70">
+                                  This activity is available <span className="font-semibold text-emerald-400">anytime between 8:00 AM - 6:00 PM</span> on your selected date.
                                 </p>
                               </div>
                             )
                           ) : (
-                            /* Time Slot Selection for Zipline packages */
                             <div>
-                              <label className="block text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">Time Slot</label>
+                              <label className="block text-[10px] uppercase tracking-wider text-emerald-400/70 mb-2 font-medium">Time Slot</label>
                               <div className="grid grid-cols-2 gap-2">
                                 {timeSlots.slice(0, 4).map((slot) => (
                                   <button
                                     key={slot.time}
                                     onClick={() => setSelectedTime(slot.time)}
                                     disabled={!slot.available}
-                                    className={`h-10 sm:h-11 px-2 sm:px-4 rounded-lg border-2 text-xs sm:text-sm font-medium transition-all ${
+                                    className={`h-11 px-3 rounded-lg border-2 text-sm font-medium transition-all ${
                                       selectedTime === slot.time
-                                        ? 'border-[#2D6A4F] bg-[#2D6A4F] text-white'
-                                        : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                                        ? 'border-emerald-500 bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
+                                        : 'border-white/20 bg-white/5 text-white/80 hover:border-emerald-500/50 hover:bg-white/10'
                                     } ${!slot.available && 'opacity-40 cursor-not-allowed'}`}
                                   >
                                     {slot.label}
@@ -600,89 +631,85 @@ function BookingContent() {
                         </div>
                       </div>
 
-                      <div className="h-px bg-slate-100" />
-
                       {/* Section 2: Number of Guests */}
-                      <div>
-                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">2</span>
-                          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
-                          <span className="font-bold text-slate-800 text-xs sm:text-sm">Number of Players</span>
+                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-sm font-bold text-white shadow-lg shadow-cyan-500/30">2</span>
+                          <Users className="w-5 h-5 text-cyan-400" />
+                          <span className="font-bold text-white text-sm uppercase tracking-wide">Number of Players</span>
                         </div>
                         
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
                           <div>
-                            <span className="text-slate-800 font-medium text-sm sm:text-base">Persons</span>
-                            <p className="text-[10px] sm:text-xs text-slate-400">{formatPrice(selectedPackage.price)} per person</p>
+                            <span className="text-white font-medium text-base">Persons</span>
+                            <p className="text-xs text-cyan-400">{formatPrice(selectedPackage.price)} per person</p>
                           </div>
-                          <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-3">
                             <button
                               onClick={() => handleGuestCountChange(-1)}
                               disabled={guestCount <= 1}
-                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30 disabled:cursor-not-allowed"
+                              className="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center hover:from-cyan-400 hover:to-cyan-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-lg shadow-cyan-500/30"
                             >
-                              <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" strokeWidth={2.5} />
+                              <Minus className="w-5 h-5 text-white" strokeWidth={2.5} />
                             </button>
-                            <span className="w-8 sm:w-10 text-center text-xl sm:text-2xl font-bold text-slate-800 tabular-nums">
+                            <span className="w-12 text-center text-3xl font-bold text-white tabular-nums">
                               {guestCount}
                             </span>
                             <button
                               onClick={() => handleGuestCountChange(1)}
-                              className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10"
+                              className="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center hover:from-cyan-400 hover:to-cyan-500 transition-all shadow-lg shadow-cyan-500/30"
                             >
-                              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" strokeWidth={2.5} />
+                              <Plus className="w-5 h-5 text-white" strokeWidth={2.5} />
                             </button>
                           </div>
                         </div>
                       </div>
 
-                      <div className="h-px bg-slate-100" />
-
                       {/* Section 3: Transport */}
-                      <div>
-                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#2D6A4F] flex items-center justify-center text-[10px] sm:text-xs font-bold text-white">3</span>
-                          <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2D6A4F]" />
-                          <span className="font-bold text-slate-800 text-xs sm:text-sm">Transport Options</span>
+                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-sm font-bold text-white shadow-lg shadow-amber-500/30">3</span>
+                          <Car className="w-5 h-5 text-amber-400" />
+                          <span className="font-bold text-white text-sm uppercase tracking-wide">Transport Options</span>
                         </div>
 
                         {/* Show pickup options only if package includes transfer */}
                         {selectedPackage.includesTransfer ? (
                           <>
                             {/* Pickup Toggle */}
-                            <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <div className="grid grid-cols-2 gap-3 mb-4">
                               <button
                                 onClick={() => setNeedPickup(true)}
-                                className={`p-2.5 sm:p-4 rounded-xl border-2 text-left transition-all ${
+                                className={`p-4 rounded-xl border-2 text-left transition-all ${
                                   needPickup 
-                                    ? 'border-[#2D6A4F] bg-[#2D6A4F]' 
-                                    : 'border-slate-200 bg-slate-50'
+                                    ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/20 shadow-lg shadow-amber-500/20' 
+                                    : 'border-white/20 bg-white/5 hover:border-amber-500/50'
                                 }`}
                               >
-                                <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
-                                  <Car className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${needPickup ? 'text-white' : 'text-slate-400'}`} />
-                                  <span className={`text-xs sm:text-sm font-medium ${needPickup ? 'text-white' : 'text-slate-500'}`}>
+                                <div className="flex items-center gap-2 mb-1">
+                                  <Car className={`w-4 h-4 ${needPickup ? 'text-amber-400' : 'text-white/50'}`} />
+                                  <span className={`text-sm font-medium ${needPickup ? 'text-white' : 'text-white/70'}`}>
                                     Hotel Pickup
                                   </span>
                                 </div>
-                                <p className={`text-[10px] sm:text-xs font-medium ${needPickup ? 'text-white/80' : 'text-green-600'}`}>FREE SHARED TRANSFER</p>
+                                <p className={`text-xs font-medium ${needPickup ? 'text-amber-400' : 'text-emerald-400/70'}`}>FREE SHARED TRANSFER</p>
                               </button>
                               
                               <button
                                 onClick={() => setNeedPickup(false)}
-                                className={`p-2.5 sm:p-4 rounded-xl border-2 text-left transition-all ${
+                                className={`p-4 rounded-xl border-2 text-left transition-all ${
                                   !needPickup 
-                                    ? 'border-[#2D6A4F] bg-[#2D6A4F]' 
-                                    : 'border-slate-200 bg-slate-50'
+                                    ? 'border-amber-500 bg-gradient-to-br from-amber-500/20 to-orange-500/20 shadow-lg shadow-amber-500/20' 
+                                    : 'border-white/20 bg-white/5 hover:border-amber-500/50'
                                 }`}
                               >
-                                <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
-                                  <Navigation className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${!needPickup ? 'text-white' : 'text-slate-400'}`} />
-                                  <span className={`text-xs sm:text-sm font-medium ${!needPickup ? 'text-white' : 'text-slate-500'}`}>
+                                <div className="flex items-center gap-2 mb-1">
+                                  <Navigation className={`w-4 h-4 ${!needPickup ? 'text-amber-400' : 'text-white/50'}`} />
+                                  <span className={`text-sm font-medium ${!needPickup ? 'text-white' : 'text-white/70'}`}>
                                     Come Direct
                                   </span>
                                 </div>
-                                <p className={`text-[10px] sm:text-xs ${!needPickup ? 'text-white/80' : 'text-slate-400'}`}>Self arrange</p>
+                                <p className={`text-xs ${!needPickup ? 'text-white/70' : 'text-white/50'}`}>Self arrange</p>
                               </button>
                             </div>
 
@@ -697,26 +724,26 @@ function BookingContent() {
                             >
                               <div className="grid grid-cols-3 gap-3">
                                 <div className="col-span-2">
-                                  <label className="block text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">Hotel Name *</label>
+                                  <label className="block text-[10px] uppercase tracking-wider text-amber-400/70 mb-2 font-medium">Hotel Name *</label>
                                   <div className="relative">
-                                    <Hotel className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#2D6A4F]" />
+                                    <Hotel className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-400" />
                                     <input
                                       type="text"
                                       value={hotelName}
                                       onChange={(e) => setHotelName(e.target.value)}
                                       placeholder="Your hotel name"
-                                      className="w-full h-10 pl-10 pr-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
+                                      className="w-full h-11 pl-10 pr-3 bg-white/10 border border-white/20 rounded-xl text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-amber-500"
                                     />
                                   </div>
                                 </div>
                                 <div>
-                                  <label className="block text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">Room #</label>
+                                  <label className="block text-[10px] uppercase tracking-wider text-amber-400/70 mb-2 font-medium">Room #</label>
                                   <input
                                     type="text"
                                     value={roomNumber}
                                     onChange={(e) => setRoomNumber(e.target.value)}
                                     placeholder="101"
-                                    className="w-full h-10 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:border-[#2D6A4F]"
+                                    className="w-full h-11 px-3 bg-white/10 border border-white/20 rounded-xl text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-amber-500"
                                   />
                                 </div>
                               </div>
@@ -726,24 +753,24 @@ function BookingContent() {
                                 onClick={() => setPrivateTransfer(!privateTransfer)}
                                 className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                                   privateTransfer 
-                                    ? 'border-[#02134f] bg-blue-50/30' 
-                                    : 'border-slate-200 bg-slate-50'
+                                    ? 'border-purple-500 bg-gradient-to-br from-purple-500/20 to-pink-500/20 shadow-lg shadow-purple-500/20' 
+                                    : 'border-white/20 bg-white/5 hover:border-purple-500/50'
                                 }`}
                               >
                                 <div className="flex items-center justify-between">
                                   <div className="flex items-center gap-3">
                                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                                      privateTransfer ? 'bg-[#02134f]' : 'bg-slate-200'
+                                      privateTransfer ? 'bg-gradient-to-br from-purple-500 to-pink-500' : 'bg-white/10'
                                     }`}>
-                                      <Car className={`w-5 h-5 ${privateTransfer ? 'text-white' : 'text-slate-500'}`} />
+                                      <Car className={`w-5 h-5 ${privateTransfer ? 'text-white' : 'text-white/50'}`} />
                                     </div>
                                     <div>
-                                      <p className="font-medium text-slate-800 text-sm">Upgrade to Private Transfer</p>
-                                      <p className="text-xs text-slate-500">Max {MAX_PRIVATE_PASSENGERS} passengers · +{formatPrice(PRIVATE_TRANSFER_PRICE)}</p>
+                                      <p className="font-medium text-white text-sm">Upgrade to Private Transfer</p>
+                                      <p className="text-xs text-white/60">Max {MAX_PRIVATE_PASSENGERS} passengers · +{formatPrice(PRIVATE_TRANSFER_PRICE)}</p>
                                     </div>
                                   </div>
-                                  <div className={`w-11 h-6 rounded-full transition-colors ${privateTransfer ? 'bg-[#2D6A4F]' : 'bg-slate-300'}`}>
-                                    <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform mt-0.5 ${privateTransfer ? 'translate-x-5 ml-0.5' : 'translate-x-0.5'}`} />
+                                  <div className={`w-12 h-7 rounded-full transition-colors ${privateTransfer ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-white/20'}`}>
+                                    <div className={`w-5 h-5 rounded-full bg-white shadow-lg transition-transform mt-1 ${privateTransfer ? 'translate-x-6' : 'translate-x-1'}`} />
                                   </div>
                                 </div>
 
@@ -754,17 +781,17 @@ function BookingContent() {
                                       initial={{ opacity: 0, height: 0 }}
                                       animate={{ opacity: 1, height: 'auto' }}
                                       exit={{ opacity: 0, height: 0 }}
-                                      className="mt-4 pt-4 border-t border-slate-200"
+                                      className="mt-4 pt-4 border-t border-white/10"
                                       onClick={(e) => e.stopPropagation()}
                                     >
                                       <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
-                                          <div className="w-8 h-8 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center">
-                                            <Users className="w-4 h-4 text-[#2D6A4F]" />
+                                          <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                                            <Users className="w-4 h-4 text-purple-400" />
                                           </div>
                                           <div>
-                                            <p className="text-sm font-medium text-slate-700">Total Passengers</p>
-                                            <p className="text-xs text-slate-400">
+                                            <p className="text-sm font-medium text-white">Total Passengers</p>
+                                            <p className="text-xs text-white/50">
                                               {guestCount} guests + {privateTransferPassengers - guestCount} additional · Max {MAX_PRIVATE_PASSENGERS}
                                             </p>
                                           </div>
@@ -773,17 +800,17 @@ function BookingContent() {
                                           <button
                                             onClick={() => setPrivateTransferPassengers(Math.max(guestCount, privateTransferPassengers - 1))}
                                             disabled={privateTransferPassengers <= guestCount}
-                                            className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
+                                            className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-400 disabled:opacity-30"
                                           >
-                                            <Minus className="w-3 h-3 text-[#2D6A4F]" />
+                                            <Minus className="w-3 h-3 text-white" />
                                           </button>
-                                          <span className="w-8 text-center font-bold text-slate-800">{privateTransferPassengers}</span>
+                                          <span className="w-8 text-center font-bold text-white">{privateTransferPassengers}</span>
                                           <button
                                             onClick={() => setPrivateTransferPassengers(Math.min(MAX_PRIVATE_PASSENGERS, privateTransferPassengers + 1))}
                                             disabled={privateTransferPassengers >= MAX_PRIVATE_PASSENGERS}
-                                            className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
+                                            className="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center hover:bg-purple-400 disabled:opacity-30"
                                           >
-                                            <Plus className="w-3 h-3 text-[#2D6A4F]" />
+                                            <Plus className="w-3 h-3 text-white" />
                                           </button>
                                         </div>
                                       </div>
@@ -794,31 +821,31 @@ function BookingContent() {
 
                               {/* Non-player addon (only when private transfer OFF) */}
                               {!privateTransfer && (
-                                <div className="p-4 rounded-xl border-2 border-slate-200 bg-slate-50">
+                                <div className="p-4 rounded-xl border border-white/20 bg-white/5">
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                      <div className="w-10 h-10 rounded-lg bg-slate-200 flex items-center justify-center">
-                                        <Users className="w-5 h-5 text-slate-500" />
+                                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                                        <Users className="w-5 h-5 text-white/60" />
                                       </div>
                                       <div>
-                                        <p className="font-medium text-slate-800 text-sm">Additional Non-Player</p>
-                                        <p className="text-xs text-slate-500">Shared transfer only · +{formatPrice(NON_PLAYER_PRICE)}/person</p>
+                                        <p className="font-medium text-white text-sm">Additional Non-Player</p>
+                                        <p className="text-xs text-white/50">Shared transfer only · +{formatPrice(NON_PLAYER_PRICE)}/person</p>
                                       </div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                       <button
                                         onClick={() => setNonPlayerCount(Math.max(0, nonPlayerCount - 1))}
                                         disabled={nonPlayerCount <= 0}
-                                        className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10 disabled:opacity-30"
+                                        className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center hover:bg-amber-400 disabled:opacity-30"
                                       >
-                                        <Minus className="w-3 h-3 text-[#2D6A4F]" />
+                                        <Minus className="w-3 h-3 text-white" />
                                       </button>
-                                      <span className="w-8 text-center font-bold text-slate-800">{nonPlayerCount}</span>
+                                      <span className="w-8 text-center font-bold text-white">{nonPlayerCount}</span>
                                       <button
                                         onClick={() => setNonPlayerCount(nonPlayerCount + 1)}
-                                        className="h-8 w-8 rounded-full border-2 border-[#2D6A4F] flex items-center justify-center hover:bg-[#2D6A4F]/10"
+                                        className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center hover:bg-amber-400"
                                       >
-                                        <Plus className="w-3 h-3 text-[#2D6A4F]" />
+                                        <Plus className="w-3 h-3 text-white" />
                                       </button>
                                     </div>
                                   </div>
@@ -835,19 +862,19 @@ function BookingContent() {
                                   initial={{ opacity: 0, height: 0 }}
                                   animate={{ opacity: 1, height: 'auto' }}
                                   exit={{ opacity: 0, height: 0 }}
-                                  className="p-4 rounded-xl border-2 border-[#2D6A4F]/30 bg-[#2D6A4F]/5"
+                                  className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10"
                                 >
                                   <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center flex-shrink-0">
-                                      <MapPin className="w-5 h-5 text-[#2D6A4F]" />
+                                    <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                                      <MapPin className="w-5 h-5 text-emerald-400" />
                                     </div>
                                     <div>
-                                      <p className="font-medium text-slate-800">SKY ROCK</p>
-                                      <p className="text-xs text-slate-500 mt-1">Khao Lak, Phang Nga, Thailand</p>
+                                      <p className="font-medium text-white">SKY ROCK</p>
+                                      <p className="text-xs text-white/60 mt-1">Khao Lak, Phang Nga, Thailand</p>
                                       <a 
                                         href="https://maps.app.goo.gl/hkNWgQQi1ksvYY37A" 
                                         target="_blank"
-                                        className="mt-2 inline-flex items-center gap-1 px-3 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-black text-xs font-medium rounded-lg transition-colors"
+                                        className="mt-2 inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-black text-xs font-bold rounded-lg transition-all shadow-lg shadow-yellow-500/30"
                                       >
                                         Open in Google Maps →
                                       </a>
@@ -859,27 +886,27 @@ function BookingContent() {
                           </>
                         ) : (
                           /* Package does NOT include transfer - Show self-arrange only */
-                          <div className="space-y-3 sm:space-y-4">
-                            <div className="p-3 sm:p-4 rounded-xl border-2 border-amber-500/30 bg-amber-500/10">
-                              <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-                                <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600" />
-                                <span className="text-xs sm:text-sm font-medium text-slate-800">Self Transfer</span>
+                          <div className="space-y-4">
+                            <div className="p-4 rounded-xl border border-amber-500/30 bg-amber-500/10">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Navigation className="w-4 h-4 text-amber-400" />
+                                <span className="text-sm font-medium text-white">Self Transfer</span>
                               </div>
-                              <p className="text-[10px] sm:text-xs text-slate-500">This package does not include transfer. Please arrange your own transportation to SKY ROCK.</p>
+                              <p className="text-xs text-white/60">This package does not include transfer. Please arrange your own transportation to SKY ROCK.</p>
                             </div>
                             
-                            <div className="p-3 sm:p-4 rounded-xl border-2 border-[#2D6A4F]/30 bg-[#2D6A4F]/5">
-                              <div className="flex items-start gap-2 sm:gap-3">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#2D6A4F]/10 flex items-center justify-center flex-shrink-0">
-                                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#2D6A4F]" />
+                            <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10">
+                              <div className="flex items-start gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                                  <MapPin className="w-5 h-5 text-emerald-400" />
                                 </div>
                                 <div className="min-w-0">
-                                  <p className="font-medium text-slate-800 text-sm sm:text-base">SKY ROCK</p>
-                                  <p className="text-[10px] sm:text-xs text-slate-500 mt-1">Khao Lak, Phang Nga, Thailand</p>
+                                  <p className="font-medium text-white">SKY ROCK</p>
+                                  <p className="text-xs text-white/60 mt-1">Khao Lak, Phang Nga, Thailand</p>
                                   <a 
                                     href="https://maps.app.goo.gl/hkNWgQQi1ksvYY37A" 
                                     target="_blank"
-                                    className="mt-2 inline-flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 bg-yellow-400 hover:bg-yellow-500 text-black text-[10px] sm:text-xs font-medium rounded-lg transition-colors"
+                                    className="mt-2 inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-black text-xs font-bold rounded-lg transition-all shadow-lg shadow-yellow-500/30"
                                   >
                                     Open in Google Maps →
                                   </a>
@@ -890,23 +917,27 @@ function BookingContent() {
                         )}
                       </div>
 
-                      <div className="h-px bg-slate-100" />
-
                       {/* Price Summary */}
-                      <div className="rounded-xl border border-slate-100 p-3 sm:p-4" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)' }}>
-                        <div className="space-y-1.5 sm:space-y-2">
-                          <div className="flex justify-between text-xs sm:text-sm">
-                            <span className="text-slate-500 truncate mr-2">{selectedPackage.name} × {guestCount}</span>
-                            <span className="font-semibold text-slate-700 flex-shrink-0">{formatPrice(prices.base)}</span>
+                      <div 
+                        className="rounded-xl p-4 relative overflow-hidden"
+                        style={{ 
+                          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 50%, rgba(16, 185, 129, 0.15) 100%)',
+                          border: '1px solid rgba(16, 185, 129, 0.3)'
+                        }}
+                      >
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-white/70 truncate mr-2">{selectedPackage.name} × {guestCount}</span>
+                            <span className="font-semibold text-white flex-shrink-0">{formatPrice(prices.base)}</span>
                           </div>
                           
                           {selectedAddons.length > 0 && selectedAddons.map(addonId => {
                             const addon = packages.find(p => p.id === addonId);
                             if (!addon) return null;
                             return (
-                              <div key={addonId} className="flex justify-between text-xs sm:text-sm">
-                                <span className="text-slate-500 truncate mr-2">{addon.name} × {guestCount}</span>
-                                <span className="text-green-600 flex-shrink-0">+{formatPrice(addon.price * guestCount)}</span>
+                              <div key={addonId} className="flex justify-between text-sm">
+                                <span className="text-white/70 truncate mr-2">{addon.name} × {guestCount}</span>
+                                <span className="text-emerald-400 flex-shrink-0">+{formatPrice(addon.price * guestCount)}</span>
                               </div>
                             );
                           })}
@@ -916,30 +947,38 @@ function BookingContent() {
                             const promo = promotionalAddons.find(p => p.id === addonId);
                             if (!promo) return null;
                             return (
-                              <div key={addonId} className="flex justify-between text-xs sm:text-sm">
-                                <span className="text-slate-500 truncate mr-2">{promo.name} × {qty}</span>
-                                <span className="text-green-600 flex-shrink-0">+{formatPrice(promo.price * qty)}</span>
+                              <div key={addonId} className="flex justify-between text-sm">
+                                <span className="text-white/70 truncate mr-2">{promo.name} × {qty}</span>
+                                <span className="text-emerald-400 flex-shrink-0">+{formatPrice(promo.price * qty)}</span>
                               </div>
                             );
                           })}
                           
                           {privateTransfer && (
-                            <div className="flex justify-between text-xs sm:text-sm">
-                              <span className="text-slate-500">Private Transfer</span>
-                              <span className="text-slate-600 flex-shrink-0">+{formatPrice(PRIVATE_TRANSFER_PRICE)}</span>
+                            <div className="flex justify-between text-sm">
+                              <span className="text-white/70">Private Transfer</span>
+                              <span className="text-purple-400 flex-shrink-0">+{formatPrice(PRIVATE_TRANSFER_PRICE)}</span>
                             </div>
                           )}
                           
                           {!privateTransfer && nonPlayerCount > 0 && (
-                            <div className="flex justify-between text-xs sm:text-sm">
-                              <span className="text-slate-500">Non-Player × {nonPlayerCount}</span>
-                              <span className="text-slate-600 flex-shrink-0">+{formatPrice(nonPlayerCount * NON_PLAYER_PRICE)}</span>
+                            <div className="flex justify-between text-sm">
+                              <span className="text-white/70">Non-Player × {nonPlayerCount}</span>
+                              <span className="text-amber-400 flex-shrink-0">+{formatPrice(nonPlayerCount * NON_PLAYER_PRICE)}</span>
                             </div>
                           )}
                           
-                          <div className="border-t border-slate-200/80 pt-2 sm:pt-3 mt-2 sm:mt-3 flex justify-between items-center">
-                            <span className="font-medium text-slate-400 text-sm">Total</span>
-                            <span className="text-xl sm:text-2xl font-extrabold" style={{ color: '#02134f' }}>
+                          <div className="border-t border-white/20 pt-3 mt-3 flex justify-between items-center">
+                            <span className="font-medium text-white/60 text-sm uppercase tracking-wide">Total</span>
+                            <span 
+                              className="text-3xl font-extrabold"
+                              style={{ 
+                                background: 'linear-gradient(90deg, #10b981, #34d399, #6ee7b7)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
+                              }}
+                            >
                               {formatPrice(prices.total)}
                             </span>
                           </div>
@@ -951,24 +990,36 @@ function BookingContent() {
                         type="button"
                         onClick={handleProceedToCheckout}
                         disabled={!isFormValid}
-                        className="w-full h-11 sm:h-13 rounded-xl font-bold text-white flex items-center justify-center gap-2 transition-all hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed group text-sm sm:text-base"
+                        className="w-full h-14 rounded-xl font-bold text-white flex items-center justify-center gap-3 transition-all disabled:opacity-50 disabled:cursor-not-allowed group text-base relative overflow-hidden"
                         style={{
-                          backgroundColor: '#1B4332',
-                          boxShadow: isFormValid ? '0 10px 40px rgba(220, 38, 38, 0.3)' : 'none'
+                          background: isFormValid 
+                            ? 'linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)' 
+                            : 'linear-gradient(135deg, #374151 0%, #1f2937 100%)',
+                          boxShadow: isFormValid ? '0 10px 40px rgba(16, 185, 129, 0.4)' : 'none'
                         }}
                       >
-                        <span>Proceed to Checkout</span>
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                        {isFormValid && (
+                          <div 
+                            className="absolute inset-0 opacity-30"
+                            style={{
+                              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)',
+                              backgroundSize: '200% 100%',
+                              animation: 'shine 2s ease-in-out infinite'
+                            }}
+                          />
+                        )}
+                        <span className="relative z-10">Proceed to Checkout</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
                       </button>
 
                       {/* Trust Badges */}
-                      <div className="flex items-center justify-center gap-3 sm:gap-6 text-[9px] sm:text-[10px] text-slate-400">
-                        <span className="flex items-center gap-1">
-                          <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <div className="flex items-center justify-center gap-6 text-[10px] text-white/40">
+                        <span className="flex items-center gap-1.5">
+                          <ShieldCheck className="w-4 h-4" />
                           Secure Payment
                         </span>
-                        <span className="flex items-center gap-1">
-                          <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <span className="flex items-center gap-1.5">
+                          <CalendarDays className="w-4 h-4" />
                           Instant Confirmation
                         </span>
                       </div>
