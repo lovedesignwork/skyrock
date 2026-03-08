@@ -67,10 +67,11 @@ export default function RollerPage() {
                 <div className="text-white/50">per person</div>
               </div>
               <Link href={`/booking?package=${rollerPackage.id}`}>
-                <button className="px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-primary-dark font-bold rounded-xl flex items-center gap-3 hover:shadow-2xl hover:shadow-accent/30 transition-all hover:-translate-y-1">
-                  <Zap className="w-5 h-5" />
+                <button className="relative px-10 py-5 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white font-bold text-lg rounded-xl flex items-center gap-3 shadow-[0_0_30px_rgba(251,191,36,0.5)] hover:shadow-[0_0_50px_rgba(251,191,36,0.7)] transition-all hover:-translate-y-1 hover:scale-105 animate-pulse-slow">
+                  <Zap className="w-6 h-6" />
                   BOOK THE ROLLER
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-6 h-6" />
+                  <span className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-xl blur opacity-30 -z-10"></span>
                 </button>
               </Link>
             </div>
