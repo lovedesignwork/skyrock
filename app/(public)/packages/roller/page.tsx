@@ -24,7 +24,7 @@ export default function RollerPage() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${rollerPackage.image})` }}
+          style={{ backgroundImage: `url(/images/Hero Image/heroimage3.jpg)` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A1612]/95 via-[#0A1612]/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1612] via-transparent to-[#0A1612]/30" />
