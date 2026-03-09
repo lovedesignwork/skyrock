@@ -35,22 +35,13 @@ const addonPackages = packages.filter(pkg =>
 // Promotional add-ons
 const promotionalAddons = [
   {
-    id: 'luge-2-rides',
-    name: 'Luge 2 Rides',
-    description: 'Kids aged 4-9 years must ride the Luge with a guardian. Kids above 10 years can ride alone.',
-    price: 800,
-    originalPrice: 1000,
-    discount: '20% off',
-    image: '/images/lugee.jpg',
-  },
-  {
     id: 'zipline-photos',
     name: 'Zipline Photos',
     description: 'Zipline Photography Services 10% OFF',
     price: 770,
     originalPrice: 856,
     discount: '10% off',
-    image: '/images/Package image/SKYROCK25.jpg',
+    image: '/images/SKYROCK75.jpg',
   },
   {
     id: 'roller-videos',
@@ -59,7 +50,7 @@ const promotionalAddons = [
     price: 428,
     originalPrice: 535,
     discount: '20% off',
-    image: '/images/Package image/SKYROCK91.jpg',
+    image: '/images/SKYROCK36.jpg',
   },
 ];
 
@@ -497,7 +488,6 @@ function BookingContent() {
                               
                               if (promo.id === 'zipline-photos') return hasZipline;
                               if (promo.id === 'roller-videos') return hasRoller;
-                              if (promo.id === 'luge-2-rides') return true;
                               return true;
                             })
                             .map((promo) => {
