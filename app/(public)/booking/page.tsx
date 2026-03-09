@@ -233,7 +233,7 @@ function BookingContent() {
         className="relative overflow-hidden min-h-[calc(100vh-80px)]"
         style={{ background: 'linear-gradient(135deg, #0A1612 0%, #0D2818 30%, #1B4332 60%, #0D2818 100%)' }}
       >
-        <Container className="relative z-10">
+        <Container className="relative z-10 pt-[100px]">
           {/* Header */}
           <div className="text-center mb-6 sm:mb-10">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-heading font-medium text-white mb-2 sm:mb-4">
@@ -519,9 +519,9 @@ function BookingContent() {
                                 
                                 <div className="flex gap-4 relative z-10">
                                   {/* Image */}
-                                  <div 
-                                    className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-cover bg-center flex-shrink-0 ring-2 ring-white/10"
-                                    style={{ 
+                                  <div
+                                    className="w-[35%] aspect-square rounded-xl bg-cover bg-center flex-shrink-0 ring-2 ring-white/10"
+                                    style={{
                                       backgroundImage: `url(${promo.image})`,
                                       backgroundSize: 'cover'
                                     }}
