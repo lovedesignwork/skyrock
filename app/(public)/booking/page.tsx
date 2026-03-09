@@ -262,51 +262,79 @@ function BookingContent() {
                 <div className="relative">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className={`w-full p-4 rounded-xl border-2 transition-all duration-300 text-left ${
+                    className={`w-full p-4 rounded-2xl border-2 transition-all duration-300 text-left relative overflow-hidden ${
                       selectedPackage 
-                        ? 'border-accent bg-accent/10' 
-                        : 'border-white/20 bg-white/5 hover:border-white/30'
+                        ? 'border-emerald-500/50 shadow-lg shadow-emerald-500/20' 
+                        : 'border-white/20 bg-white/5 hover:border-emerald-500/30'
                     }`}
+                    style={selectedPackage ? {
+                      background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 50%, rgba(16, 185, 129, 0.15) 100%)'
+                    } : undefined}
                   >
+                    {selectedPackage && (
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500 rounded-full blur-3xl" />
+                      </div>
+                    )}
                     {selectedPackage ? (
-                      <div className="flex items-center gap-2 sm:gap-4">
+                      <div className="flex items-center gap-3 sm:gap-4 relative z-10">
                         <div 
-                          className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg bg-cover bg-center flex-shrink-0"
+                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-cover bg-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
                           style={{ backgroundImage: `url(${selectedPackage.image})` }}
                         />
                         <div className="flex-grow min-w-0">
-                          <h3 className="text-lg sm:text-xl md:text-[29px] font-heading font-medium text-white truncate">
+                          <h3 
+                            className="text-lg sm:text-xl md:text-2xl font-heading font-bold truncate"
+                            style={{ 
+                              background: 'linear-gradient(90deg, #10b981, #34d399, #6ee7b7)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text'
+                            }}
+                          >
                             {selectedPackage.name}
                           </h3>
-                          <div className="flex flex-wrap items-center gap-1 sm:gap-3 text-xs sm:text-sm text-white/60">
-                            <span className="flex items-center gap-1">
+                          <div className="flex flex-wrap items-center gap-2 mt-1">
+                            <span className="flex items-center gap-1 text-xs text-white/60 bg-white/10 px-2 py-0.5 rounded-full">
                               <Clock className="w-3 h-3" />
                               {selectedPackage.duration}
                             </span>
                             {selectedPackage.includesMeal && (
-                              <span className="text-green-400 text-xs">✓ Meal</span>
+                              <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">✓ Meal</span>
                             )}
                             {selectedPackage.includesTransfer && (
-                              <span className="text-green-400 text-xs">✓ Transfer</span>
+                              <span className="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded-full">✓ Transfer</span>
                             )}
                           </div>
                         </div>
                         <div className="text-right flex-shrink-0">
-                          <div className="text-base sm:text-xl font-heading font-medium text-accent">
+                          <div 
+                            className="text-xl sm:text-2xl font-heading font-bold"
+                            style={{ 
+                              background: 'linear-gradient(90deg, #fbbf24, #f59e0b)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              backgroundClip: 'text'
+                            }}
+                          >
                             {formatPrice(selectedPackage.price)}
                           </div>
-                          <div className="text-[10px] sm:text-xs text-white/50">per person</div>
+                          <div className="text-[10px] text-white/50">per person</div>
                         </div>
-                        <svg className={`w-4 h-4 sm:w-5 sm:h-5 text-white/50 transition-transform flex-shrink-0 ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <div className={`w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}>
+                          <svg className="w-4 h-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between py-2">
                         <span className="text-white/50">Select a package...</span>
-                        <svg className={`w-5 h-5 text-white/50 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <div className={`w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}>
+                          <svg className="w-4 h-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
                       </div>
                     )}
                   </button>
@@ -318,40 +346,45 @@ function BookingContent() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute z-50 w-full mt-2 rounded-xl border-2 border-white/20 bg-[#0D2818] shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto"
+                        className="absolute z-50 w-full mt-2 rounded-2xl border border-white/20 shadow-2xl overflow-hidden max-h-[400px] overflow-y-auto"
+                        style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%)' }}
                       >
-                        {allBookablePackages.map((pkg) => (
+                        {allBookablePackages.map((pkg, index) => (
                           <div
                             key={pkg.id}
                             onClick={() => handleSelectPackage(pkg.id)}
-                            className={`p-4 cursor-pointer transition-all duration-200 border-b border-white/10 last:border-b-0 ${
+                            className={`p-4 cursor-pointer transition-all duration-200 border-b border-white/10 last:border-b-0 relative overflow-hidden ${
                               selectedPackageId === pkg.id 
-                                ? 'bg-accent/20' 
+                                ? 'bg-emerald-500/20' 
                                 : 'hover:bg-white/10'
                             }`}
                           >
-                            <div className="flex items-center gap-4">
+                            {selectedPackageId === pkg.id && (
+                              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent" />
+                            )}
+                            <div className="flex items-center gap-4 relative z-10">
                               <div 
-                                className="w-14 h-14 rounded-lg bg-cover bg-center flex-shrink-0"
+                                className="w-16 h-16 rounded-xl bg-cover bg-center flex-shrink-0 ring-2 ring-white/10"
                                 style={{ backgroundImage: `url(${pkg.image})` }}
                               />
                               <div className="flex-grow min-w-0">
-                                <h3 className="text-base font-heading font-medium text-white">
+                                <h3 className="text-base font-heading font-bold text-white">
                                   {pkg.name}
                                 </h3>
-                                <div className="flex items-center gap-2 text-xs text-white/60">
-                                  <span>{pkg.duration}</span>
-                                  {pkg.includesMeal && <span className="text-green-400">✓ Meal</span>}
-                                  {pkg.includesTransfer && <span className="text-green-400">✓ Transfer</span>}
+                                <div className="flex items-center gap-2 mt-1">
+                                  <span className="text-xs text-white/50">{pkg.duration}</span>
+                                  {pkg.includesMeal && <span className="text-xs text-emerald-400">✓ Meal</span>}
                                 </div>
                               </div>
                               <div className="text-right flex-shrink-0">
-                                <div className="text-lg font-heading font-medium text-accent">
+                                <div className="text-lg font-heading font-bold text-amber-400">
                                   {formatPrice(pkg.price)}
                                 </div>
                               </div>
                               {selectedPackageId === pkg.id && (
-                                <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                                <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center">
+                                  <Check className="w-4 h-4 text-white" />
+                                </div>
                               )}
                             </div>
                           </div>
@@ -364,30 +397,68 @@ function BookingContent() {
                 {/* Popular Packages Preview (when no package selected) */}
                 {!selectedPackage && (
                   <div className="mt-6">
-                    <h3 className="text-lg font-heading font-medium text-white/70 mb-3">
-                      Popular packages:
+                    <h3 
+                      className="text-lg font-heading font-bold mb-4 flex items-center gap-2"
+                      style={{ 
+                        background: 'linear-gradient(90deg, #ffffff, #a1a1aa)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      <span className="w-2 h-6 bg-gradient-to-b from-emerald-400 to-cyan-400 rounded-full"></span>
+                      Popular Packages
                     </h3>
-                    <div className="space-y-2">
-                      {allBookablePackages.slice(0, 7).map((pkg) => (
-                        <div
+                    <div className="space-y-3">
+                      {allBookablePackages.slice(0, 7).map((pkg, index) => (
+                        <motion.div
                           key={pkg.id}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
                           onClick={() => handleSelectPackage(pkg.id)}
-                          className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:bg-white/10 hover:border-white/20 transition-all"
+                          className="group flex items-center gap-4 p-3 rounded-2xl border border-white/10 cursor-pointer transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 relative overflow-hidden"
+                          style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 100%)' }}
                         >
-                          <div 
-                            className="w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-lg bg-cover bg-center flex-shrink-0"
-                            style={{ backgroundImage: `url(${pkg.image})` }}
-                          />
-                          <div className="flex-grow min-w-0">
-                            <h4 className="text-lg sm:text-xl md:text-[30px] font-heading font-medium text-white truncate">
+                          {/* Hover gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          
+                          {/* Image with glow effect */}
+                          <div className="relative">
+                            <div 
+                              className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-cover bg-center flex-shrink-0 ring-2 ring-white/10 group-hover:ring-emerald-500/30 transition-all"
+                              style={{ backgroundImage: `url(${pkg.image})` }}
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                          
+                          <div className="flex-grow min-w-0 relative z-10">
+                            <h4 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-emerald-300 transition-colors truncate">
                               {pkg.name}
                             </h4>
-                            <p className="text-xs text-white/50">{pkg.duration}</p>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-xs text-white/50 bg-white/10 px-2 py-0.5 rounded-full">{pkg.duration}</span>
+                              {pkg.includesMeal && (
+                                <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">+ Meal</span>
+                              )}
+                            </div>
                           </div>
-                          <div className="text-base sm:text-lg md:text-[26px] text-accent font-heading font-medium flex-shrink-0">
-                            {formatPrice(pkg.price)}
+                          
+                          <div className="flex flex-col items-end gap-1 relative z-10">
+                            <div 
+                              className="text-xl sm:text-2xl font-heading font-bold"
+                              style={{ 
+                                background: 'linear-gradient(90deg, #fbbf24, #f59e0b)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
+                              }}
+                            >
+                              {formatPrice(pkg.price)}
+                            </div>
+                            <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -402,12 +473,20 @@ function BookingContent() {
                       exit={{ opacity: 0, y: -10 }}
                       className="mt-6"
                     >
-                      {/* Promotional Add-ons */}
                       <div className="mt-6">
-                        <h3 className="font-heading text-white mb-3 flex items-center gap-2" style={{ fontSize: '23px', fontWeight: 400 }}>
-                          ADD ON & PROMOTION
+                        <h3 
+                          className="font-heading mb-4 flex items-center gap-2 text-xl font-bold"
+                          style={{ 
+                            background: 'linear-gradient(90deg, #fb923c, #f97316, #ea580c)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          }}
+                        >
+                          <span className="w-2 h-6 bg-gradient-to-b from-orange-400 to-red-500 rounded-full"></span>
+                          ADD-ONS & PROMOTIONS
                         </h3>
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                           {promotionalAddons
                             .filter((promo) => {
                               if (!selectedPackage) return false;
@@ -415,7 +494,6 @@ function BookingContent() {
                               const pkgFeatures = selectedPackage.features?.join(' ').toLowerCase() || '';
                               const hasZipline = pkgCategory === 'zipline' || pkgCategory === 'combined' || pkgFeatures.includes('zipline');
                               const hasRoller = pkgCategory === 'roller' || pkgCategory === 'combined' || pkgFeatures.includes('roller');
-                              const hasLuge = pkgCategory === 'luge' || pkgFeatures.includes('luge');
                               
                               if (promo.id === 'zipline-photos') return hasZipline;
                               if (promo.id === 'roller-videos') return hasRoller;
@@ -427,75 +505,89 @@ function BookingContent() {
                             return (
                               <div
                                 key={promo.id}
-                                className="p-3 sm:p-4 rounded-xl border-2 border-white/20 relative overflow-hidden"
-                                style={{ background: 'linear-gradient(135deg, #0D2818 0%, #1B4332 50%, #0D2818 100%)' }}
+                                className={`p-4 rounded-2xl border-2 relative overflow-hidden transition-all duration-300 ${
+                                  qty > 0 
+                                    ? 'border-orange-500/50 shadow-lg shadow-orange-500/20' 
+                                    : 'border-white/10 hover:border-orange-500/30'
+                                }`}
+                                style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)' }}
                               >
-                                {/* Rotating swirl decoration */}
-                                <img 
-                                  src="/images/swirl-bg.svg" 
-                                  alt=""
-                                  className="absolute -right-10 -bottom-10 w-[120px] sm:w-[160px] h-[120px] sm:h-[160px] opacity-20 animate-spin-slow"
-                                />
-                                {/* Mobile: Stack vertically (image on top), Desktop: Side by side */}
-                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative z-10">
-                                  {/* Image - Full width on mobile, fixed width on desktop */}
+                                {/* Animated background */}
+                                <div className="absolute inset-0 overflow-hidden">
+                                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl" />
+                                  <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl" />
+                                </div>
+                                
+                                {/* Discount badge */}
+                                {promo.discount && (
+                                  <div className="absolute top-3 right-3 z-20">
+                                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full shadow-lg">
+                                      {promo.discount}
+                                    </span>
+                                  </div>
+                                )}
+                                
+                                <div className="flex gap-4 relative z-10">
+                                  {/* Image */}
                                   <div 
-                                    className="w-full sm:w-[120px] md:w-[50%] aspect-[16/9] sm:aspect-[10/8] rounded-lg bg-cover bg-center flex-shrink-0"
-                                    style={{ backgroundImage: `url(${promo.image})` }}
+                                    className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-cover bg-center flex-shrink-0 ring-2 ring-white/10"
+                                    style={{ 
+                                      backgroundImage: `url(${promo.image})`,
+                                      backgroundSize: 'cover'
+                                    }}
                                   />
                                   
                                   {/* Info & Quantity */}
-                                  <div className="flex-grow min-w-0">
-                                    <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-1">
-                                      <h4 className="text-lg sm:text-lg md:text-[23px] font-heading font-normal text-white">
+                                  <div className="flex-grow min-w-0 flex flex-col justify-between">
+                                    <div>
+                                      <h4 className="text-lg font-heading font-bold text-white mb-1">
                                         {promo.name}
                                       </h4>
-                                      {promo.discount && (
-                                        <span className="px-1.5 sm:px-2 py-0.5 bg-orange-500 text-white text-[10px] sm:text-xs font-medium rounded">
-                                          {promo.discount}
-                                        </span>
-                                      )}
+                                      <p className="text-xs text-white/50 line-clamp-2 mb-2">
+                                        {promo.description}
+                                      </p>
                                     </div>
-                                    <p className="text-xs sm:text-xs text-white/60 mb-2 sm:mb-2 line-clamp-2">
-                                      {promo.description}
-                                    </p>
                                     
-                                    {/* Price and Quantity - Row on mobile */}
-                                    <div className="flex items-center justify-between sm:flex-col sm:items-start sm:gap-2">
+                                    {/* Price and Quantity */}
+                                    <div className="flex items-center justify-between">
                                       {/* Price */}
-                                      <div className="flex items-center gap-2">
+                                      <div className="flex items-baseline gap-2">
                                         {promo.originalPrice && (
-                                          <span className="text-sm sm:text-base text-white/40 line-through">
+                                          <span className="text-sm text-white/30 line-through">
                                             {formatPrice(promo.originalPrice)}
                                           </span>
                                         )}
-                                        <span className="text-xl sm:text-2xl font-heading font-medium text-orange-400">
+                                        <span 
+                                          className="text-2xl font-heading font-bold"
+                                          style={{ 
+                                            background: 'linear-gradient(90deg, #fb923c, #f59e0b)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text'
+                                          }}
+                                        >
                                           {formatPrice(promo.price)}
                                         </span>
                                       </div>
                                       
                                       {/* Quantity Selector */}
-                                      <div className="flex items-center gap-2 sm:gap-3">
-                                        <p className="text-[10px] sm:text-[10px] text-white/40 uppercase">Player</p>
-                                        <div className="flex items-center gap-1 sm:gap-2">
-                                          <button
-                                            onClick={() => updatePromoAddonQty(promo.id, -1)}
-                                            disabled={qty <= 0}
-                                            className="h-8 w-8 sm:h-8 sm:w-8 rounded border-2 border-orange-500 bg-orange-500 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600 disabled:opacity-30 disabled:cursor-not-allowed"
-                                          >
-                                            <Minus className="w-3.5 h-3.5 text-white" />
-                                          </button>
-                                          <span className="w-8 sm:w-8 text-center text-lg sm:text-lg font-bold text-white">{qty}</span>
-                                          <button
-                                            onClick={() => updatePromoAddonQty(promo.id, 1)}
-                                            className="h-8 w-8 sm:h-8 sm:w-8 rounded border-2 border-orange-500 bg-orange-500 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600"
-                                          >
-                                            <Plus className="w-3.5 h-3.5 text-white" />
-                                          </button>
-                                        </div>
+                                      <div className="flex items-center gap-2">
+                                        <button
+                                          onClick={() => updatePromoAddonQty(promo.id, -1)}
+                                          disabled={qty <= 0}
+                                          className="h-9 w-9 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center hover:from-orange-400 hover:to-red-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-lg shadow-orange-500/30"
+                                        >
+                                          <Minus className="w-4 h-4 text-white" />
+                                        </button>
+                                        <span className="w-10 text-center text-xl font-bold text-white">{qty}</span>
+                                        <button
+                                          onClick={() => updatePromoAddonQty(promo.id, 1)}
+                                          className="h-9 w-9 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center hover:from-orange-400 hover:to-red-400 transition-all shadow-lg shadow-orange-500/30"
+                                        >
+                                          <Plus className="w-4 h-4 text-white" />
+                                        </button>
                                       </div>
                                     </div>
-                                    
                                   </div>
                                 </div>
                               </div>
