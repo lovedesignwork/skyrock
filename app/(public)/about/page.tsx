@@ -495,7 +495,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-lg mb-1">Opening Hours</h4>
-                    <p className="text-white/60">Daily: 8:30 AM - 5:00 PM</p>
+                    <p className="text-white/60">Daily: 08:00 AM - 06:00 PM</p>
                   </div>
                 </div>
 
@@ -505,7 +505,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-lg mb-1">Contact</h4>
-                    <p className="text-white/60">+66 XX XXX XXXX</p>
+                    <p className="text-white/60">+66 (0) 81 097 9983</p>
                   </div>
                 </div>
               </div>

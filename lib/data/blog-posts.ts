@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
 <p>Planning your visit to Sky Rock? Here's everything you need to know for the perfect zipline experience in 2026.</p>
 
 <h2>Operating Hours</h2>
-<p>We're open daily from 8:30 AM to 5:00 PM. The best time to visit is early morning when the jungle is cool and misty, creating a magical atmosphere for your adventure.</p>
+<p>We're open daily from 08:00 AM to 06:00 PM. The best time to visit is early morning when the jungle is cool and misty, creating a magical atmosphere for your adventure.</p>
 
 <h2>What to Bring</h2>
 <ul>
@@ -64,10 +64,13 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Package Options</h2>
-<p><strong>ROCK 1 (27 Platforms)</strong> - The ultimate experience with meal included - ฿2,950</p>
-<p><strong>ROCK 2 (14 Platforms)</strong> - Perfect balance of thrill and time - ฿1,950</p>
-<p><strong>ROCK 3 (10 Platforms)</strong> - Great for beginners - ฿1,550</p>
-<p><strong>Roller Zipline</strong> - Unique roller coaster experience - ฿1,000</p>
+<p><strong>Rock & Roll 1</strong> - Zipline 27 Platforms + Roller + Light Lunch (~2.5 hrs) - ฿3,250</p>
+<p><strong>Rock & Roll 2</strong> - Zipline 14 Platforms + Roller + Light Lunch (~1.5 hrs) - ฿2,350</p>
+<p><strong>Rock & Roll 3</strong> - Zipline 10 Platforms + Roller + Light Lunch (~1 hr) - ฿1,950</p>
+<p><strong>Rock 1</strong> - 27 Station (~2 hrs) - ฿2,550</p>
+<p><strong>Rock 2</strong> - 14 Station (~45 mins - 1 hr) - ฿1,750</p>
+<p><strong>Rock 3</strong> - 10 Station (~20-30 mins) - ฿1,450</p>
+<p><strong>Roller Rock</strong> - Flexible time - ฿1,000</p>
 
 <h2>Safety First</h2>
 <p>All our equipment meets international safety standards. Our guides are certified professionals who prioritize your safety while ensuring maximum fun!</p>`,

@@ -34,7 +34,7 @@ const faqCategories = [
     questions: [
       {
         question: 'What are the weight and age requirements?',
-        answer: 'Participants must weigh between 15kg and 130kg. Children aged 4 and above can participate with adult supervision. Some activities like the Slingshot have a minimum age of 12 years.',
+        answer: 'Participants must weigh between 15kg and 120kg. Children aged 4 and above can participate with adult supervision.',
       },
       {
         question: 'Is it safe for people with a fear of heights?',
@@ -55,7 +55,7 @@ const faqCategories = [
     questions: [
       {
         question: 'How long does the activity take?',
-        answer: 'Duration depends on your chosen package. The full 32-platform course takes approximately 2.5-3 hours. Shorter packages range from 1-2 hours. Please arrive 30 minutes before your scheduled time.',
+        answer: 'Duration depends on your chosen package. The 27 platform course takes approximately 2 - 2.5 hours. Shorter packages range from 1 hour. Please arrive 30 minutes before your scheduled time.',
       },
       {
         question: 'What should I wear?',

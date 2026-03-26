@@ -26,10 +26,13 @@ const quickLinks = [
 ];
 
 const packages = [
+  { name: 'Rock & Roll 1', href: '/booking?package=rock-roll-1' },
+  { name: 'Rock & Roll 2', href: '/booking?package=rock-roll-2' },
+  { name: 'Rock & Roll 3', href: '/booking?package=rock-roll-3' },
   { name: 'ROCK 1 - 27 Platforms', href: '/booking?package=rock-1' },
   { name: 'ROCK 2 - 14 Platforms', href: '/booking?package=rock-2' },
   { name: 'ROCK 3 - 10 Platforms', href: '/booking?package=rock-3' },
-  { name: 'Roller Zipline', href: '/packages/roller' },
+  { name: 'Roller Rock', href: '/packages/roller' },
 ];
 
 const legal = [
@@ -187,8 +190,8 @@ export function Footer() {
                 <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Phone className="w-4 h-4 text-pink-400" />
                 </div>
-                <a href="tel:+66XXXXXXXX" className="text-white/50 hover:text-white text-sm transition-colors">
-                  +66 XX XXX XXXX
+                <a href="tel:+66810979983" className="text-white/50 hover:text-white text-sm transition-colors">
+                  +66 (0) 81 097 9983
                 </a>
               </li>
               <li className="flex items-center gap-3 group">
@@ -204,7 +207,7 @@ export function Footer() {
                   <Clock className="w-4 h-4 text-pink-400" />
                 </div>
                 <span className="text-white/50 text-sm">
-                  Daily: 8:30 AM - 5:00 PM
+                  Daily: 08:00 AM - 06:00 PM
                 </span>
               </li>
             </ul>

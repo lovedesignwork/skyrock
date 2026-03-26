@@ -13,15 +13,13 @@ import { formatPrice } from '@/lib/utils';
 
 const timeSlots = [
   { time: '08:00', label: '8:00 AM', available: true },
-  { time: '09:00', label: '9:00 AM', available: true },
   { time: '10:00', label: '10:00 AM', available: true },
   { time: '13:00', label: '1:00 PM', available: true },
-  { time: '14:00', label: '2:00 PM', available: true },
   { time: '15:00', label: '3:00 PM', available: true },
 ];
 
 const allBookablePackages = packages.filter(pkg => 
-  ['rock-1', 'rock-2', 'rock-3', 'roller'].includes(pkg.id)
+  ['rock-roll-1', 'rock-roll-2', 'rock-roll-3', 'rock-1', 'rock-2', 'rock-3', 'roller'].includes(pkg.id)
 );
 
 // Packages that have flexible/open time (no specific time slot needed)

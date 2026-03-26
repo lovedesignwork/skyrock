@@ -92,8 +92,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Phone</h4>
-                    <a href="tel:+66XXXXXXXX" className="text-white/60 hover:text-accent transition-colors">
-                      +66 XX XXX XXXX
+                    <a href="tel:+66810979983" className="text-white/60 hover:text-accent transition-colors">
+                      +66 (0) 81 097 9983
                     </a>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Opening Hours</h4>
-                    <p className="text-white/60">Daily: 8:30 AM - 5:00 PM</p>
+                    <p className="text-white/60">Daily: 08:00 AM - 06:00 PM</p>
                   </div>
                 </div>
               </div>
